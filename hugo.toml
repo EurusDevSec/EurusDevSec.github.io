@@ -1,0 +1,4 @@
+baseURL = 'https://eurusdev.me'
+languageCode = 'en-us'
+title = 'eurusdev blog'
+theme = 'PaperMod'
