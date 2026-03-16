@@ -20,7 +20,7 @@ jobs:
           fetch-depth: 0
 
       - name: Setup Hugo
-        uses: peaceiris/action-hugo@v3
+        uses: peaceiris/actions-hugo@v3
         with:
           hugo-verion: "latest"
           extended: true
