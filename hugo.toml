@@ -1,4 +1,45 @@
 baseURL = 'https://eurusdev.me'
-languageCode = 'en-us'
-title = 'eurusdev blog'
+languageCode = 'vi-vn'
+title = 'EurusDevSec'
 theme = 'PaperMod'
+paginate = 5 # Số bài viết hiển thị trên 1 trang
+
+[params]
+  defaultTheme = "auto" # Tự động đổi nền Dark/Light theo máy người dùng
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowCodeCopyButtons = true # Thêm nút Copy ở các đoạn Code
+  
+  # CẤU HÌNH TRANG CHỦ DẠNG DASHBOARD KÈM LỜI CHÀO
+  [params.homeInfoParams]
+    Title = "Hi there 👋 Mình là EurusDevSec"
+    Content = "Chào mừng bạn đến với không gian kỹ thuật số của mình.\n\nĐây là nơi mình chia sẻ kiến thức về **DevSecOps**, Cybersecurity và tự động hoá hệ thống. Hãy dạo quanh một vòng nhé!"
+
+  # ICON MẠNG XÃ HỘI Ở TRANG CHỦ
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/eurusdevsec"
+  [[params.socialIcons]]
+    name = "linkedin"
+    url = "https://linkedin.com/in/eurusdevsec"
+  [[params.socialIcons]]
+    name = "facebook" # Hoặc twitter, discord, v.v.
+    url = "https://facebook.com"
+
+# MENU ĐIỀU HƯỚNG TRÊN CÙNG
+[[menu.main]]
+  identifier = "archives"
+  name = "Lưu trữ"
+  url = "/archives/"
+  weight = 10
+[[menu.main]]
+  identifier = "categories"
+  name = "Chuyên mục"
+  url = "/categories/"
+  weight = 20
+[[menu.main]]
+  identifier = "search"
+  name = "Tìm kiếm 🔍"
+  url = "/search/"
+  weight = 30

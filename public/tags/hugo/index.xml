@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>EurusDevSec</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content on EurusDevSec</description>
+    <title>Hugo on EurusDevSec</title>
+    <link>http://localhost:1313/tags/hugo/</link>
+    <description>Recent content in Hugo on EurusDevSec</description>
     <generator>Hugo</generator>
     <language>vi-vn</language>
     <lastBuildDate>Tue, 17 Mar 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Sổ tay vọc vạch Hugo &amp; PaperMod (Best Practices)</title>
       <link>http://localhost:1313/posts/hugo-cheatsheet-guide/</link>
@@ -23,13 +23,6 @@
       <pubDate>Mon, 20 May 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/build-blog-0/</guid>
       <description>Quy trình chi tiết xây dựng hệ thống Blog tự động hóa hoàn toàn với chi phí 0đ dành cho sinh viên.</description>
-    </item>
-    <item>
-      <title>Test Sync</title>
-      <link>http://localhost:1313/posts/test/</link>
-      <pubDate>Mon, 20 May 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/test/</guid>
-      <description>&lt;p&gt;Nội dung test đồng bộ.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
