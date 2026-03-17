@@ -6,11 +6,15 @@ paginate = 5 # Số bài viết hiển thị trên 1 trang
 
 [params]
   defaultTheme = "auto" # Tự động đổi nền Dark/Light theo máy người dùng
-  favicon = "favicon.png"
   ShowReadingTime = true
   ShowShareButtons = true
   ShowPostNavLinks = true
   ShowCodeCopyButtons = true # Thêm nút Copy ở các đoạn Code
+    [params.assets]
+    favicon = "/favicon.png"
+    favicon16x16 = "/favicon.png"
+    favicon32x32 = "/favicon.png"
+    apple_touch_icon = "/favicon.png"
   
 
 
