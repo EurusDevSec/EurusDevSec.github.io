@@ -1,7 +1,6 @@
 ---
 title: "Sổ tay vọc vạch Hugo & PaperMod (Best Practices)"
 date: 2026-03-17
-draft: true
 tags: ["hugo", "guide", "cheatsheet"]
 categories: ["Tech"]
 ShowToc: true
