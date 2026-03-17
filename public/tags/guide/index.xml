@@ -9,6 +9,50 @@
     <lastBuildDate>Tue, 17 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/guide/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Quy trình học 5 bước &#34;Từ Hình ảnh đến Bản năng&#34;</title>
+      <link>http://localhost:1313/posts/learning_workflow/</link>
+      <pubDate>Tue, 17 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/learning_workflow/</guid>
+      <description>&lt;p&gt;![[Learning_method.gif]]&lt;/p&gt;
+&lt;h3 id=&#34;-quy-trình-học-5-bước-từ-hình-ảnh-đến-bản-năng&#34;&gt;🗺️ Quy trình học 5 bước: &amp;ldquo;Từ Hình ảnh đến Bản năng&amp;rdquo;&lt;/h3&gt;
+&lt;h4 id=&#34;bước-1-quét-scan--hình-dung-visualizing&#34;&gt;Bước 1: Quét (Scan) &amp;amp; Hình dung (Visualizing)&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Hành động:&lt;/strong&gt; Xem qua Video/Tutorial để nắm tên các dịch vụ, nhưng &lt;strong&gt;trọng tâm là tìm Diagram (Sơ đồ kiến trúc)&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mục tiêu:&lt;/strong&gt; Trả lời được câu hỏi: &lt;em&gt;&amp;ldquo;Cái này nằm ở đâu trong bức tranh tổng thể và nó nối với cái gì?&amp;rdquo;&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ghi chú:&lt;/strong&gt; Đừng cố nhớ thông số kỹ thuật ở bước này, chỉ cần nhớ &amp;ldquo;hình dáng&amp;rdquo; của nó.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;bước-2-phản-biện--đào-sâu-questioning&#34;&gt;Bước 2: Phản biện &amp;amp; Đào sâu (Questioning)&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Hành động:&lt;/strong&gt; Đặt câu hỏi cho Gemini về các mối quan hệ. Ví dụ: &lt;em&gt;&amp;ldquo;Tại sao phải cần IGW khi đã có Route Table?&amp;rdquo;&lt;/em&gt; hay &lt;em&gt;&amp;ldquo;Nếu không có NACL thì chuyện gì xảy ra?&amp;rdquo;&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mục tiêu:&lt;/strong&gt; Hiểu &lt;strong&gt;Core Logic&lt;/strong&gt; (Tại sao nó lại tồn tại? Nó giải quyết vấn đề gì?).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mẹo:&lt;/strong&gt; Tự vẽ lại sơ đồ bằng tay (hoặc công cụ vẽ) theo cách bạn hiểu.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;bước-3-thực-hành-xây-và-phá-hands-on--destroy&#34;&gt;Bước 3: Thực hành &amp;ldquo;Xây và Phá&amp;rdquo; (Hands-on &amp;amp; Destroy)&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Hành động:&lt;/strong&gt; Lao vào AWS Console làm Lab.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Nguyên tắc:&lt;/strong&gt; 1. Làm theo hướng dẫn. 2. Làm xong thì &lt;strong&gt;Xoá hết&lt;/strong&gt;. 3. Thử tự làm lại mà không nhìn hướng dẫn.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mục tiêu:&lt;/strong&gt; Tạo &lt;strong&gt;Muscle Memory&lt;/strong&gt; (Phản xạ cơ bắp). Khi tay bạn quen với các thao tác, não bạn sẽ rảnh rang để tư duy về kiến trúc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;bước-4-lưu-trữ-bộ-não-thứ-hai-obsidian-documentation&#34;&gt;Bước 4: Lưu trữ &amp;ldquo;Bộ não thứ hai&amp;rdquo; (Obsidian Documentation)&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Hành động:&lt;/strong&gt; Note lại vào Obsidian.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cách viết:&lt;/strong&gt; Viết cho &amp;ldquo;Hoàng của tương lai&amp;rdquo;. Sử dụng ngôn ngữ bình dân, ví dụ: &lt;em&gt;&amp;ldquo;NACL là anh bảo vệ mất trí nhớ, SG là anh lễ tân thông minh&amp;rdquo;&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mục tiêu:&lt;/strong&gt; Biến kiến thức của AWS thành kiến thức của mình. Không cần hoàn hảo, chỉ cần đủ để &amp;ldquo;nhắc bài&amp;rdquo; cho mình sau này.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;bước-5-kiểm-tra-mạnh-tay-quiz--stress-test&#34;&gt;Bước 5: Kiểm tra &amp;ldquo;Mạnh tay&amp;rdquo; (Quiz &amp;amp; Stress Test)&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Hành động:&lt;/strong&gt; Nhờ Gemini tạo Quiz khó (Jon Bonso style) để kiểm tra các trường hợp &amp;ldquo;bẫy&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mục tiêu:&lt;/strong&gt; Khám phá ra những &amp;ldquo;lỗ hổng&amp;rdquo; trong logic mà mình cứ tưởng là đã hiểu.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;-tại-sao-workflow-này-lại-hiệu-quả-với-bạn&#34;&gt;💡 Tại sao Workflow này lại hiệu quả với bạn?&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Nó đi từ &lt;strong&gt;Tổng thể (Top-down)&lt;/strong&gt; xuống &lt;strong&gt;Chi tiết (Bottom-up)&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Nó biến việc học từ &lt;strong&gt;Thụ động (Nghe)&lt;/strong&gt; sang &lt;strong&gt;Chủ động (Vẽ - Làm - Giải thích)&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Nó giúp bạn thoát khỏi cái bẫy &amp;ldquo;Biết nhưng không hiểu&amp;rdquo; (biết tên dịch vụ nhưng không biết dùng làm gì).&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
       <title>Sổ tay vọc vạch Hugo &amp; PaperMod (Best Practices)</title>
       <link>http://localhost:1313/posts/hugo-cheatsheet-guide/</link>
       <pubDate>Tue, 17 Mar 2026 00:00:00 +0000</pubDate>

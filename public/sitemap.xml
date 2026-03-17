@@ -17,7 +17,13 @@
     <loc>http://localhost:1313/tags/hugo/</loc>
     <lastmod>2026-03-17T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/tags/learn/</loc>
+    <lastmod>2026-03-17T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2026-03-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/learning_workflow/</loc>
     <lastmod>2026-03-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/hugo-cheatsheet-guide/</loc>
@@ -27,6 +33,9 @@
     <lastmod>2026-03-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/tech/</loc>
+    <lastmod>2026-03-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/workflow/</loc>
     <lastmod>2026-03-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/devops/</loc>
@@ -39,9 +48,6 @@
     <lastmod>2024-05-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/build-blog-0/</loc>
-    <lastmod>2024-05-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/test/</loc>
     <lastmod>2024-05-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/tutorial/</loc>
