@@ -6,11 +6,14 @@ paginate = 5 # Số bài viết hiển thị trên 1 trang
 
 [params]
   defaultTheme = "auto" # Tự động đổi nền Dark/Light theo máy người dùng
+  favicon = "favicon.png"
   ShowReadingTime = true
   ShowShareButtons = true
   ShowPostNavLinks = true
   ShowCodeCopyButtons = true # Thêm nút Copy ở các đoạn Code
   
+
+
   # CẤU HÌNH TRANG CHỦ DẠNG DASHBOARD KÈM LỜI CHÀO
   [params.homeInfoParams]
     Title = "Hi there 👋 Mình là EurusDevSec"
