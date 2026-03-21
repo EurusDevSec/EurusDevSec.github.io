@@ -10,6 +10,7 @@ categories:
   - aws
 ShowToc: true
 TocOpen: true
+slug: aws-community-day-2026-ngay-toi-nhan-ra-minh-la-ai
 ---
 
 > **Lưu ý:** Bài viết dựa trên cảm nhận và trải nghiệm được đúc kết bởi hành trình của tác giả
