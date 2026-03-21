@@ -1,5 +1,5 @@
 ---
-title: Ngày tôi nhận ra mình là ai và biết phải làm gì trong 10 năm tới
+title: AWS Community Day 2026 - Ngày tôi nhận ra mình là ai và biết phải làm gì trong 5 năm tới
 date: 2026-03-21
 tags:
   - Learn
