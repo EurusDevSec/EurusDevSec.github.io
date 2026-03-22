@@ -21,7 +21,7 @@ paginate = 5 # Số bài viết hiển thị trên 1 trang
   # CẤU HÌNH TRANG CHỦ DẠNG DASHBOARD KÈM LỜI CHÀO
   [params.homeInfoParams]
     Title = "Hi there 👋 Mình là EurusDevSec"
-    Content = "Chào mừng bạn đến với không gian kỹ thuật số của mình.\n\nĐây là nơi mình chia sẻ kiến thức về **DevSecOps**, Cybersecurity và tự động hoá hệ thống. Hãy dạo quanh một vòng nhé!"
+    Content = "Chào những ai quan tâm đến công nghệ, đời sống và hành trình phát triển bản thân.\n\nĐây là nơi tôi chia sẻ kiến thức về **DevSecOps**, Cybersecurity và tự động hoá hệ thống. Let's Dive deep in!"
 
   # ICON MẠNG XÃ HỘI Ở TRANG CHỦ
   [[params.socialIcons]]
