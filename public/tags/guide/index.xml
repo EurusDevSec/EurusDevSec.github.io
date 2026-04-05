@@ -6,14 +6,36 @@
     <description>Recent content in Guide on EurusDevSec</description>
     <generator>Hugo</generator>
     <language>vi-vn</language>
-    <lastBuildDate>Tue, 17 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/guide/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS Community Day 2026 - Ngày tôi nhận ra mình là ai và biết phải làm gì trong 5 năm tới</title>
+      <link>http://localhost:1313/posts/aws-community-day-2026-ngay-toi-nhan-ra-minh-la-ai/</link>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/aws-community-day-2026-ngay-toi-nhan-ra-minh-la-ai/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Lưu ý:&lt;/strong&gt; Bài viết dựa trên cảm nhận và trải nghiệm được đúc kết bởi hành trình của tác giả&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;1-mở-đầu-không-mong-đợi&#34;&gt;1. Mở đầu không mong đợi&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Chào lại là tôi đây!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Đây là hành trình ngày &lt;code&gt;21/03/2026&lt;/code&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;vào nhiều ngày trước đó tôi thực sự là một con ếch ngồi đáy giếng :)) , Ngồi đắn đo suy nghĩ mình có nên đến FCAJ Community Day không&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Lý do:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;khoảng cách&lt;/code&gt; vì từ nhá tôi đến Bitexco(nơi diễn ra &lt;code&gt;hội thảo&lt;/code&gt; ở tầng 26) đén đó đi khá xa mất khoảng 1 tiếng, nắng nôi, kẹt xe,&amp;hellip;blah blah&lt;/li&gt;
+&lt;li&gt;Nỗi sợ đến một nơi gặp toàn những &lt;code&gt;pro&lt;/code&gt; đẳng cấp công nghệ trong khi mình hiện tại chỉ là thằng sinh viên IT quèn nó khiến tôi khá tự ti&lt;/li&gt;
+&lt;li&gt;Ngày &lt;code&gt;21/03/2026&lt;/code&gt; buồi sáng tôi có môn báo cáo cuối kì môn &lt;code&gt;Machine Learning&lt;/code&gt; (học máy) và may thay tôi có phương án dự phòng được teamate gánh hết nên khá đỡ phần này, nhưng cái tôi của tôi lại dùng lý do có môn báo cáo này để chỉ để biện minh nỗi sợ của mình&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/aws-community-day-2026-ngay-toi-nhan-ra-minh-la-ai/bitexco_tower.jpg&#34;&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Quy trình học 5 bước &#34;Từ Hình ảnh đến Bản năng&#34;</title>
       <link>http://localhost:1313/posts/learning_workflow/</link>
       <pubDate>Tue, 17 Mar 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/learning_workflow/</guid>
-      <description>&lt;p&gt;![[Learning_method.gif]]&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/images/Learning_method.gif&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;-quy-trình-học-5-bước-từ-hình-ảnh-đến-bản-năng&#34;&gt;🗺️ Quy trình học 5 bước: &amp;ldquo;Từ Hình ảnh đến Bản năng&amp;rdquo;&lt;/h3&gt;
 &lt;h4 id=&#34;bước-1-quét-scan--hình-dung-visualizing&#34;&gt;Bước 1: Quét (Scan) &amp;amp; Hình dung (Visualizing)&lt;/h4&gt;
 &lt;ul&gt;
@@ -36,7 +58,7 @@
 &lt;h4 id=&#34;bước-4-lưu-trữ-bộ-não-thứ-hai-obsidian-documentation&#34;&gt;Bước 4: Lưu trữ &amp;ldquo;Bộ não thứ hai&amp;rdquo; (Obsidian Documentation)&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Hành động:&lt;/strong&gt; Note lại vào Obsidian.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Cách viết:&lt;/strong&gt; Viết cho &amp;ldquo;Hoàng của tương lai&amp;rdquo;. Sử dụng ngôn ngữ bình dân, ví dụ: &lt;em&gt;&amp;ldquo;NACL là anh bảo vệ mất trí nhớ, SG là anh lễ tân thông minh&amp;rdquo;&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cách viết:&lt;/strong&gt; Viết cho &amp;ldquo;bạn của tương lai&amp;rdquo;. Sử dụng ngôn ngữ bình dân, ví dụ: &lt;em&gt;&amp;ldquo;NACL là anh bảo vệ mất trí nhớ, SG là anh lễ tân thông minh&amp;rdquo;&lt;/em&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Mục tiêu:&lt;/strong&gt; Biến kiến thức của AWS thành kiến thức của mình. Không cần hoàn hảo, chỉ cần đủ để &amp;ldquo;nhắc bài&amp;rdquo; cho mình sau này.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id=&#34;bước-5-kiểm-tra-mạnh-tay-quiz--stress-test&#34;&gt;Bước 5: Kiểm tra &amp;ldquo;Mạnh tay&amp;rdquo; (Quiz &amp;amp; Stress Test)&lt;/h4&gt;
