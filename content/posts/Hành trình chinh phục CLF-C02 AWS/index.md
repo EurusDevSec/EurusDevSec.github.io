@@ -15,7 +15,7 @@ TocOpen: false
 slug: Chia-se-kinh-nghiem-thi-aws-certified-cloud-practioner-clf-c02
 ---
 
-## Chà 😊, một hành trình dài và mọi kế hoạch đã đúng đến `99%`, hơn cả những gì tôi mong đợi. Kết quả là tôi vừa pass chứng chỉ vỡ lòng của `AWS`, `Cloud Practitioner CLF-C02` mà tôi biết đến cách đây vài tháng.
+## Chà 😊, một hành trình dài và mọi kế hoạch đã đúng đến `99%`, hơn cả những gì tôi mong đợi. Kết quả là tôi vừa pass chứng chỉ vỡ lòng của `AWS`, `Cloud Practioner CLF-C02` mà tôi biết đến cách đây vài tháng.
 
 ## Kể từ lúc đi re:Invent 2026 của AWS HCM, cụ thể bạn có thể đọc ở đây:
 
