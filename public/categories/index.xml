@@ -6,12 +6,33 @@
     <description>Recent content in Categories on EurusDevSec</description>
     <generator>Hugo</generator>
     <language>vi-vn</language>
-    <lastBuildDate>Tue, 17 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 04 Apr 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Aws</title>
+      <link>http://localhost:1313/categories/aws/</link>
+      <pubDate>Sat, 04 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/aws/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Clfc02</title>
+      <link>http://localhost:1313/categories/clfc02/</link>
+      <pubDate>Sat, 04 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/clfc02/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Journey</title>
+      <link>http://localhost:1313/categories/journey/</link>
+      <pubDate>Sat, 04 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/journey/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Tech</title>
       <link>http://localhost:1313/categories/tech/</link>
-      <pubDate>Tue, 17 Mar 2026 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 04 Apr 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/categories/tech/</guid>
       <description></description>
     </item>
@@ -20,13 +41,6 @@
       <link>http://localhost:1313/categories/h%C3%A0nh-tr%C3%ACnh-devsecops/</link>
       <pubDate>Mon, 20 May 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/categories/h%C3%A0nh-tr%C3%ACnh-devsecops/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Aws</title>
-      <link>http://localhost:1313/categories/aws/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/aws/</guid>
       <description></description>
     </item>
   </channel>

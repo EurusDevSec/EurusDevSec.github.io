@@ -6,8 +6,22 @@
     <description>Recent content in Aws on EurusDevSec</description>
     <generator>Hugo</generator>
     <language>vi-vn</language>
-    <lastBuildDate>Sat, 21 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 04 Apr 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/aws/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hành Trình Chinh Phục CLF-C02 AWS Cert đầu tiên của tôi</title>
+      <link>http://localhost:1313/posts/chia-se-kinh-nghiem-thi-aws-certified-cloud-practioner-clf-c02/</link>
+      <pubDate>Sat, 04 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/chia-se-kinh-nghiem-thi-aws-certified-cloud-practioner-clf-c02/</guid>
+      <description>&lt;h2 id=&#34;chà-một-hành-trình-dài-và-mọi-kế-hoạch-đã-đúng-đến-99-hơn-cả-những-gì-tôi-mong-đợi-kết-quả-là-tôi-vừa-pass-chứng-chỉ-vỡ-lòng-của-aws-cloud-practitioner-clf-c02-mà-tôi-biết-đến-cách-đây-vài-tháng&#34;&gt;Chà, một hành trình dài và mọi kế hoạch đã đúng đến &lt;code&gt;99%&lt;/code&gt;, hơn cả những gì tôi mong đợi. Kết quả là tôi vừa pass chứng chỉ vỡ lòng của &lt;code&gt;AWS&lt;/code&gt;, &lt;code&gt;Cloud Practitioner CLF-C02&lt;/code&gt; mà tôi biết đến cách đây vài tháng.&lt;/h2&gt;
+&lt;h2 id=&#34;kể-từ-lúc-đi-reinvent-2026-của-aws-hcm-cụ-thể-bạn-có-thể-đọc-ở-đây&#34;&gt;Kể từ lúc đi re:Invent 2026 của AWS HCM, cụ thể bạn có thể đọc ở đây:&lt;/h2&gt;
+&lt;h2 id=&#34;httpswwwlinkedincompulseaws-reinvent-recap-2025-vietnam-dung-ha-anh-idbbc-do-anh-dung-ha-anh-viết&#34;&gt;&lt;code&gt;https://www.linkedin.com/pulse/aws-reinvent-recap-2025-vietnam-dung-ha-anh-idbbc/&lt;/code&gt; do anh &lt;code&gt;Dung-ha-anh&lt;/code&gt; viết&lt;/h2&gt;
+&lt;h2 id=&#34;sau-thời-gian-trên-tôi-đã-ấp-ủ-ý-tưởng-chinh-phục-các-cert-của-aws-ngay-và-luôn-hôm-nay-là-cột-mốc-đầu-tiên-của-tôi&#34;&gt;Sau thời gian trên, tôi đã ấp ủ ý tưởng chinh phục các &lt;code&gt;Cert&lt;/code&gt; của &lt;code&gt;AWS&lt;/code&gt; ngay và luôn. Hôm nay là cột mốc đầu tiên của tôi.&lt;/h2&gt;
+&lt;h1 id=&#34;1-lợi-ích-của-chứng-chỉ-aws-clf-c02&#34;&gt;1. Lợi ích của chứng chỉ &lt;code&gt;AWS CLF-C02&lt;/code&gt;&lt;/h1&gt;
+&lt;h2 id=&#34;đây-là-chứng-chỉ-khi-bạn-pass&#34;&gt;Đây là chứng chỉ khi bạn pass&lt;/h2&gt;
+&lt;p&gt;&lt;img alt=&#34;Credly AWS Cloud&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/chia-se-kinh-nghiem-thi-aws-certified-cloud-practioner-clf-c02/Credly_aws_cloud.png&#34;&gt;
+&lt;img alt=&#34;AWS CLF-C02 Certificate&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/chia-se-kinh-nghiem-thi-aws-certified-cloud-practioner-clf-c02/cert_aws.png&#34;&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>AWS Community Day 2026 - Ngày tôi nhận ra mình là ai và biết phải làm gì trong 5 năm tới</title>
       <link>http://localhost:1313/posts/aws-community-day-2026-ngay-toi-nhan-ra-minh-la-ai/</link>
@@ -19,13 +33,13 @@
 &lt;h2 id=&#34;1-mở-đầu-không-mong-đợi&#34;&gt;1. Mở đầu không mong đợi&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Chào lại là tôi đây!&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Đây là hành trình ngày &lt;code&gt;21/03/2026&lt;/code&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;vào nhiều ngày trước đó tôi thực sự là một con ếch ngồi đáy giếng :)) , Ngồi đắn đo suy nghĩ mình có nên đến FCAJ Community Day không&lt;/p&gt;
+&lt;p&gt;vào nhiều ngày trước đó tôi thực sự là một con ếch ngồi đáy giếng :)), ngồi đắn đo suy nghĩ mình có nên đến FCAJ Community Day không&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Lý do:&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;code&gt;khoảng cách&lt;/code&gt; vì từ nhá tôi đến Bitexco(nơi diễn ra &lt;code&gt;hội thảo&lt;/code&gt; ở tầng 26) đén đó đi khá xa mất khoảng 1 tiếng, nắng nôi, kẹt xe,&amp;hellip;blah blah&lt;/li&gt;
-&lt;li&gt;Nỗi sợ đến một nơi gặp toàn những &lt;code&gt;pro&lt;/code&gt; đẳng cấp công nghệ trong khi mình hiện tại chỉ là thằng sinh viên IT quèn nó khiến tôi khá tự ti&lt;/li&gt;
-&lt;li&gt;Ngày &lt;code&gt;21/03/2026&lt;/code&gt; buồi sáng tôi có môn báo cáo cuối kì môn &lt;code&gt;Machine Learning&lt;/code&gt; (học máy) và may thay tôi có phương án dự phòng được teamate gánh hết nên khá đỡ phần này, nhưng cái tôi của tôi lại dùng lý do có môn báo cáo này để chỉ để biện minh nỗi sợ của mình&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;khoảng cách&lt;/code&gt; vì từ nhà tôi đến Bitexco (nơi diễn ra &lt;code&gt;hội thảo&lt;/code&gt; ở tầng 26), đến đó đi khá xa mất khoảng 1 tiếng, nắng nóng, kẹt xe,&amp;hellip;blah blah&lt;/li&gt;
+&lt;li&gt;Nỗi sợ đến một nơi gặp toàn những &lt;code&gt;pro&lt;/code&gt; đẳng cấp công nghệ trong khi mình hiện tại chỉ là thằng sinh viên IT quèn, nó khiến tôi khá tự ti&lt;/li&gt;
+&lt;li&gt;Ngày &lt;code&gt;21/03/2026&lt;/code&gt; buổi sáng tôi có môn báo cáo cuối kỳ môn &lt;code&gt;Machine Learning&lt;/code&gt; (học máy) và may thay tôi có phương án dự phòng, teammate gánh hết nên khá đỡ phần này, nhưng cái tôi của tôi lại dùng lý do có môn báo cáo này chỉ để biện minh nỗi sợ của mình&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/aws-community-day-2026-ngay-toi-nhan-ra-minh-la-ai/bitexco_tower.jpg&#34;&gt;&lt;/p&gt;</description>

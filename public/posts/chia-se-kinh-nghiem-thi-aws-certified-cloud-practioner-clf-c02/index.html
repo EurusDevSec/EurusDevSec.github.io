@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Hành Trình Chinh Phục CLF-C02 AWS Cert đầu tiên của tôi | EurusDevSec</title>
+<meta name="keywords" content="Learn, guide, experience">
+<meta name="description" content="Chà 😊, một hành trình dài và mọi kế hoạch đã đúng đến 99%, hơn cả những gì tôi mong đợi. Kết quả là tôi vừa pass chứng chỉ vỡ lòng của AWS, Cloud Practitioner CLF-C02 mà tôi biết đến cách đây vài tháng.
+Kể từ lúc đi re:Invent 2026 của AWS HCM, cụ thể bạn có thể đọc ở đây:
+https://www.linkedin.com/pulse/aws-reinvent-recap-2025-vietnam-dung-ha-anh-idbbc/ do anh Dung-ha-anh viết
+Sau thời gian trên, tôi đã ấp ủ ý tưởng chinh phục các Cert của AWS ngay và luôn. Hôm nay là cột mốc đầu tiên của tôi.
+1. Lợi ích của chứng chỉ AWS CLF-C02
+Đây là chứng chỉ khi bạn pass
+
+">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/chia-se-kinh-nghiem-thi-aws-certified-cloud-practioner-clf-c02/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.da3211e5ef867bf2b75fd5a6515cfed7195c011e8ab735694e203810a827097b.css" integrity="sha256-2jIR5e&#43;Ge/K3X9WmUVz&#43;1xlcAR6KtzVpTiA4EKgnCXs=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/favicon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/chia-se-kinh-nghiem-thi-aws-certified-cloud-practioner-clf-c02/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="EurusDevSec (Alt + H)">EurusDevSec</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/archives/" title="Lưu trữ">
+                    <span>Lưu trữ</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/categories/" title="Chuyên mục">
+                    <span>Chuyên mục</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Tìm kiếm 🔍">
+                    <span>Tìm kiếm 🔍</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Hành Trình Chinh Phục CLF-C02 AWS Cert đầu tiên của tôi
+    </h1>
+    <div class="post-meta"><span title='2026-04-04 00:00:00 +0000 UTC'>April 4, 2026</span>&nbsp;·&nbsp;<span>9 min</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul><ul>
+                <li>
+                    <a href="#ch%c3%a0--m%e1%bb%99t-h%c3%a0nh-tr%c3%acnh-d%c3%a0i-v%c3%a0-m%e1%bb%8di-k%e1%ba%bf-ho%e1%ba%a1ch-%c4%91%c3%a3-%c4%91%c3%bang-%c4%91%e1%ba%bfn-99-h%c6%a1n-c%e1%ba%a3-nh%e1%bb%afng-g%c3%ac-t%c3%b4i-mong-%c4%91%e1%bb%a3i-k%e1%ba%bft-qu%e1%ba%a3-l%c3%a0-t%c3%b4i-v%e1%bb%aba-pass-ch%e1%bb%a9ng-ch%e1%bb%89-v%e1%bb%a1-l%c3%b2ng-c%e1%bb%a7a-aws-cloud-practitioner-clf-c02-m%c3%a0-t%c3%b4i-bi%e1%ba%bft-%c4%91%e1%ba%bfn-c%c3%a1ch-%c4%91%c3%a2y-v%c3%a0i-th%c3%a1ng" aria-label="Chà 😊, một hành trình dài và mọi kế hoạch đã đúng đến 99%, hơn cả những gì tôi mong đợi. Kết quả là tôi vừa pass chứng chỉ vỡ lòng của AWS, Cloud Practitioner CLF-C02 mà tôi biết đến cách đây vài tháng.">Chà 😊, một hành trình dài và mọi kế hoạch đã đúng đến 99%, hơn cả những gì tôi mong đợi. Kết quả là tôi vừa pass chứng chỉ vỡ lòng của AWS, Cloud Practitioner CLF-C02 mà tôi biết đến cách đây vài tháng.</a></li>
+                <li>
+                    <a href="#k%e1%bb%83-t%e1%bb%ab-l%c3%bac-%c4%91i-reinvent-2026-c%e1%bb%a7a-aws-hcm-c%e1%bb%a5-th%e1%bb%83-b%e1%ba%a1n-c%c3%b3-th%e1%bb%83-%c4%91%e1%bb%8dc-%e1%bb%9f-%c4%91%c3%a2y" aria-label="Kể từ lúc đi re:Invent 2026 của AWS HCM, cụ thể bạn có thể đọc ở đây:">Kể từ lúc đi re:Invent 2026 của AWS HCM, cụ thể bạn có thể đọc ở đây:</a></li>
+                <li>
+                    <a href="#httpswwwlinkedincompulseaws-reinvent-recap-2025-vietnam-dung-ha-anh-idbbc-do-anh-dung-ha-anh-vi%e1%ba%bft" aria-label="https://www.linkedin.com/pulse/aws-reinvent-recap-2025-vietnam-dung-ha-anh-idbbc/ do anh Dung-ha-anh viết">https://www.linkedin.com/pulse/aws-reinvent-recap-2025-vietnam-dung-ha-anh-idbbc/ do anh Dung-ha-anh viết</a></li>
+                <li>
+                    <a href="#sau-th%e1%bb%9di-gian-tr%c3%aan-t%c3%b4i-%c4%91%c3%a3-%e1%ba%a5p-%e1%bb%a7-%c3%bd-t%c6%b0%e1%bb%9fng-chinh-ph%e1%bb%a5c-c%c3%a1c-cert-c%e1%bb%a7a-aws-ngay-v%c3%a0-lu%c3%b4n-h%c3%b4m-nay-l%c3%a0-c%e1%bb%99t-m%e1%bb%91c-%c4%91%e1%ba%a7u-ti%c3%aan-c%e1%bb%a7a-t%c3%b4i" aria-label="Sau thời gian trên, tôi đã ấp ủ ý tưởng chinh phục các Cert của AWS ngay và luôn. Hôm nay là cột mốc đầu tiên của tôi.">Sau thời gian trên, tôi đã ấp ủ ý tưởng chinh phục các Cert của AWS ngay và luôn. Hôm nay là cột mốc đầu tiên của tôi.</a></li></ul>
+                    
+                <li>
+                    <a href="#1-l%e1%bb%a3i-%c3%adch-c%e1%bb%a7a-ch%e1%bb%a9ng-ch%e1%bb%89-aws-clf-c02" aria-label="1. Lợi ích của chứng chỉ AWS CLF-C02">1. Lợi ích của chứng chỉ AWS CLF-C02</a><ul>
+                        
+                <li>
+                    <a href="#%c4%91%c3%a2y-l%c3%a0-ch%e1%bb%a9ng-ch%e1%bb%89-khi-b%e1%ba%a1n-pass" aria-label="Đây là chứng chỉ khi bạn pass">Đây là chứng chỉ khi bạn pass</a></li>
+                <li>
+                    <a href="#c%c3%b3-l%e1%ba%bd-%c4%91i%e1%bb%81u-n%c3%a0y-ai-c%c5%a9ng-bi%e1%ba%bft-r%e1%bb%93i-v%c3%ac-g%e1%ba%a7n-%c4%91%c3%a2y-c%c3%a1c-cert-c%e1%bb%a7a-aws-%c4%91ang-l%c3%a0-trend-t%e1%bb%ab-hr-marketing-non-tech--ai-c%c5%a9ng-bi%e1%ba%bft-n%c3%b3-mang-l%e1%ba%a1i-nhi%e1%bb%81u-l%e1%bb%a3i-%c3%adch-nh%c6%b0-th%e1%ba%bf-n%c3%a0o" aria-label="Có lẽ điều này ai cũng biết rồi vì gần đây các Cert của AWS đang là Trend từ HR, Marketing, Non-Tech, &hellip; ai cũng biết nó mang lại nhiều lợi ích như thế nào.">Có lẽ điều này ai cũng biết rồi vì gần đây các Cert của AWS đang là Trend từ HR, Marketing, Non-Tech, &hellip; ai cũng biết nó mang lại nhiều lợi ích như thế nào.</a></li>
+                <li>
+                    <a href="#%c4%91i%e1%bb%83n-h%c3%acnh-%e1%bb%9f-%c4%91%c3%a2y-l%c3%a0-danh-s%c3%a1ch-12-cert-ch%c3%adnh-c%e1%bb%a7a-aws" aria-label="Điển hình ở đây là danh sách 12 Cert chính của AWS">Điển hình ở đây là danh sách 12 Cert chính của AWS</a></li></ul>
+                </li>
+                <li>
+                    <a href="#2-n%e1%bb%99i-dung-thi-ch%e1%bb%a9ng-ch%e1%bb%89-aws-clf-c02" aria-label="2. Nội dung thi chứng chỉ AWS CLF-C02">2. Nội dung thi chứng chỉ AWS CLF-C02</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#v%c3%ac-clf-c02-l%c3%a0-cert-n%e1%bb%81n-t%e1%ba%a3ng-m%e1%bb%9f-%c4%91%e1%ba%a7u-n%c3%aan-c%c3%a1c-c%c3%a2u-h%e1%bb%8fi-kh%c3%a1-%c4%91%c6%a1n-gi%e1%ba%a3n-kh%c3%b4ng-%c4%91%c3%a1nh-%c4%91%e1%bb%91-nhi%e1%bb%81u-th%e1%bb%b1c-t%e1%ba%bf-khi-t%c3%b4i-thi-c%e1%ba%a5u-tr%c3%bac-%c4%91%e1%bb%81-gi%e1%bb%91ng-nh%c6%b0-h%e1%bb%8fi-t%e1%bb%ab-v%e1%bb%b1ng-ti%e1%ba%bfng-anh-v%e1%ba%ady-tuy-nhi%c3%aan-kh%c3%b4ng-n%c3%aan-ch%e1%bb%a7-quan-n%e1%ba%bfu-ch%e1%bb%89-cho-r%e1%ba%b1ng-n%c3%b3-%c4%91%c6%a1n-gi%e1%ba%a3n-m%c3%a0-h%e1%bb%8dc-qua-loa-v%c3%ac-n%c3%b3-%c4%91%c3%b2i-h%e1%bb%8fi-b%e1%ba%a1n-h%e1%bb%8dc-kh%c3%a1-nhi%e1%bb%81u-service-r%e1%ba%a5t-r%e1%bb%99ng-nh%c6%b0-ec2-s3-" aria-label="Vì CLF-C02 là cert nền tảng mở đầu nên các câu hỏi khá đơn giản, không đánh đố nhiều. Thực tế khi tôi thi, cấu trúc đề giống như hỏi từ vựng tiếng Anh vậy. Tuy nhiên không nên chủ quan nếu chỉ cho rằng nó đơn giản mà học qua loa, vì nó đòi hỏi bạn học khá nhiều service rất rộng như EC2, S3, &hellip;">Vì CLF-C02 là cert nền tảng mở đầu nên các câu hỏi khá đơn giản, không đánh đố nhiều. Thực tế khi tôi thi, cấu trúc đề giống như hỏi từ vựng tiếng Anh vậy. Tuy nhiên không nên chủ quan nếu chỉ cho rằng nó đơn giản mà học qua loa, vì nó đòi hỏi bạn học khá nhiều service rất rộng như EC2, S3, &hellip;</a></li></ul>
+                    
+                <li>
+                    <a href="#21-t%e1%bb%95ng-quan" aria-label="2.1 Tổng quan">2.1 Tổng quan</a></li>
+                <li>
+                    <a href="#22-chi-ti%e1%ba%bft-v%e1%bb%81-c%c3%a1c-n%e1%bb%99i-dung-c%c3%a2u-h%e1%bb%8fi" aria-label="2.2. Chi tiết về các nội dung câu hỏi">2.2. Chi tiết về các nội dung câu hỏi</a><ul>
+                        
+                <li>
+                    <a href="#c%c3%a1c-c%c3%a2u-h%e1%bb%8fi-s%e1%ba%bd-%c4%91%c6%b0%e1%bb%a3c-chia-nh%c6%b0-sau-theo-t%c3%a0i-li%e1%bb%87u-h%e1%bb%8dc-ch%c3%adnh-th%e1%bb%a9c-c%e1%bb%a7a-aws" aria-label="Các câu hỏi sẽ được chia như sau theo tài liệu học chính thức của AWS">Các câu hỏi sẽ được chia như sau theo tài liệu học chính thức của AWS</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#3-qu%c3%a1-tr%c3%acnh-%c3%b4n-thi" aria-label="3. Quá trình ôn thi">3. Quá trình ôn thi</a><ul>
+                        
+                <li>
+                    <a href="#31-h%e1%bb%8dc-l%c3%bd-thuy%e1%ba%bft" aria-label="3.1. Học Lý thuyết">3.1. Học Lý thuyết</a><ul>
+                        
+                <li>
+                    <a href="#v%e1%bb%81-c%c6%a1-b%e1%ba%a3n-b%e1%ba%a1n-kh%c3%b4ng-c%e1%ba%a7n-ph%e1%ba%a3i-h%e1%bb%8dc-%e1%bb%9f-qu%c3%a1-nhi%e1%bb%81u-ngu%e1%bb%93n-t%c3%b4i-ch%e1%bb%89-h%e1%bb%8dc-%e1%bb%9f-m%e1%bb%99t-n%c6%a1i-duy-nh%e1%ba%a5t-l%c3%a0-kho%c3%a1-h%e1%bb%8dc-c%e1%bb%a7a-aws-nhi%e1%bb%81u-ng%c6%b0%e1%bb%9di-s%e1%ba%bd-h%e1%bb%8dc-theo-udemy-vi%e1%bb%87c-n%c3%a0y-ho%c3%a0n-to%c3%a0n-%e1%bb%95n-nh%c6%b0ng-b%e1%ba%a1n-s%e1%ba%bd-t%e1%bb%91n-m%e1%bb%99t-kho%e1%ba%a3n-v%c3%a0i-tr%c4%83m-ngh%c3%acn-kh%c3%b4ng-c%e1%ba%a7n-thi%e1%ba%bft-trong-khi-aws-l%c3%a0-qu%c3%a1-%c4%91%e1%bb%a7-%c4%91%e1%bb%83-h%e1%bb%8dc-c%e1%bb%a5-th%e1%bb%83-m%c3%acnh-%c4%91%e1%bb%83-ngu%e1%bb%93n-%e1%bb%9f-%c4%91%c3%a2y" aria-label="Về cơ bản bạn không cần phải học ở quá nhiều nguồn. Tôi chỉ học ở một nơi duy nhất là khoá học của AWS. Nhiều người sẽ học theo Udemy, việc này hoàn toàn ổn, nhưng bạn sẽ tốn một khoản vài trăm nghìn không cần thiết trong khi AWS là quá đủ để học. Cụ thể mình để nguồn ở đây:">Về cơ bản bạn không cần phải học ở quá nhiều nguồn. Tôi chỉ học ở một nơi duy nhất là khoá học của AWS. Nhiều người sẽ học theo Udemy, việc này hoàn toàn ổn, nhưng bạn sẽ tốn một khoản vài trăm nghìn không cần thiết trong khi AWS là quá đủ để học. Cụ thể mình để nguồn ở đây:</a></li>
+                <li>
+                    <a href="#sau-khi-h%e1%bb%8dc-xong-kho%c3%a1-n%c3%a0y-b%e1%ba%a1n-s%e1%ba%bd-%c4%91%c6%b0%e1%bb%a3c-m%e1%bb%99t-cert-c%e1%bb%a7a-ch%c3%adnh-aws-nh%c6%b0ng-cert-n%c3%a0y-mang-t%c3%adnh-x%c3%a1c-nh%e1%ba%adn-ho%c3%a0n-th%c3%a0nh-kho%c3%a1-h%e1%bb%8dc-n%c3%aan-kh%c3%b4ng-c%c3%b3-gi%c3%a1-tr%e1%bb%8b-b%e1%ba%b1ng-clf-c02" aria-label="Sau khi học xong khoá này bạn sẽ được một Cert của chính AWS, nhưng cert này mang tính xác nhận hoàn thành khoá học nên không có giá trị bằng CLF-C02.">Sau khi học xong khoá này bạn sẽ được một Cert của chính AWS, nhưng cert này mang tính xác nhận hoàn thành khoá học nên không có giá trị bằng CLF-C02.</a></li></ul>
+                </li>
+                <li>
+                    <a href="#ngo%c3%a0i-ra-trong-qu%c3%a1-tr%c3%acnh-h%e1%bb%8dc-c%c3%b3-m%e1%bb%99t-v%c3%a0i-ch%e1%bb%97-kh%c3%b4ng-hi%e1%bb%83u-t%c3%b4i-d%c3%b9ng-gemini-ho%e1%ba%b7c-ai-kh%c3%a1c-%c4%91%e1%bb%83-gi%e1%ba%a3i-%c4%91%c3%a1p-v%c3%a0-gi%c3%bap-h%e1%bb%8dc-nhanh-h%c6%a1n-t%c3%b4i-th%c6%b0%e1%bb%9dng-d%c3%b9ng-gemini-t%e1%ba%a1o-%c4%91%e1%bb%81-sau-m%e1%bb%97i-ph%e1%ba%a7n-h%e1%bb%8dc-v%c3%a0-y%c3%aau-c%e1%ba%a7u-%c4%91%e1%bb%81-kh%c3%b3-h%c6%a1n-%c4%91%e1%bb%81-thi-th%e1%ba%adt-r%e1%ba%a5t-nhi%e1%bb%81u-n%c3%b3-gi%c3%bap-t%c3%b4i-r%c3%a8n-t%c6%b0-duy-v%c3%a0-%c4%91%c3%bang-l%c3%a0-khi-%c4%91i-thi-t%c3%b4i-%c4%91%e1%bb%a1-b%e1%bb%a1-ng%e1%bb%a1-h%c6%a1n" aria-label="Ngoài ra, trong quá trình học có một vài chỗ không hiểu, tôi dùng Gemini (hoặc AI khác) để giải đáp và giúp học nhanh hơn. Tôi thường dùng Gemini tạo đề sau mỗi phần học, và yêu cầu đề khó hơn đề thi thật rất nhiều. Nó giúp tôi rèn tư duy và đúng là khi đi thi tôi đỡ bỡ ngỡ hơn.">Ngoài ra, trong quá trình học có một vài chỗ không hiểu, tôi dùng Gemini (hoặc AI khác) để giải đáp và giúp học nhanh hơn. Tôi thường dùng Gemini tạo đề sau mỗi phần học, và yêu cầu đề khó hơn đề thi thật rất nhiều. Nó giúp tôi rèn tư duy và đúng là khi đi thi tôi đỡ bỡ ngỡ hơn.</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#v%c3%ad-d%e1%bb%a5-t%c3%b4i-%c4%91%c3%a3-l%c3%a0m" aria-label="Ví dụ tôi đã làm">Ví dụ tôi đã làm</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#32-luy%e1%bb%87n-%c4%91%e1%bb%81-free-0%c4%91" aria-label="3.2 Luyện đề Free 0đ:">3.2 Luyện đề Free 0đ:</a><ul>
+                        
+                <li>
+                    <a href="#b%e1%ba%a1n-kh%c3%b4ng-nh%e1%ba%a5t-thi%e1%ba%bft-theo-%c4%91%c3%a1m-%c4%91%c3%b4ng-mua-%c4%91%e1%bb%81-tr%c3%aan-udemy-hay-ngu%e1%bb%93n-kh%c3%a1c-v%c3%ac-v%e1%bb%9bi-clf-c02-th%c3%ac-luy%e1%bb%87n-tr%c3%aan-nh%e1%bb%afng-ngu%e1%bb%93n-sau-l%c3%a0-%c4%91%e1%bb%a7-pass-t%c3%b4i-ch%e1%bb%89-luy%e1%bb%87n-tr%c3%aan" aria-label="Bạn không nhất thiết theo đám đông mua đề trên Udemy hay nguồn khác vì với CLF-C02 thì luyện trên những nguồn sau là đủ pass. Tôi chỉ luyện trên:">Bạn không nhất thiết theo đám đông mua đề trên Udemy hay nguồn khác vì với CLF-C02 thì luyện trên những nguồn sau là đủ pass. Tôi chỉ luyện trên:</a></li>
+                <li>
+                    <a href="#examprepper-luy%e1%bb%87n-tr%c3%aan-n%c3%a0y-l%c3%a0-qu%c3%a1-%c4%91%e1%bb%a7-v%c3%ac-c%c3%a2u-h%e1%bb%8fi-khi-thi-kh%c3%a1-s%c3%a1t-n%e1%ba%bfu-b%e1%ba%a1n-luy%e1%bb%87n-%c4%91%e1%bb%81-%e1%bb%9f-%c4%91%c3%a2y-%c4%91%e1%ba%a1t-t%e1%ba%a7m-90-95-tr%e1%bb%9f-l%c3%aan-th%c3%ac-b%e1%ba%a1n-d%c6%b0-s%e1%bb%a9c-pass-cert-n%c3%a0y" aria-label="ExamPrepper: Luyện trên này là quá đủ vì câu hỏi khi thi khá sát. Nếu bạn luyện đề ở đây đạt tầm 90-95% trở lên thì bạn dư sức pass Cert này.">ExamPrepper: Luyện trên này là quá đủ vì câu hỏi khi thi khá sát. Nếu bạn luyện đề ở đây đạt tầm 90-95% trở lên thì bạn dư sức pass Cert này.</a></li>
+                <li>
+                    <a href="#ngu%e1%bb%93n-th%e1%bb%a9-2-t%c3%b4i-luy%e1%bb%87n-c%e1%bb%a7a-anh-%e1%ba%a5n-%c4%91%e1%bb%99-n%c3%a0y-c%c5%a9ng-r%e1%ba%a5t-bao-qu%c3%a1t-%c4%91%e1%bb%83-y%c3%aan-t%c3%a2m-h%c6%a1n" aria-label="Nguồn thứ 2 tôi luyện của anh Ấn Độ này cũng rất bao quát để yên tâm hơn.">Nguồn thứ 2 tôi luyện của anh Ấn Độ này cũng rất bao quát để yên tâm hơn.</a></li>
+                <li>
+                    <a href="#ngu%e1%bb%93n-cu%e1%bb%91i-c%c3%b9ng-l%c3%a0-m%c3%acnh-luy%e1%bb%87n-%e1%bb%9f-youtube" aria-label="Nguồn cuối cùng là mình luyện ở YouTube.">Nguồn cuối cùng là mình luyện ở YouTube.</a><ul>
+                        
+                <li>
+                    <a href="#k%c3%aanh-n%c3%a0y-c%c5%a9ng-gi%c3%bap-b%e1%ba%a1n-d%c6%b0-s%e1%bb%a9c-pass-cert-c%c3%b3-%c4%91i%e1%bb%81u-%c4%91%e1%bb%81-%e1%bb%9f-%c4%91%c3%a2y-h%c6%a1i-chi-ti%e1%ba%bft-h%c6%a1n-so-v%e1%bb%9bi-th%e1%bb%b1c-t%e1%ba%bf" aria-label="Kênh này cũng giúp bạn dư sức pass Cert, có điều đề ở đây hơi chi tiết hơn so với thực tế.">Kênh này cũng giúp bạn dư sức pass Cert, có điều đề ở đây hơi chi tiết hơn so với thực tế.</a></li></ul>
+                </li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#4-qu%c3%a1-tr%c3%acnh-%c4%91i-thi" aria-label="4. Quá trình đi thi">4. Quá trình đi thi</a><ul>
+                        
+                <li>
+                    <a href="#41-l%c3%aan-k%e1%ba%bf-ho%e1%ba%a1ch" aria-label="4.1 Lên kế hoạch">4.1 Lên kế hoạch</a></li>
+                <li>
+                    <a href="#ph%e1%ba%a3i-n%c3%b3i-t%e1%bb%ab-nh%c3%a0-t%c3%b4i-%c4%91%e1%ba%bfn-ch%e1%bb%97-thi-kh%c3%a1-xa-t%e1%ba%a7m-285-km" aria-label="Phải nói từ nhà tôi đến chỗ thi khá xa, tầm 28.5 km.">Phải nói từ nhà tôi đến chỗ thi khá xa, tầm 28.5 km.</a><ul>
+                        
+                <li>
+                    <a href="#ch%e1%bb%97-t%c3%b4i-%c4%91%c4%83ng-k%c3%bd-thi-g%e1%ba%a7n-bitexco-so-v%e1%bb%9bi-2-l%e1%ba%a7n-tr%c6%b0%e1%bb%9bc-%c4%91%c3%b3-l%c3%aan-bitexco-t%c3%b4i-kh%c3%a1-ng%c3%a1o-%c4%91%c6%b0%e1%bb%9dng-ph%e1%ba%a3i-d%c3%b9ng-map-v%e1%bb%aba-%c4%91i-v%e1%bb%aba-xem-r%e1%bb%93i-d%e1%bb%abng-l%e1%ba%a1i-ki%e1%bb%83m-tra-r%e1%ba%a5t-c%e1%bb%b1c-v%c3%a0-k%c3%a9m-t%e1%bb%91i-%c6%b0u-nh%c6%b0ng-l%e1%ba%a7n-n%c3%a0y-t%c3%b4i-thay-%c4%91%e1%bb%95i-c%c3%a1ch-ti%e1%ba%bfp-c%e1%ba%adn-ng%e1%bb%93i-xem-map-%e1%bb%9f-nh%c3%a0-b%e1%ba%b1ng-streetview-r%e1%bb%93i-h%c3%acnh-dung-%c4%91%c6%b0%e1%bb%9dng-%c4%91i-tr%c6%b0%e1%bb%9bc-nhi%e1%bb%81u-l%e1%ba%a7n" aria-label="Chỗ tôi đăng ký thi gần Bitexco. So với 2 lần trước đó lên Bitexco, tôi khá ngáo đường, phải dùng map vừa đi vừa xem rồi dừng lại kiểm tra, rất cực và kém tối ưu. Nhưng lần này tôi thay đổi cách tiếp cận: ngồi xem map ở nhà bằng StreetView rồi hình dung đường đi trước nhiều lần.">Chỗ tôi đăng ký thi gần Bitexco. So với 2 lần trước đó lên Bitexco, tôi khá ngáo đường, phải dùng map vừa đi vừa xem rồi dừng lại kiểm tra, rất cực và kém tối ưu. Nhưng lần này tôi thay đổi cách tiếp cận: ngồi xem map ở nhà bằng StreetView rồi hình dung đường đi trước nhiều lần.</a></li>
+                <li>
+                    <a href="#k%e1%ba%bft-qu%e1%ba%a3-l%c3%a0-t%c3%b4i-%c4%91i-%c4%91%e1%ba%bfn-%c4%91%e1%ba%a5y-trung-t%c3%a2m-kh%e1%ba%a3o-th%c3%ad-chek-pearson-vue-testing-center-t%c3%adnh-c%e1%ba%a3-%c4%91i-l%e1%ba%abn-v%e1%bb%81-t%c3%b4i-kh%c3%b4ng-xem-map-l%e1%ba%a7n-n%c3%a0o-m%e1%bb%8di-th%e1%bb%a9-%c4%91%e1%bb%81u-nh%c6%b0-nh%e1%bb%afng-g%c3%ac-t%c3%b4i-t%c6%b0%e1%bb%9fng-t%c6%b0%e1%bb%a3ng-t%e1%bb%ab-khi-%e1%bb%9f-nh%c3%a0-%c4%91%e1%ba%bfn-m%e1%bb%8di-con-%c4%91%c6%b0%e1%bb%9dng-%c4%91i-qua-gi%e1%bb%91ng-%c4%91%e1%ba%bfn-m%e1%bb%a9c-kh%c3%b4ng-nh%e1%ba%a7m-v%c3%a0o-%c4%91%c3%a2u-%c4%91%c6%b0%e1%bb%a3c-" aria-label="Kết quả là tôi đi đến đấy (Trung tâm khảo thí CHEK Pearson VUE Testing Center) tính cả đi lẫn về tôi không xem map lần nào, mọi thứ đều như những gì tôi tưởng tượng từ khi ở nhà đến mọi con đường đi qua giống đến mức không nhầm vào đâu được. 😅">Kết quả là tôi đi đến đấy (Trung tâm khảo thí CHEK Pearson VUE Testing Center) tính cả đi lẫn về tôi không xem map lần nào, mọi thứ đều như những gì tôi tưởng tượng từ khi ở nhà đến mọi con đường đi qua giống đến mức không nhầm vào đâu được. 😅</a></li></ul>
+                </li>
+                <li>
+                    <a href="#42-review-ch%e1%bb%97-thi" aria-label="4.2 Review chỗ thi">4.2 Review chỗ thi</a></li>
+                <li>
+                    <a href="#theo-t%c3%b4i-%c4%91%c3%a1nh-gi%c3%a1-ch%e1%bb%97-thi-n%c3%a0y-r%e1%ba%a5t-chuy%c3%aan-nghi%e1%bb%87p-v%c3%a0-kh%c3%a1-tho%e1%ba%a3i-m%c3%a1i-ng%c6%b0%e1%bb%9di-h%c6%b0%e1%bb%9bng-d%e1%ba%abn-c%c5%a9ng-th%c3%a2n-thi%e1%bb%87n-n%c3%aan-t%c3%a2m-l%c3%bd-thi-l%e1%ba%a7n-%c4%91%e1%ba%a7u-c%e1%bb%a7a-t%c3%b4i-%c4%91%e1%bb%a1-c%c4%83ng-th%e1%ba%b3ng-h%c6%a1n-nhi%e1%bb%81u" aria-label="Theo tôi đánh giá, chỗ thi này rất chuyên nghiệp và khá thoải mái. Người hướng dẫn cũng thân thiện nên tâm lý thi lần đầu của tôi đỡ căng thẳng hơn nhiều.">Theo tôi đánh giá, chỗ thi này rất chuyên nghiệp và khá thoải mái. Người hướng dẫn cũng thân thiện nên tâm lý thi lần đầu của tôi đỡ căng thẳng hơn nhiều.</a></li>
+                <li>
+                    <a href="#l%e1%ba%a7n-sau-t%c3%b4i-s%e1%ba%bd-%c4%91%e1%ba%bfn-%c4%91%c3%a2y-%c4%91%e1%bb%83-chinh-ph%e1%bb%a5c-v%c3%a0i-cert-n%e1%bb%afa-n%c3%aan-c%c3%b3-th%e1%bb%83-coi-%c4%91%c3%a2y-l%c3%a0-%c4%91%e1%bb%8ba-%c4%91i%e1%bb%83m-thi-%e1%bb%95n-nh%e1%ba%a5t-t%c3%b4i-bi%e1%ba%bft" aria-label="Lần sau tôi sẽ đến đây để chinh phục vài Cert nữa nên có thể coi đây là Địa điểm thi ổn nhất tôi biết">Lần sau tôi sẽ đến đây để chinh phục vài Cert nữa nên có thể coi đây là Địa điểm thi ổn nhất tôi biết</a></li>
+                <li>
+                    <a href="#43-quy-tr%c3%acnh-thi" aria-label="4.3. Quy trình thi">4.3. Quy trình thi</a><ul>
+                        
+                <li>
+                    <a href="#b%e1%ba%a1n-s%e1%ba%bd-ph%e1%ba%a3i-%c4%91%c6%b0a-cccd-b%e1%ba%a3n-c%e1%bb%a9ng-tr%c3%a1nh-b%e1%ba%a3n-sao-hay-tr%c3%aan-vneid-%c4%91%e1%bb%83-h%e1%bb%8d-%c4%91%e1%bb%91i-chi%e1%ba%bfu-v%c3%a0-ki%e1%bb%83m-tra-kh%c3%b4ng-c%e1%ba%a7n-gi%e1%ba%a5y-t%e1%bb%9d-g%c3%ac-th%c3%aam-sau-%c4%91%c3%b3-h%e1%bb%8d-s%e1%ba%bd-ch%e1%bb%a5p-m%e1%bb%99t-t%e1%ba%a5m-h%c3%acnh-ch%c3%a2n-dung-b%e1%ba%a1n-%c4%91%e1%bb%83-l%c3%a0m-minh-ch%e1%bb%a9ng" aria-label="Bạn sẽ phải đưa CCCD bản cứng (tránh bản sao hay trên VNeID) để họ đối chiếu và kiểm tra, không cần giấy tờ gì thêm. Sau đó họ sẽ chụp một tấm hình chân dung bạn để làm minh chứng.">Bạn sẽ phải đưa CCCD bản cứng (tránh bản sao hay trên VNeID) để họ đối chiếu và kiểm tra, không cần giấy tờ gì thêm. Sau đó họ sẽ chụp một tấm hình chân dung bạn để làm minh chứng.</a></li>
+                <li>
+                    <a href="#cu%e1%bb%91i-c%c3%b9ng-h%e1%bb%8d-h%e1%bb%8fi-b%e1%ba%a1n-c%c3%b3-mu%e1%bb%91n-v%c3%a0o-thi-lu%c3%b4n-kh%c3%b4ng-d%c3%b9-l%c3%bac-%c4%91%c3%b3-t%c3%b4i-ch%c6%b0a-t%e1%bb%9bi-gi%e1%bb%9d-thi-c%c3%b2n-c%c3%a1ch-c%e1%ba%a3-1-ti%e1%ba%bfng-n%c3%aan-t%c3%b4i-mu%e1%bb%91n-v%c3%a0o-thi-lu%c3%b4n" aria-label="Cuối cùng họ hỏi bạn có muốn vào thi luôn không dù lúc đó tôi chưa tới giờ thi (còn cách cả 1 tiếng) nên tôi muốn vào thi luôn.">Cuối cùng họ hỏi bạn có muốn vào thi luôn không dù lúc đó tôi chưa tới giờ thi (còn cách cả 1 tiếng) nên tôi muốn vào thi luôn.</a></li>
+                <li>
+                    <a href="#khi-v%c3%a0o-thi-h%e1%bb%8d-s%e1%ba%bd-m%e1%bb%9f-m%c3%a1y-cho-b%e1%ba%a1n-trong-ph%c3%b2ng-thi-v%c3%a0-h%c6%b0%e1%bb%9bng-d%e1%ba%abn-b%e1%ba%a1n-%c4%91%e1%bb%8dc-quy-%c4%91%e1%bb%8bnh-r%e1%bb%93i-l%c3%a0m-b%c3%a0i-h%c3%b4m-%c4%91%c3%b3-t%c3%b4i-thi-v%c3%a0o-th%e1%bb%a9-7-kh%c3%a1-v%e1%ba%afng-ch%e1%bb%89-c%c3%b3-v%c3%a0i-ng%c6%b0%e1%bb%9di-n%c3%aan-ph%c3%b2ng-r%e1%ba%a5t-y%c3%aan-t%c4%a9nh" aria-label="Khi vào thi, họ sẽ mở máy cho bạn trong phòng thi và hướng dẫn bạn đọc quy định rồi làm bài. Hôm đó tôi thi vào thứ 7, khá vắng, chỉ có vài người nên phòng rất yên tĩnh.😅">Khi vào thi, họ sẽ mở máy cho bạn trong phòng thi và hướng dẫn bạn đọc quy định rồi làm bài. Hôm đó tôi thi vào thứ 7, khá vắng, chỉ có vài người nên phòng rất yên tĩnh.😅</a></li>
+                <li>
+                    <a href="#khi-thi-xong-ra-kh%e1%bb%8fi-ph%c3%b2ng-h%e1%bb%8d-s%e1%ba%bd-n%c3%b3i-b%e1%ba%a1n-k%c3%bd-t%c3%aan-gi%e1%ba%a5y-t%e1%bb%9d-th%e1%bb%a7-t%e1%bb%a5c-thi-xong-v%c3%a0-ch%c3%bac-m%e1%bb%abng-b%e1%ba%a1n-n%c3%b3i-th%e1%ba%adt-c%e1%ba%a3m-gi%c3%a1c-khi-thi-xong-pass-t%c3%b4i-vui-s%c6%b0%e1%bb%9bng-trong-l%c3%b2ng-ph%e1%ba%a3i-k%c3%acm-l%e1%ba%a1i-" aria-label="Khi thi xong ra khỏi phòng họ sẽ nói bạn ký tên giấy tờ thủ tục thi xong, và Chúc mừng bạn. Nói thật cảm giác khi thi xong pass tôi vui sướng trong lòng phải kìm lại. ☺️">Khi thi xong ra khỏi phòng họ sẽ nói bạn ký tên giấy tờ thủ tục thi xong, và Chúc mừng bạn. Nói thật cảm giác khi thi xong pass tôi vui sướng trong lòng phải kìm lại. ☺️</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#5-%c4%91%c3%b4i-d%c3%b2ng-tr%e1%ba%a3i-nghi%e1%bb%87m-v%c3%a0-c%e1%ba%a3m-nh%e1%ba%adn-c%e1%bb%a7a-t%c3%b4i-c%e1%ba%a3-qu%c3%a1-tr%c3%acnh-chinh-ph%e1%bb%a5c-cert-n%c3%a0y-b%e1%ba%a1n-c%c3%b3-th%e1%bb%83-b%e1%bb%8f-qua" aria-label="5. Đôi dòng Trải nghiệm và cảm nhận của tôi cả quá trình chinh phục Cert này (Bạn có thể bỏ qua):">5. Đôi dòng Trải nghiệm và cảm nhận của tôi cả quá trình chinh phục Cert này (Bạn có thể bỏ qua):</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#c%e1%ba%a3-1-th%c3%a1ng-tr%c6%b0%e1%bb%9bc-%c4%91%c3%a2y-t%c3%b4i-%c4%91%c3%a3-%e1%ba%a5p-%e1%bb%a7-m%e1%bb%99t-k%e1%ba%bf-ho%e1%ba%a1ch-d%c3%a0i-%c4%91%e1%bb%83-chinh-ph%e1%bb%a5c-c%c3%a1c-cert-v%c3%a0-t%c3%b4i-bi%e1%ba%bft-r%e1%ba%b1ng-th%e1%bb%9di-gian-c%e1%bb%a7a-m%c3%acnh-kh%c3%b4ng-c%c3%b2n-nhi%e1%bb%81u-t%c3%b4i-t%e1%bb%b1-t%e1%ba%a1o-%c3%a1p-l%e1%bb%b1c-fomo-kh%c3%a1-n%e1%ba%b7ng-%c4%91%e1%bb%83-bu%e1%bb%99c-b%e1%ba%a3n-th%c3%a2n-ph%e1%ba%a3i-l%c3%a0m-t%e1%bb%91t-h%c6%a1n-s%e1%bb%91ng-c%c3%b3-%c3%bd-ngh%c4%a9a-h%c6%a1n-trong-journey-n%c3%a0y-t%c3%b4i-chinh-ph%e1%bb%a5c-%c4%91%c6%b0%e1%bb%a3c-cert-%c4%91%e1%ba%a7u-ti%c3%aan-v%c3%a0-t%c3%b4i-r%e1%ba%a5t-vui--c%c3%b3-th%e1%bb%83-v%e1%bb%9bi-ng%c6%b0%e1%bb%9di-kh%c3%a1c-%c4%91i%e1%bb%81u-%c4%91%c3%b3-kh%c3%b4ng-qu%c3%a1-l%e1%bb%9bn-nh%c6%b0ng-v%e1%bb%9bi-t%c3%b4i-%c4%91%c3%b3-l%c3%a0-c%e1%bb%99t-m%e1%bb%91c-v%c6%b0%e1%bb%a3t-qua-ch%c3%adnh-m%c3%acnh-c%e1%bb%a7a-ng%c3%a0y-h%c3%b4m-qua" aria-label="Cả 1 tháng trước đây tôi đã ấp ủ một kế hoạch dài để chinh phục các Cert và tôi biết rằng thời gian của mình không còn nhiều. Tôi tự tạo áp lực FOMO khá nặng để buộc bản thân phải làm tốt hơn, sống có ý nghĩa hơn. Trong Journey này, tôi chinh phục được Cert đầu tiên, và tôi rất vui ☺️. Có thể với người khác điều đó không quá lớn, nhưng với tôi, đó là cột mốc vượt qua chính mình của ngày hôm qua.">Cả 1 tháng trước đây tôi đã ấp ủ một kế hoạch dài để chinh phục các Cert và tôi biết rằng thời gian của mình không còn nhiều. Tôi tự tạo áp lực FOMO khá nặng để buộc bản thân phải làm tốt hơn, sống có ý nghĩa hơn. Trong Journey này, tôi chinh phục được Cert đầu tiên, và tôi rất vui ☺️. Có thể với người khác điều đó không quá lớn, nhưng với tôi, đó là cột mốc vượt qua chính mình của ngày hôm qua.</a></li>
+                <li>
+                    <a href="#trong-qu%c3%a1-tr%c3%acnh-b%e1%ba%aft-%c4%91%e1%ba%a7u-cert-%c4%91%e1%ba%a7u-ti%c3%aan-n%c3%a0y-t%c3%b4i-%c4%91%e1%bb%91i-m%e1%ba%b7t-v%e1%bb%9bi-nhi%e1%bb%81u-%c3%a1p-l%e1%bb%b1c-nh%e1%bb%afng-%c4%91%c3%aam-tr%c6%b0%e1%bb%9bc-khi-thi-t%c3%b4i-c%c4%83ng-th%e1%ba%b3ng-%c4%91%e1%ba%bfn-m%e1%bb%a9c-kh%c3%b4ng-ng%e1%bb%a7-%c4%91%c6%b0%e1%bb%a3c-d%c3%b9-b%c3%acnh-th%c6%b0%e1%bb%9dng-%c4%91%e1%ba%b7t-l%c6%b0ng-xu%e1%bb%91ng-l%c3%a0-ng%e1%bb%a7-lu%c3%b4n-h%c3%a0nh-tr%c3%acnh-n%c3%a0y-m%e1%ba%a5t-3-tu%e1%ba%a7n-%c4%91%e1%bb%83-h%e1%bb%8dc-v%c3%a0-luy%e1%bb%87n-%c4%91%e1%bb%81-nh%c6%b0ng-t%c3%b4i-kh%c3%b4ng-th%e1%bb%83-d%c3%a0nh-tr%e1%bb%8dn-c%e1%ba%a3-3-tu%e1%ba%a7n-cho-n%c3%b3-v%c3%ac-c%c3%b2n-project-nghi%c3%aan-c%e1%bb%a9u-khoa-h%e1%bb%8dc-%c4%91%e1%bb%93-%c3%a1n-%e1%bb%9f-tr%c6%b0%e1%bb%9dng-vi%e1%bb%87c-gia-%c4%91%c3%acnh-v%c3%a0-ho%e1%ba%a1t-%c4%91%e1%bb%99ng-b%c3%aan-ngo%c3%a0i-th%e1%bb%9di-gian-th%e1%bb%b1c-s%e1%bb%b1-%c4%91%e1%bb%83-h%e1%bb%8dc-v%c3%a0-%c3%b4n-ch%e1%ba%afc-ch%e1%bb%89-h%c6%a1n-1-tu%e1%ba%a7n" aria-label="Trong quá trình bắt đầu Cert đầu tiên này, tôi đối mặt với nhiều áp lực. Những đêm trước khi thi, tôi căng thẳng đến mức không ngủ được, dù bình thường đặt lưng xuống là ngủ luôn😴. Hành trình này mất 3 tuần để học và luyện đề, nhưng tôi không thể dành trọn cả 3 tuần cho nó vì còn project Nghiên cứu khoa học, đồ án ở trường, việc gia đình và hoạt động bên ngoài. Thời gian thực sự để học và ôn chắc chỉ hơn 1 tuần.">Trong quá trình bắt đầu Cert đầu tiên này, tôi đối mặt với nhiều áp lực. Những đêm trước khi thi, tôi căng thẳng đến mức không ngủ được, dù bình thường đặt lưng xuống là ngủ luôn😴. Hành trình này mất 3 tuần để học và luyện đề, nhưng tôi không thể dành trọn cả 3 tuần cho nó vì còn project Nghiên cứu khoa học, đồ án ở trường, việc gia đình và hoạt động bên ngoài. Thời gian thực sự để học và ôn chắc chỉ hơn 1 tuần.</a></li>
+                <li>
+                    <a href="#over-prepared-chu%e1%ba%a9n-b%e1%bb%8b-qu%c3%a1-m%e1%bb%a9c-khi-thi-xong-t%c3%b4i-m%e1%bb%9bi-nh%e1%ba%adn-ra-%c4%91%e1%bb%81-n%c3%a0y-d%e1%bb%85-h%c6%a1n-t%c3%b4i-t%c6%b0%e1%bb%9fng-tr%c6%b0%e1%bb%9bc-%c4%91%c3%b3-t%c3%b4i-lu%c3%b4n-c%e1%ba%a3m-th%e1%ba%a5y-m%c3%acnh-c%c3%b3-th%e1%bb%83-fail-n%c3%aan-luy%e1%bb%87n-%c4%91%e1%bb%81-g%e1%ba%a7n-nh%c6%b0-h%e1%ba%bft-c%c3%b4ng-su%e1%ba%a5t-v%c3%ac-s%e1%bb%a3-r%e1%bb%9bt-h%e1%ba%a7u-nh%c6%b0-ng%c3%a0y-n%c3%a0o-tr%c6%b0%e1%bb%9bc-khi-thi-t%c3%b4i-c%c5%a9ng-stress-t%c3%b4i-r%c3%bat-ra-b%c3%a0i-h%e1%bb%8dc-l%c3%a0-kh%c3%b4ng-n%c3%aan-t%c6%b0%e1%bb%9fng-t%c6%b0%e1%bb%a3ng-qu%c3%a1-m%e1%bb%a9c-m%e1%bb%99t-th%e1%bb%a9-g%c3%ac-%c4%91%c3%b3-qu%c3%a1-kh%c3%b3-tr%c6%b0%e1%bb%9bc-khi-n%c3%b3-x%e1%ba%a3y-ra" aria-label="Over Prepared (chuẩn bị quá mức): Khi thi xong tôi mới nhận ra đề này dễ hơn tôi tưởng. Trước đó tôi luôn cảm thấy mình có thể Fail nên luyện đề gần như hết công suất vì sợ rớt; hầu như ngày nào trước khi thi tôi cũng Stress. Tôi rút ra bài học là không nên tưởng tượng quá mức một thứ gì đó quá khó trước khi nó xảy ra.">Over Prepared (chuẩn bị quá mức): Khi thi xong tôi mới nhận ra đề này dễ hơn tôi tưởng. Trước đó tôi luôn cảm thấy mình có thể Fail nên luyện đề gần như hết công suất vì sợ rớt; hầu như ngày nào trước khi thi tôi cũng Stress. Tôi rút ra bài học là không nên tưởng tượng quá mức một thứ gì đó quá khó trước khi nó xảy ra.</a></li>
+                <li>
+                    <a href="#t%c3%b4i-c%e1%ba%a7n-ti%e1%ba%bfn-l%c3%aan-ph%c3%ada-tr%c6%b0%e1%bb%9bc-nhi%e1%bb%81u-h%c6%a1n-n%e1%bb%afa-c%c3%b2n-nhi%e1%bb%81u-th%e1%bb%ad-th%c3%a1ch-t%c3%b4i-ch%c6%b0a-kh%c3%a1m-ph%c3%a1-h%e1%ba%bft-%c4%91%c6%b0%e1%bb%a3c" aria-label="Tôi cần tiến lên phía trước nhiều hơn nữa còn nhiều thử thách tôi chưa khám phá hết được.">Tôi cần tiến lên phía trước nhiều hơn nữa còn nhiều thử thách tôi chưa khám phá hết được.</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#5-l%e1%bb%9di-cu%e1%bb%91i" aria-label="5. Lời cuối">5. Lời cuối</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="chà--một-hành-trình-dài-và-mọi-kế-hoạch-đã-đúng-đến-99-hơn-cả-những-gì-tôi-mong-đợi-kết-quả-là-tôi-vừa-pass-chứng-chỉ-vỡ-lòng-của-aws-cloud-practitioner-clf-c02-mà-tôi-biết-đến-cách-đây-vài-tháng">Chà 😊, một hành trình dài và mọi kế hoạch đã đúng đến <code>99%</code>, hơn cả những gì tôi mong đợi. Kết quả là tôi vừa pass chứng chỉ vỡ lòng của <code>AWS</code>, <code>Cloud Practitioner CLF-C02</code> mà tôi biết đến cách đây vài tháng.<a hidden class="anchor" aria-hidden="true" href="#chà--một-hành-trình-dài-và-mọi-kế-hoạch-đã-đúng-đến-99-hơn-cả-những-gì-tôi-mong-đợi-kết-quả-là-tôi-vừa-pass-chứng-chỉ-vỡ-lòng-của-aws-cloud-practitioner-clf-c02-mà-tôi-biết-đến-cách-đây-vài-tháng">#</a></h2>
+<h2 id="kể-từ-lúc-đi-reinvent-2026-của-aws-hcm-cụ-thể-bạn-có-thể-đọc-ở-đây">Kể từ lúc đi re:Invent 2026 của AWS HCM, cụ thể bạn có thể đọc ở đây:<a hidden class="anchor" aria-hidden="true" href="#kể-từ-lúc-đi-reinvent-2026-của-aws-hcm-cụ-thể-bạn-có-thể-đọc-ở-đây">#</a></h2>
+<h2 id="httpswwwlinkedincompulseaws-reinvent-recap-2025-vietnam-dung-ha-anh-idbbc-do-anh-dung-ha-anh-viết"><code>https://www.linkedin.com/pulse/aws-reinvent-recap-2025-vietnam-dung-ha-anh-idbbc/</code> do anh <code>Dung-ha-anh</code> viết<a hidden class="anchor" aria-hidden="true" href="#httpswwwlinkedincompulseaws-reinvent-recap-2025-vietnam-dung-ha-anh-idbbc-do-anh-dung-ha-anh-viết">#</a></h2>
+<h2 id="sau-thời-gian-trên-tôi-đã-ấp-ủ-ý-tưởng-chinh-phục-các-cert-của-aws-ngay-và-luôn-hôm-nay-là-cột-mốc-đầu-tiên-của-tôi">Sau thời gian trên, tôi đã ấp ủ ý tưởng chinh phục các <code>Cert</code> của <code>AWS</code> ngay và luôn. Hôm nay là cột mốc đầu tiên của tôi.<a hidden class="anchor" aria-hidden="true" href="#sau-thời-gian-trên-tôi-đã-ấp-ủ-ý-tưởng-chinh-phục-các-cert-của-aws-ngay-và-luôn-hôm-nay-là-cột-mốc-đầu-tiên-của-tôi">#</a></h2>
+<h1 id="1-lợi-ích-của-chứng-chỉ-aws-clf-c02">1. Lợi ích của chứng chỉ <code>AWS CLF-C02</code><a hidden class="anchor" aria-hidden="true" href="#1-lợi-ích-của-chứng-chỉ-aws-clf-c02">#</a></h1>
+<h2 id="đây-là-chứng-chỉ-khi-bạn-pass">Đây là chứng chỉ khi bạn pass<a hidden class="anchor" aria-hidden="true" href="#đây-là-chứng-chỉ-khi-bạn-pass">#</a></h2>
+<p><img alt="Credly AWS Cloud" loading="lazy" src="/posts/chia-se-kinh-nghiem-thi-aws-certified-cloud-practioner-clf-c02/Credly_aws_cloud.png">
+<img alt="AWS CLF-C02 Certificate" loading="lazy" src="/posts/chia-se-kinh-nghiem-thi-aws-certified-cloud-practioner-clf-c02/cert_aws.png"></p>
+<h2 id="có-lẽ-điều-này-ai-cũng-biết-rồi-vì-gần-đây-các-cert-của-aws-đang-là-trend-từ-hr-marketing-non-tech--ai-cũng-biết-nó-mang-lại-nhiều-lợi-ích-như-thế-nào">Có lẽ điều này ai cũng biết rồi vì gần đây các Cert của AWS đang là <code>Trend</code> từ <code>HR</code>, <code>Marketing</code>, <code>Non-Tech</code>, &hellip; ai cũng biết nó mang lại nhiều lợi ích như thế nào.<a hidden class="anchor" aria-hidden="true" href="#có-lẽ-điều-này-ai-cũng-biết-rồi-vì-gần-đây-các-cert-của-aws-đang-là-trend-từ-hr-marketing-non-tech--ai-cũng-biết-nó-mang-lại-nhiều-lợi-ích-như-thế-nào">#</a></h2>
+<ul>
+<li>Lợi ích đầu tiên: Nó là điểm khởi đầu cho những cert quan trọng sau này, nếu bạn pass <code>CLF-C02</code> bạn sẽ được voucher giảm giá <code>50%</code> có Cert tiếp theo</li>
+<li>Thứ 2: Giúp bạn tăng tự tin về nền tảng Cloud nơi bắt đầu tất cả về hệ sinh thái đám mây, việc này giúp bạn trong mọi lĩnh vực ngành nghề phổ biến tại <code>Việt Nam</code> như Dev, AI, IoT, Big Data hoặc các ngành khác như marketing, hr, tư vấn về cloud</li>
+<li>Thứ 3: Kiến thức nền tảng để học lên các Cert cao hơn như <code>AWS SAA-C03</code>, <code>AWS DVA</code>, &hellip; còn rất nhiều Cert cấp cao khác.</li>
+</ul>
+<h2 id="điển-hình-ở-đây-là-danh-sách-12-cert-chính-của-aws">Điển hình ở đây là danh sách <code>12 Cert chính của AWS</code><a hidden class="anchor" aria-hidden="true" href="#điển-hình-ở-đây-là-danh-sách-12-cert-chính-của-aws">#</a></h2>
+<p><img alt="12 AWS Certifications" loading="lazy" src="/posts/chia-se-kinh-nghiem-thi-aws-certified-cloud-practioner-clf-c02/12_cert.png"></p>
+<h1 id="2-nội-dung-thi-chứng-chỉ-aws-clf-c02">2. Nội dung thi chứng chỉ AWS CLF-C02<a hidden class="anchor" aria-hidden="true" href="#2-nội-dung-thi-chứng-chỉ-aws-clf-c02">#</a></h1>
+<h3 id="vì-clf-c02-là-cert-nền-tảng-mở-đầu-nên-các-câu-hỏi-khá-đơn-giản-không-đánh-đố-nhiều-thực-tế-khi-tôi-thi-cấu-trúc-đề-giống-như-hỏi-từ-vựng-tiếng-anh-vậy-tuy-nhiên-không-nên-chủ-quan-nếu-chỉ-cho-rằng-nó-đơn-giản-mà-học-qua-loa-vì-nó-đòi-hỏi-bạn-học-khá-nhiều-service-rất-rộng-như-ec2-s3-">Vì <code>CLF-C02</code> là cert nền tảng mở đầu nên các câu hỏi khá đơn giản, không đánh đố nhiều. Thực tế khi tôi thi, cấu trúc đề giống như hỏi từ vựng tiếng Anh vậy. Tuy nhiên không nên chủ quan nếu chỉ cho rằng nó đơn giản mà học qua loa, vì nó đòi hỏi bạn học khá nhiều service rất rộng như <code>EC2</code>, <code>S3</code>, &hellip;<a hidden class="anchor" aria-hidden="true" href="#vì-clf-c02-là-cert-nền-tảng-mở-đầu-nên-các-câu-hỏi-khá-đơn-giản-không-đánh-đố-nhiều-thực-tế-khi-tôi-thi-cấu-trúc-đề-giống-như-hỏi-từ-vựng-tiếng-anh-vậy-tuy-nhiên-không-nên-chủ-quan-nếu-chỉ-cho-rằng-nó-đơn-giản-mà-học-qua-loa-vì-nó-đòi-hỏi-bạn-học-khá-nhiều-service-rất-rộng-như-ec2-s3-">#</a></h3>
+<h2 id="21-tổng-quan">2.1 Tổng quan<a hidden class="anchor" aria-hidden="true" href="#21-tổng-quan">#</a></h2>
+<ul>
+<li>Chi phí thi: <code>100$</code>. Tuy nhiên có vài cách để bạn có thể mua từ bên thứ 3 với giá rẻ hơn. Mình đã mua từ shop này khá uy tín, bạn có thể tham khảo, giá còn tầm <code>900k</code>. Vì đây là voucher giảm giá 100% nên yên tâm hơn so với các voucher 50% (có thể bị <code>AWS</code> quét).
+<code>https://www.facebook.com/groups/1204797124657101</code>
+<img alt="AWS Voucher" loading="lazy" src="/posts/chia-se-kinh-nghiem-thi-aws-certified-cloud-practioner-clf-c02/aws_voucher.png"></li>
+<li><strong>Thời gian thi:</strong> Bạn được <code>90 phút</code> để làm bài thi, được cộng thêm <code>30 phút</code> nếu ngôn ngữ mẹ để không phải tiếng anh. Thực tế thì làm tầm 40-50 phút là xong, rà soát lại mấy câu cần kiểm tra cũng mất 3 phút là ok rồi</li>
+<li><strong>Cấu trúc đề</strong>: Sẽ có 65 câu hỏi (chọn 1 hoặc nhiều đáp án), nhưng trong thực tế chủ yếu là chọn 1 hoặc 2 đáp án. Sẽ có 15/65 câu là câu nhiễu, mục đích <code>AWS</code> muốn thử nghiệm các câu hỏi mới (ví dụ về <code>AI</code>) hoặc câu lắt léo để đánh giá đề. 15 câu này không tính điểm vì chỉ mang tính chất thử nghiệm, khảo sát thí sinh.</li>
+<li><strong>Điều kiện Pass:</strong> Chỉ cần đạt từ 70%, tức là 700 score / 1000 score là được.</li>
+<li><strong>Thời hạn chứng chỉ:</strong> <code>3 năm</code></li>
+</ul>
+<h2 id="22-chi-tiết-về-các-nội-dung-câu-hỏi">2.2. Chi tiết về các nội dung câu hỏi<a hidden class="anchor" aria-hidden="true" href="#22-chi-tiết-về-các-nội-dung-câu-hỏi">#</a></h2>
+<h3 id="các-câu-hỏi-sẽ-được-chia-như-sau-theo-tài-liệu-học-chính-thức-của-aws">Các câu hỏi sẽ được chia như sau theo tài liệu học chính thức của <code>AWS</code><a hidden class="anchor" aria-hidden="true" href="#các-câu-hỏi-sẽ-được-chia-như-sau-theo-tài-liệu-học-chính-thức-của-aws">#</a></h3>
+<table>
+  <thead>
+      <tr>
+          <th>Section</th>
+          <th>% of Scored Items</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Domain 1: Cloud Concepts</td>
+          <td>24%</td>
+      </tr>
+      <tr>
+          <td>Domain 2: Security and Compliance</td>
+          <td>30%</td>
+      </tr>
+      <tr>
+          <td>Domain 3: Cloud Technology and Services</td>
+          <td>34%</td>
+      </tr>
+      <tr>
+          <td>Domain 4: Billing, Pricing, and Support</td>
+          <td>12%</td>
+      </tr>
+  </tbody>
+</table>
+<h1 id="3-quá-trình-ôn-thi">3. Quá trình ôn thi<a hidden class="anchor" aria-hidden="true" href="#3-quá-trình-ôn-thi">#</a></h1>
+<h2 id="31-học-lý-thuyết">3.1. Học Lý thuyết<a hidden class="anchor" aria-hidden="true" href="#31-học-lý-thuyết">#</a></h2>
+<h3 id="về-cơ-bản-bạn-không-cần-phải-học-ở-quá-nhiều-nguồn-tôi-chỉ-học-ở-một-nơi-duy-nhất-là-khoá-học-của-aws-nhiều-người-sẽ-học-theo-udemy-việc-này-hoàn-toàn-ổn-nhưng-bạn-sẽ-tốn-một-khoản-vài-trăm-nghìn-không-cần-thiết-trong-khi-aws-là-quá-đủ-để-học-cụ-thể-mình-để-nguồn-ở-đây">Về cơ bản bạn không cần phải học ở quá nhiều nguồn. Tôi chỉ học ở một nơi duy nhất là khoá học của <code>AWS</code>. Nhiều người sẽ học theo <code>Udemy</code>, việc này hoàn toàn ổn, nhưng bạn sẽ tốn một khoản vài trăm nghìn không cần thiết trong khi <code>AWS</code> là quá đủ để học. Cụ thể mình để nguồn ở đây:<a hidden class="anchor" aria-hidden="true" href="#về-cơ-bản-bạn-không-cần-phải-học-ở-quá-nhiều-nguồn-tôi-chỉ-học-ở-một-nơi-duy-nhất-là-khoá-học-của-aws-nhiều-người-sẽ-học-theo-udemy-việc-này-hoàn-toàn-ổn-nhưng-bạn-sẽ-tốn-một-khoản-vài-trăm-nghìn-không-cần-thiết-trong-khi-aws-là-quá-đủ-để-học-cụ-thể-mình-để-nguồn-ở-đây">#</a></h3>
+<p><code>https://skillbuilder.aws/learn/94T2BEN85A/aws-cloud-practitioner-essentials/8D79F3AVR7</code></p>
+<h3 id="sau-khi-học-xong-khoá-này-bạn-sẽ-được-một-cert-của-chính-aws-nhưng-cert-này-mang-tính-xác-nhận-hoàn-thành-khoá-học-nên-không-có-giá-trị-bằng-clf-c02">Sau khi học xong khoá này bạn sẽ được một Cert của chính AWS, nhưng cert này mang tính xác nhận hoàn thành khoá học nên không có giá trị bằng <code>CLF-C02</code>.<a hidden class="anchor" aria-hidden="true" href="#sau-khi-học-xong-khoá-này-bạn-sẽ-được-một-cert-của-chính-aws-nhưng-cert-này-mang-tính-xác-nhận-hoàn-thành-khoá-học-nên-không-có-giá-trị-bằng-clf-c02">#</a></h3>
+<p><img alt="Cloud Practitioner Essentials" loading="lazy" src="/posts/chia-se-kinh-nghiem-thi-aws-certified-cloud-practioner-clf-c02/cloud_practioner_essential.png"></p>
+<h2 id="ngoài-ra-trong-quá-trình-học-có-một-vài-chỗ-không-hiểu-tôi-dùng-gemini-hoặc-ai-khác-để-giải-đáp-và-giúp-học-nhanh-hơn-tôi-thường-dùng-gemini-tạo-đề-sau-mỗi-phần-học-và-yêu-cầu-đề-khó-hơn-đề-thi-thật-rất-nhiều-nó-giúp-tôi-rèn-tư-duy-và-đúng-là-khi-đi-thi-tôi-đỡ-bỡ-ngỡ-hơn">Ngoài ra, trong quá trình học có một vài chỗ không hiểu, tôi dùng <code>Gemini</code> (hoặc AI khác) để giải đáp và giúp học nhanh hơn. Tôi thường dùng <code>Gemini</code> tạo đề sau mỗi phần học, và yêu cầu đề khó hơn đề thi thật rất nhiều. Nó giúp tôi rèn tư duy và đúng là khi đi thi tôi đỡ <code>bỡ ngỡ</code> hơn.<a hidden class="anchor" aria-hidden="true" href="#ngoài-ra-trong-quá-trình-học-có-một-vài-chỗ-không-hiểu-tôi-dùng-gemini-hoặc-ai-khác-để-giải-đáp-và-giúp-học-nhanh-hơn-tôi-thường-dùng-gemini-tạo-đề-sau-mỗi-phần-học-và-yêu-cầu-đề-khó-hơn-đề-thi-thật-rất-nhiều-nó-giúp-tôi-rèn-tư-duy-và-đúng-là-khi-đi-thi-tôi-đỡ-bỡ-ngỡ-hơn">#</a></h2>
+<h4 id="ví-dụ-tôi-đã-làm">Ví dụ tôi đã làm<a hidden class="anchor" aria-hidden="true" href="#ví-dụ-tôi-đã-làm">#</a></h4>
+<p><img alt="Gemini Quiz" loading="lazy" src="/posts/chia-se-kinh-nghiem-thi-aws-certified-cloud-practioner-clf-c02/gemin_quiz.png"></p>
+<h2 id="32-luyện-đề-free-0đ">3.2 Luyện đề Free 0đ:<a hidden class="anchor" aria-hidden="true" href="#32-luyện-đề-free-0đ">#</a></h2>
+<h3 id="bạn-không-nhất-thiết-theo-đám-đông-mua-đề-trên-udemy-hay-nguồn-khác-vì-với-clf-c02-thì-luyện-trên-những-nguồn-sau-là-đủ-pass-tôi-chỉ-luyện-trên">Bạn không nhất thiết theo đám đông mua đề trên <code>Udemy</code> hay nguồn khác vì với <code>CLF-C02</code> thì luyện trên những nguồn sau là đủ pass. Tôi chỉ luyện trên:<a hidden class="anchor" aria-hidden="true" href="#bạn-không-nhất-thiết-theo-đám-đông-mua-đề-trên-udemy-hay-nguồn-khác-vì-với-clf-c02-thì-luyện-trên-những-nguồn-sau-là-đủ-pass-tôi-chỉ-luyện-trên">#</a></h3>
+<h3 id="examprepper-luyện-trên-này-là-quá-đủ-vì-câu-hỏi-khi-thi-khá-sát-nếu-bạn-luyện-đề-ở-đây-đạt-tầm-90-95-trở-lên-thì-bạn-dư-sức-pass-cert-này">ExamPrepper: Luyện trên này là quá đủ vì câu hỏi khi thi khá sát. Nếu bạn luyện đề ở đây đạt tầm 90-95% trở lên thì bạn dư sức <code>pass</code> Cert này.<a hidden class="anchor" aria-hidden="true" href="#examprepper-luyện-trên-này-là-quá-đủ-vì-câu-hỏi-khi-thi-khá-sát-nếu-bạn-luyện-đề-ở-đây-đạt-tầm-90-95-trở-lên-thì-bạn-dư-sức-pass-cert-này">#</a></h3>
+<p><img alt="ExamPrepper" loading="lazy" src="/posts/chia-se-kinh-nghiem-thi-aws-certified-cloud-practioner-clf-c02/examppreper.png"></p>
+<h3 id="nguồn-thứ-2-tôi-luyện-của-anh-ấn-độ-này-cũng-rất-bao-quát-để-yên-tâm-hơn">Nguồn thứ 2 tôi luyện của anh <code>Ấn Độ</code> này cũng rất bao quát để yên tâm hơn.<a hidden class="anchor" aria-hidden="true" href="#nguồn-thứ-2-tôi-luyện-của-anh-ấn-độ-này-cũng-rất-bao-quát-để-yên-tâm-hơn">#</a></h3>
+<p><code>https://kananinirav.com/practice-exam/exams.html</code>
+<img alt="Kananirav Practice" loading="lazy" src="/posts/chia-se-kinh-nghiem-thi-aws-certified-cloud-practioner-clf-c02/karaninirav_practice.png"></p>
+<h3 id="nguồn-cuối-cùng-là-mình-luyện-ở-youtube">Nguồn cuối cùng là mình luyện ở <code>YouTube</code>.<a hidden class="anchor" aria-hidden="true" href="#nguồn-cuối-cùng-là-mình-luyện-ở-youtube">#</a></h3>
+<h4 id="kênh-này-cũng-giúp-bạn-dư-sức-pass-cert-có-điều-đề-ở-đây-hơi-chi-tiết-hơn-so-với-thực-tế">Kênh này cũng giúp bạn dư sức <code>pass</code> Cert, có điều đề ở đây hơi chi tiết hơn so với thực tế.<a hidden class="anchor" aria-hidden="true" href="#kênh-này-cũng-giúp-bạn-dư-sức-pass-cert-có-điều-đề-ở-đây-hơi-chi-tiết-hơn-so-với-thực-tế">#</a></h4>
+<p><code>https://youtu.be/yChiWUxP_2M?si=uB24Am43xq0v4SBv</code>
+<img alt="Jaspal Practice" loading="lazy" src="/posts/chia-se-kinh-nghiem-thi-aws-certified-cloud-practioner-clf-c02/Jaspal_practice.png"></p>
+<h1 id="4-quá-trình-đi-thi">4. Quá trình đi thi<a hidden class="anchor" aria-hidden="true" href="#4-quá-trình-đi-thi">#</a></h1>
+<h2 id="41-lên-kế-hoạch">4.1 Lên kế hoạch<a hidden class="anchor" aria-hidden="true" href="#41-lên-kế-hoạch">#</a></h2>
+<h2 id="phải-nói-từ-nhà-tôi-đến-chỗ-thi-khá-xa-tầm-285-km">Phải nói từ nhà tôi đến chỗ thi khá xa, tầm <code>28.5 km</code>.<a hidden class="anchor" aria-hidden="true" href="#phải-nói-từ-nhà-tôi-đến-chỗ-thi-khá-xa-tầm-285-km">#</a></h2>
+<p><img alt="Map to Pearson VUE" loading="lazy" src="/posts/chia-se-kinh-nghiem-thi-aws-certified-cloud-practioner-clf-c02/map_to_pearson_vue.png"></p>
+<h3 id="chỗ-tôi-đăng-ký-thi-gần-bitexco-so-với-2-lần-trước-đó-lên-bitexco-tôi-khá-ngáo-đường-phải-dùng-map-vừa-đi-vừa-xem-rồi-dừng-lại-kiểm-tra-rất-cực-và-kém-tối-ưu-nhưng-lần-này-tôi-thay-đổi-cách-tiếp-cận-ngồi-xem-map-ở-nhà-bằng-streetview-rồi-hình-dung-đường-đi-trước-nhiều-lần">Chỗ tôi đăng ký thi gần <code>Bitexco</code>. So với 2 lần trước đó lên <code>Bitexco</code>, tôi khá ngáo đường, phải dùng map vừa đi vừa xem rồi dừng lại kiểm tra, rất cực và kém tối ưu. Nhưng lần này tôi thay đổi cách tiếp cận: ngồi xem map ở nhà bằng <code>StreetView</code> rồi hình dung đường đi trước nhiều lần.<a hidden class="anchor" aria-hidden="true" href="#chỗ-tôi-đăng-ký-thi-gần-bitexco-so-với-2-lần-trước-đó-lên-bitexco-tôi-khá-ngáo-đường-phải-dùng-map-vừa-đi-vừa-xem-rồi-dừng-lại-kiểm-tra-rất-cực-và-kém-tối-ưu-nhưng-lần-này-tôi-thay-đổi-cách-tiếp-cận-ngồi-xem-map-ở-nhà-bằng-streetview-rồi-hình-dung-đường-đi-trước-nhiều-lần">#</a></h3>
+<h3 id="kết-quả-là-tôi-đi-đến-đấy-trung-tâm-khảo-thí-chek-pearson-vue-testing-center-tính-cả-đi-lẫn-về-tôi-không-xem-map-lần-nào-mọi-thứ-đều-như-những-gì-tôi-tưởng-tượng-từ-khi-ở-nhà-đến-mọi-con-đường-đi-qua-giống-đến-mức-không-nhầm-vào-đâu-được-">Kết quả là tôi đi đến đấy (<code>Trung tâm khảo thí CHEK Pearson VUE Testing Center</code>) tính cả đi lẫn về tôi không xem map lần nào, mọi thứ đều như những gì tôi tưởng tượng từ khi ở nhà đến mọi con đường đi qua giống đến mức không nhầm vào đâu được. 😅<a hidden class="anchor" aria-hidden="true" href="#kết-quả-là-tôi-đi-đến-đấy-trung-tâm-khảo-thí-chek-pearson-vue-testing-center-tính-cả-đi-lẫn-về-tôi-không-xem-map-lần-nào-mọi-thứ-đều-như-những-gì-tôi-tưởng-tượng-từ-khi-ở-nhà-đến-mọi-con-đường-đi-qua-giống-đến-mức-không-nhầm-vào-đâu-được-">#</a></h3>
+<p><img alt="Pearson VUE Test Center" loading="lazy" src="/posts/chia-se-kinh-nghiem-thi-aws-certified-cloud-practioner-clf-c02/more_test_center.png"></p>
+<h2 id="42-review-chỗ-thi">4.2 Review chỗ thi<a hidden class="anchor" aria-hidden="true" href="#42-review-chỗ-thi">#</a></h2>
+<p><img alt="Floor 3 Entrance" loading="lazy" src="/posts/chia-se-kinh-nghiem-thi-aws-certified-cloud-practioner-clf-c02/location_floor3_entrance.png">
+<img alt="CHEK Floor 3" loading="lazy" src="/posts/chia-se-kinh-nghiem-thi-aws-certified-cloud-practioner-clf-c02/floor3_chek.png"></p>
+<h2 id="theo-tôi-đánh-giá-chỗ-thi-này-rất-chuyên-nghiệp-và-khá-thoải-mái-người-hướng-dẫn-cũng-thân-thiện-nên-tâm-lý-thi-lần-đầu-của-tôi-đỡ-căng-thẳng-hơn-nhiều">Theo tôi đánh giá, chỗ thi này rất chuyên nghiệp và khá thoải mái. Người hướng dẫn cũng thân thiện nên tâm lý thi lần đầu của tôi đỡ căng thẳng hơn nhiều.<a hidden class="anchor" aria-hidden="true" href="#theo-tôi-đánh-giá-chỗ-thi-này-rất-chuyên-nghiệp-và-khá-thoải-mái-người-hướng-dẫn-cũng-thân-thiện-nên-tâm-lý-thi-lần-đầu-của-tôi-đỡ-căng-thẳng-hơn-nhiều">#</a></h2>
+<h2 id="lần-sau-tôi-sẽ-đến-đây-để-chinh-phục-vài-cert-nữa-nên-có-thể-coi-đây-là-địa-điểm-thi-ổn-nhất-tôi-biết">Lần sau tôi sẽ đến đây để chinh phục vài Cert nữa nên có thể coi đây là Địa điểm thi ổn nhất tôi biết<a hidden class="anchor" aria-hidden="true" href="#lần-sau-tôi-sẽ-đến-đây-để-chinh-phục-vài-cert-nữa-nên-có-thể-coi-đây-là-địa-điểm-thi-ổn-nhất-tôi-biết">#</a></h2>
+<h2 id="43-quy-trình-thi">4.3. Quy trình thi<a hidden class="anchor" aria-hidden="true" href="#43-quy-trình-thi">#</a></h2>
+<h3 id="bạn-sẽ-phải-đưa-cccd-bản-cứng-tránh-bản-sao-hay-trên-vneid-để-họ-đối-chiếu-và-kiểm-tra-không-cần-giấy-tờ-gì-thêm-sau-đó-họ-sẽ-chụp-một-tấm-hình-chân-dung-bạn-để-làm-minh-chứng">Bạn sẽ phải đưa <code>CCCD</code> bản cứng (tránh bản sao hay trên <code>VNeID</code>) để họ đối chiếu và kiểm tra, không cần giấy tờ gì thêm. Sau đó họ sẽ chụp một tấm hình chân dung bạn để làm minh chứng.<a hidden class="anchor" aria-hidden="true" href="#bạn-sẽ-phải-đưa-cccd-bản-cứng-tránh-bản-sao-hay-trên-vneid-để-họ-đối-chiếu-và-kiểm-tra-không-cần-giấy-tờ-gì-thêm-sau-đó-họ-sẽ-chụp-một-tấm-hình-chân-dung-bạn-để-làm-minh-chứng">#</a></h3>
+<h3 id="cuối-cùng-họ-hỏi-bạn-có-muốn-vào-thi-luôn-không-dù-lúc-đó-tôi-chưa-tới-giờ-thi-còn-cách-cả-1-tiếng-nên-tôi-muốn-vào-thi-luôn">Cuối cùng họ hỏi bạn có muốn vào thi luôn không dù lúc đó tôi chưa tới giờ thi (còn cách cả 1 tiếng) nên tôi muốn vào thi luôn.<a hidden class="anchor" aria-hidden="true" href="#cuối-cùng-họ-hỏi-bạn-có-muốn-vào-thi-luôn-không-dù-lúc-đó-tôi-chưa-tới-giờ-thi-còn-cách-cả-1-tiếng-nên-tôi-muốn-vào-thi-luôn">#</a></h3>
+<h3 id="khi-vào-thi-họ-sẽ-mở-máy-cho-bạn-trong-phòng-thi-và-hướng-dẫn-bạn-đọc-quy-định-rồi-làm-bài-hôm-đó-tôi-thi-vào-thứ-7-khá-vắng-chỉ-có-vài-người-nên-phòng-rất-yên-tĩnh">Khi vào thi, họ sẽ mở máy cho bạn trong phòng thi và hướng dẫn bạn đọc quy định rồi làm bài. Hôm đó tôi thi vào <code>thứ 7</code>, khá vắng, chỉ có vài người nên phòng rất yên tĩnh.😅<a hidden class="anchor" aria-hidden="true" href="#khi-vào-thi-họ-sẽ-mở-máy-cho-bạn-trong-phòng-thi-và-hướng-dẫn-bạn-đọc-quy-định-rồi-làm-bài-hôm-đó-tôi-thi-vào-thứ-7-khá-vắng-chỉ-có-vài-người-nên-phòng-rất-yên-tĩnh">#</a></h3>
+<h3 id="khi-thi-xong-ra-khỏi-phòng-họ-sẽ-nói-bạn-ký-tên-giấy-tờ-thủ-tục-thi-xong-và-chúc-mừng-bạn-nói-thật-cảm-giác-khi-thi-xong-pass-tôi-vui-sướng-trong-lòng-phải-kìm-lại-">Khi thi xong ra khỏi phòng họ sẽ nói bạn ký tên giấy tờ thủ tục thi xong, và <code>Chúc mừng bạn</code>. Nói thật cảm giác khi thi xong <code>pass</code> tôi vui sướng trong lòng phải kìm lại. ☺️<a hidden class="anchor" aria-hidden="true" href="#khi-thi-xong-ra-khỏi-phòng-họ-sẽ-nói-bạn-ký-tên-giấy-tờ-thủ-tục-thi-xong-và-chúc-mừng-bạn-nói-thật-cảm-giác-khi-thi-xong-pass-tôi-vui-sướng-trong-lòng-phải-kìm-lại-">#</a></h3>
+<h1 id="5-đôi-dòng-trải-nghiệm-và-cảm-nhận-của-tôi-cả-quá-trình-chinh-phục-cert-này-bạn-có-thể-bỏ-qua">5. Đôi dòng <code>Trải nghiệm</code> và <code>cảm nhận</code> của tôi cả quá trình chinh phục Cert này (Bạn có thể bỏ qua):<a hidden class="anchor" aria-hidden="true" href="#5-đôi-dòng-trải-nghiệm-và-cảm-nhận-của-tôi-cả-quá-trình-chinh-phục-cert-này-bạn-có-thể-bỏ-qua">#</a></h1>
+<h3 id="cả-1-tháng-trước-đây-tôi-đã-ấp-ủ-một-kế-hoạch-dài-để-chinh-phục-các-cert-và-tôi-biết-rằng-thời-gian-của-mình-không-còn-nhiều-tôi-tự-tạo-áp-lực-fomo-khá-nặng-để-buộc-bản-thân-phải-làm-tốt-hơn-sống-có-ý-nghĩa-hơn-trong-journey-này-tôi-chinh-phục-được-cert-đầu-tiên-và-tôi-rất-vui--có-thể-với-người-khác-điều-đó-không-quá-lớn-nhưng-với-tôi-đó-là-cột-mốc-vượt-qua-chính-mình-của-ngày-hôm-qua">Cả 1 tháng trước đây tôi đã ấp ủ một kế hoạch dài để chinh phục các <code>Cert</code> và tôi biết rằng thời gian của mình không còn nhiều. Tôi tự tạo áp lực <code>FOMO</code> khá nặng để buộc bản thân phải làm tốt hơn, sống có ý nghĩa hơn. Trong <code>Journey</code> này, tôi chinh phục được <code>Cert</code> đầu tiên, và tôi rất vui ☺️. Có thể với người khác điều đó không quá lớn, nhưng với tôi, đó là cột mốc vượt qua <code>chính mình</code> của ngày hôm qua.<a hidden class="anchor" aria-hidden="true" href="#cả-1-tháng-trước-đây-tôi-đã-ấp-ủ-một-kế-hoạch-dài-để-chinh-phục-các-cert-và-tôi-biết-rằng-thời-gian-của-mình-không-còn-nhiều-tôi-tự-tạo-áp-lực-fomo-khá-nặng-để-buộc-bản-thân-phải-làm-tốt-hơn-sống-có-ý-nghĩa-hơn-trong-journey-này-tôi-chinh-phục-được-cert-đầu-tiên-và-tôi-rất-vui--có-thể-với-người-khác-điều-đó-không-quá-lớn-nhưng-với-tôi-đó-là-cột-mốc-vượt-qua-chính-mình-của-ngày-hôm-qua">#</a></h3>
+<h3 id="trong-quá-trình-bắt-đầu-cert-đầu-tiên-này-tôi-đối-mặt-với-nhiều-áp-lực-những-đêm-trước-khi-thi-tôi-căng-thẳng-đến-mức-không-ngủ-được-dù-bình-thường-đặt-lưng-xuống-là-ngủ-luôn-hành-trình-này-mất-3-tuần-để-học-và-luyện-đề-nhưng-tôi-không-thể-dành-trọn-cả-3-tuần-cho-nó-vì-còn-project-nghiên-cứu-khoa-học-đồ-án-ở-trường-việc-gia-đình-và-hoạt-động-bên-ngoài-thời-gian-thực-sự-để-học-và-ôn-chắc-chỉ-hơn-1-tuần">Trong quá trình bắt đầu <code>Cert</code> đầu tiên này, tôi đối mặt với nhiều áp lực. Những đêm trước khi thi, tôi căng thẳng đến mức không ngủ được, dù bình thường đặt lưng xuống là ngủ luôn😴. Hành trình này mất <code>3 tuần</code> để học và luyện đề, nhưng tôi không thể dành trọn cả <code>3 tuần</code> cho nó vì còn project <code>Nghiên cứu khoa học</code>, đồ án ở trường, việc gia đình và hoạt động bên ngoài. Thời gian <code>thực sự</code> để học và ôn chắc chỉ hơn <code>1 tuần</code>.<a hidden class="anchor" aria-hidden="true" href="#trong-quá-trình-bắt-đầu-cert-đầu-tiên-này-tôi-đối-mặt-với-nhiều-áp-lực-những-đêm-trước-khi-thi-tôi-căng-thẳng-đến-mức-không-ngủ-được-dù-bình-thường-đặt-lưng-xuống-là-ngủ-luôn-hành-trình-này-mất-3-tuần-để-học-và-luyện-đề-nhưng-tôi-không-thể-dành-trọn-cả-3-tuần-cho-nó-vì-còn-project-nghiên-cứu-khoa-học-đồ-án-ở-trường-việc-gia-đình-và-hoạt-động-bên-ngoài-thời-gian-thực-sự-để-học-và-ôn-chắc-chỉ-hơn-1-tuần">#</a></h3>
+<h3 id="over-prepared-chuẩn-bị-quá-mức-khi-thi-xong-tôi-mới-nhận-ra-đề-này-dễ-hơn-tôi-tưởng-trước-đó-tôi-luôn-cảm-thấy-mình-có-thể-fail-nên-luyện-đề-gần-như-hết-công-suất-vì-sợ-rớt-hầu-như-ngày-nào-trước-khi-thi-tôi-cũng-stress-tôi-rút-ra-bài-học-là-không-nên-tưởng-tượng-quá-mức-một-thứ-gì-đó-quá-khó-trước-khi-nó-xảy-ra"><code>Over Prepared</code> (chuẩn bị quá mức): Khi thi xong tôi mới nhận ra đề này dễ hơn tôi tưởng. Trước đó tôi luôn cảm thấy mình có thể <code>Fail</code> nên luyện đề gần như hết công suất vì sợ rớt; hầu như ngày nào trước khi thi tôi cũng <code>Stress</code>. Tôi rút ra bài học là không nên tưởng tượng quá mức một thứ gì đó quá khó trước khi nó xảy ra.<a hidden class="anchor" aria-hidden="true" href="#over-prepared-chuẩn-bị-quá-mức-khi-thi-xong-tôi-mới-nhận-ra-đề-này-dễ-hơn-tôi-tưởng-trước-đó-tôi-luôn-cảm-thấy-mình-có-thể-fail-nên-luyện-đề-gần-như-hết-công-suất-vì-sợ-rớt-hầu-như-ngày-nào-trước-khi-thi-tôi-cũng-stress-tôi-rút-ra-bài-học-là-không-nên-tưởng-tượng-quá-mức-một-thứ-gì-đó-quá-khó-trước-khi-nó-xảy-ra">#</a></h3>
+<ul>
+<li>Mà phải bình tĩnh, có sự chuẩn bị chắc chắn</li>
+<li>Có kế hoạch ôn tập rõ ràng, không nên quá <code>hối hả</code> vì nó chả được gì ngoài sự lo âu kéo dài không cần thiết</li>
+<li>Kỷ luật và sự điều độ là việc quan trọng nhất: thay vì lúc hứng thì học 3 tiếng, hãy học đều đặn 1-2 tiếng mỗi ngày, không cần cường độ quá cao.</li>
+</ul>
+<h3 id="tôi-cần-tiến-lên-phía-trước-nhiều-hơn-nữa-còn-nhiều-thử-thách-tôi-chưa-khám-phá-hết-được">Tôi cần tiến lên phía trước nhiều hơn nữa còn nhiều thử thách tôi chưa khám phá hết được.<a hidden class="anchor" aria-hidden="true" href="#tôi-cần-tiến-lên-phía-trước-nhiều-hơn-nữa-còn-nhiều-thử-thách-tôi-chưa-khám-phá-hết-được">#</a></h3>
+<h1 id="5-lời-cuối">5. Lời cuối<a hidden class="anchor" aria-hidden="true" href="#5-lời-cuối">#</a></h1>
+<ul>
+<li><strong>Chứng chỉ này không quá khó:</strong> Bạn chỉ cần học đều đặn trong 1 tuần rồi dành 1 tuần hoặc nhiều hơn để luyện đề là đủ để pass. Tránh dành quá nhiều thời gian học lý thuyết như tôi vì nó không tạo phản xạ làm đề tốt.</li>
+<li><strong>Bước đệm:</strong> cho <code>Cert</code> tiếp theo như <code>SAA-C03</code>, một chứng chỉ tiềm năng lớn cho những ai theo <code>IT</code>, <code>AI</code>, &hellip; thậm chí <code>Non-Tech</code> cũng học được.</li>
+<li><strong>Cuối cùng</strong> là chúc bạn thi tốt cho kỳ thi sắp tới và cảm ơn bạn đã đọc qua bài viết dài lê thê này của mình!😅</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/learn/">Learn</a></li>
+      <li><a href="http://localhost:1313/tags/guide/">Guide</a></li>
+      <li><a href="http://localhost:1313/tags/experience/">Experience</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="http://localhost:1313/posts/aws-community-day-2026-ngay-toi-nhan-ra-minh-la-ai/">
+    <span class="title">Next »</span>
+    <br>
+    <span>AWS Community Day 2026 - Ngày tôi nhận ra mình là ai và biết phải làm gì trong 5 năm tới</span>
+  </a>
+</nav>
+
+
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Hành Trình Chinh Phục CLF-C02 AWS Cert đầu tiên của tôi on x"
+            href="https://x.com/intent/tweet/?text=H%c3%a0nh%20Tr%c3%acnh%20Chinh%20Ph%e1%bb%a5c%20CLF-C02%20AWS%20Cert%20%c4%91%e1%ba%a7u%20ti%c3%aan%20c%e1%bb%a7a%20t%c3%b4i&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fchia-se-kinh-nghiem-thi-aws-certified-cloud-practioner-clf-c02%2f&amp;hashtags=Learn%2cguide%2cexperience">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Hành Trình Chinh Phục CLF-C02 AWS Cert đầu tiên của tôi on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fchia-se-kinh-nghiem-thi-aws-certified-cloud-practioner-clf-c02%2f&amp;title=H%c3%a0nh%20Tr%c3%acnh%20Chinh%20Ph%e1%bb%a5c%20CLF-C02%20AWS%20Cert%20%c4%91%e1%ba%a7u%20ti%c3%aan%20c%e1%bb%a7a%20t%c3%b4i&amp;summary=H%c3%a0nh%20Tr%c3%acnh%20Chinh%20Ph%e1%bb%a5c%20CLF-C02%20AWS%20Cert%20%c4%91%e1%ba%a7u%20ti%c3%aan%20c%e1%bb%a7a%20t%c3%b4i&amp;source=http%3a%2f%2flocalhost%3a1313%2fposts%2fchia-se-kinh-nghiem-thi-aws-certified-cloud-practioner-clf-c02%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Hành Trình Chinh Phục CLF-C02 AWS Cert đầu tiên của tôi on reddit"
+            href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fchia-se-kinh-nghiem-thi-aws-certified-cloud-practioner-clf-c02%2f&title=H%c3%a0nh%20Tr%c3%acnh%20Chinh%20Ph%e1%bb%a5c%20CLF-C02%20AWS%20Cert%20%c4%91%e1%ba%a7u%20ti%c3%aan%20c%e1%bb%a7a%20t%c3%b4i">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Hành Trình Chinh Phục CLF-C02 AWS Cert đầu tiên của tôi on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fchia-se-kinh-nghiem-thi-aws-certified-cloud-practioner-clf-c02%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Hành Trình Chinh Phục CLF-C02 AWS Cert đầu tiên của tôi on whatsapp"
+            href="https://api.whatsapp.com/send?text=H%c3%a0nh%20Tr%c3%acnh%20Chinh%20Ph%e1%bb%a5c%20CLF-C02%20AWS%20Cert%20%c4%91%e1%ba%a7u%20ti%c3%aan%20c%e1%bb%a7a%20t%c3%b4i%20-%20http%3a%2f%2flocalhost%3a1313%2fposts%2fchia-se-kinh-nghiem-thi-aws-certified-cloud-practioner-clf-c02%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Hành Trình Chinh Phục CLF-C02 AWS Cert đầu tiên của tôi on telegram"
+            href="https://telegram.me/share/url?text=H%c3%a0nh%20Tr%c3%acnh%20Chinh%20Ph%e1%bb%a5c%20CLF-C02%20AWS%20Cert%20%c4%91%e1%ba%a7u%20ti%c3%aan%20c%e1%bb%a7a%20t%c3%b4i&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fchia-se-kinh-nghiem-thi-aws-certified-cloud-practioner-clf-c02%2f">
+            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Hành Trình Chinh Phục CLF-C02 AWS Cert đầu tiên của tôi on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=H%c3%a0nh%20Tr%c3%acnh%20Chinh%20Ph%e1%bb%a5c%20CLF-C02%20AWS%20Cert%20%c4%91%e1%ba%a7u%20ti%c3%aan%20c%e1%bb%a7a%20t%c3%b4i&u=http%3a%2f%2flocalhost%3a1313%2fposts%2fchia-se-kinh-nghiem-thi-aws-certified-cloud-practioner-clf-c02%2f">
+            <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+                <path
+                    d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+            </svg>
+        </a>
+    </li>
+</ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">EurusDevSec</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
