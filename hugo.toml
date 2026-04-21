@@ -10,6 +10,30 @@ paginate = 5 # Số bài viết hiển thị trên 1 trang
   ShowShareButtons = true
   ShowPostNavLinks = true
   ShowCodeCopyButtons = true # Thêm nút Copy ở các đoạn Code
+  comments = true # Bật bình luận
+  
+  # Cấu hình Utterances cho bình luận
+  [params.utterances]
+    enabled = true
+    repo = "eurusdevsec/eurusdevsec.github.io" # Thay bằng username/repo của bạn
+    issueTerm = "pathname"
+    label = "comments"
+    theme = "preferred-color-scheme"
+  
+  # Cấu hình hiển thị lượt xem
+  [params.viewCounter]
+    enabled = true
+  
+  # Cấu hình Newsletter subscription
+  [params.newsletter]
+    enabled = true
+    # Dùng Mailchimp: Lấy form action từ Mailchimp form embed code
+    # Link: https://mailchimp.com → Audience → Signup forms → Embedded forms
+    mailchimpFormAction = "" # Thay bằng form action URL của Mailchimp
+    mailchimpListId = "b_1234567890" # ID từ Mailchimp hidden input
+    # Hoặc dùng form service khác
+    formAction = "https://formspree.io/f/meevrjll" # Alternative: Formspree
+    
     [params.assets]
     favicon = "/favicon.png"
     favicon16x16 = "/favicon.png"

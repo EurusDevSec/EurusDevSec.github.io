@@ -1,0 +1,29 @@
+# Hugo build output
+/public/
+/resources/
+
+# Hugo build lock file
+.hugo_build.lock
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Obsidian (optional - if you want to exclude Obsidian config)
+# .obsidian/
+
+# Node modules (if using)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Environment files
+.env
+.env.local
