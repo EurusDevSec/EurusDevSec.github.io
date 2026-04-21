@@ -1,0 +1,336 @@
+{{- if site.Params.newsletter.enabled }}
+<style>
+  .newsletter-floating-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    transition: all 0.3s ease;
+  }
+
+  .newsletter-floating-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  }
+
+  .newsletter-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .newsletter-modal.active {
+    display: flex;
+  }
+
+  .newsletter-modal-content {
+    background: white;
+    border-radius: 8px;
+    padding: 40px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: slideIn 0.3s ease;
+  }
+
+  .dark .newsletter-modal-content {
+    background: #222;
+    color: white;
+  }
+
+  .newsletter-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: inherit;
+  }
+
+  .newsletter-modal-content h2 {
+    margin: 0 0 10px 0;
+    font-size: 24px;
+  }
+
+  .newsletter-modal-content p {
+    margin: 0 0 20px 0;
+    color: #666;
+    font-size: 14px;
+  }
+
+  .dark .newsletter-modal-content p {
+    color: #aaa;
+  }
+
+  .newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .newsletter-form input,
+  .newsletter-form textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: inherit;
+  }
+
+  .dark .newsletter-form input,
+  .dark .newsletter-form textarea {
+    background: #333;
+    border-color: #555;
+    color: white;
+  }
+
+  .newsletter-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+
+  .newsletter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+  }
+
+  .newsletter-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  .response {
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  #mce-success-response {
+    background-color: #d4edda;
+    color: #155724;
+    display: none;
+  }
+
+  #mce-error-response {
+    background-color: #f8d7da;
+    color: #721c24;
+    display: none;
+  }
+
+  .dark #mce-success-response {
+    background-color: #1e5631;
+    color: #a8d5ba;
+  }
+
+  .dark #mce-error-response {
+    background-color: #5c2c2c;
+    color: #f8b4b4;
+  }
+
+  .newsletter-disclaimer {
+    font-size: 12px;
+    color: #999;
+    margin-top: 15px;
+    text-align: center;
+  }
+
+  .dark .newsletter-disclaimer {
+    color: #777;
+  }
+
+  @media (max-width: 480px) {
+    .newsletter-floating-btn {
+      width: 50px;
+      height: 50px;
+      bottom: 20px;
+      right: 20px;
+    }
+
+    .newsletter-modal-content {
+      padding: 30px 20px;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+</style>
+
+<div
+  id="newsletter-button"
+  class="newsletter-floating-btn"
+  title="Subscribe to newsletter"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path
+      d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+    ></path>
+    <polyline points="22,6 12,13 2,6"></polyline>
+  </svg>
+</div>
+
+<div id="newsletter-modal" class="newsletter-modal">
+  <div class="newsletter-modal-content">
+    <button class="newsletter-close" id="close-newsletter">&times;</button>
+
+    <h2>📧 Never miss a post</h2>
+    <p>Subscribe to get the latest updates directly to your inbox</p>
+
+    {{- if site.Params.newsletter.mailchimpFormAction }}
+    <!-- Mailchimp Form -->
+    <form
+      action="{{ site.Params.newsletter.mailchimpFormAction }}"
+      method="post"
+      id="mc-form"
+      name="mc-form"
+      class="validate"
+      novalidate
+    >
+      <div class="mc-field-group">
+        <input
+          type="email"
+          value=""
+          name="EMAIL"
+          class="required email"
+          id="mce-EMAIL"
+          placeholder="Your email address"
+          required
+        />
+      </div>
+      <div id="mce-responses" class="response">
+        <div
+          class="response"
+          id="mce-error-response"
+          style="display: none"
+        ></div>
+        <div
+          class="response"
+          id="mce-success-response"
+          style="display: none"
+        ></div>
+      </div>
+      <div style="position: absolute; left: -5000px" aria-hidden="true">
+        <input
+          type="text"
+          name="{{ site.Params.newsletter.mailchimpListId }}"
+          value=""
+        />
+      </div>
+      <button type="submit" class="newsletter-btn">Subscribe</button>
+    </form>
+    {{- else if site.Params.newsletter.formAction }}
+    <!-- Generic Form (Formspree, Basin, etc.) -->
+    <form
+      method="POST"
+      action="{{ site.Params.newsletter.formAction }}"
+      class="newsletter-form"
+    >
+      <input
+        type="email"
+        name="email"
+        placeholder="Your email address"
+        required
+      />
+      <button type="submit" class="newsletter-btn">Subscribe</button>
+    </form>
+    {{- end }}
+
+    <p class="newsletter-disclaimer">
+      We respect your privacy. Unsubscribe at any time.
+    </p>
+  </div>
+</div>
+
+<script>
+  const newsletterButton = document.getElementById("newsletter-button");
+  const newsletterModal = document.getElementById("newsletter-modal");
+  const closeButton = document.getElementById("close-newsletter");
+
+  newsletterButton.addEventListener("click", () => {
+    newsletterModal.classList.add("active");
+  });
+
+  closeButton.addEventListener("click", () => {
+    newsletterModal.classList.remove("active");
+  });
+
+  newsletterModal.addEventListener("click", (e) => {
+    if (e.target === newsletterModal) {
+      newsletterModal.classList.remove("active");
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      newsletterModal.classList.remove("active");
+    }
+  });
+
+  // Busuanzi counter script
+  if (document.getElementById("busuanzi_container_page_pv")) {
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.src = "//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  }
+</script>
+{{- end }}
