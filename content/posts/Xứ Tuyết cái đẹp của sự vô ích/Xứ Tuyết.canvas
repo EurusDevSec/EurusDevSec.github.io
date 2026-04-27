@@ -1,0 +1,22 @@
+{
+	"nodes":[
+		{"id":"688dff50738bc481","x":-701,"y":-497,"width":297,"height":221,"color":"6","type":"text","text":"Sống ở Tokyo \n- Tài tử thừa hưởng tài sản thừa kế\n- Nghiên cứu ba lê phương tây nhưng không thực sự dấn thân thực tế\n- Thích sự hư vô, ảo ảnh\n- Đã có vợ và con\n- Đã đến xứ tuyết 3 lần"},
+		{"id":"00f469edc55a2815","x":-580,"y":-173,"width":116,"height":60,"color":"5","type":"text","text":"Shimamura"},
+		{"id":"46dbb32ab8b524ce","x":-320,"y":-251,"width":225,"height":106,"type":"text","text":"Yêu thông qua cái có thật\n, thể xác, có thể chạm vào được, đại diện sự hiện diện"},
+		{"id":"d47e27359108d380","x":11,"y":-223,"width":100,"height":50,"color":"1","type":"text","text":"Komako"},
+		{"id":"abd227add06009db","x":-320,"y":-64,"width":250,"height":60,"type":"text","text":"Yêu cái hư vô, mờ ảo, không thể chạm đến được"},
+		{"id":"350b4c00db1e31ae","x":100,"y":-64,"width":80,"height":55,"color":"#ffffff","type":"text","text":"Yoko"},
+		{"id":"75502f912f784085","x":25,"y":84,"width":230,"height":173,"type":"text","text":"Là một cô gái hiền lành\n- Có vẻ đẹp đến mức `ảo ảnh`\n- Chăm sóc tận tình\n- Dịu dàng, thuần khiết"},
+		{"id":"d7b5485e8d5f54f3","x":-80,"y":-580,"width":300,"height":227,"type":"text","text":"Là một Geisha onsen \n- Có skill chơi `shamisen` điêu luyện\n- Viết nhật kí chi tiết\n- Múa\n- giao tiếp đỉnh cao\n- Sự nồng nhiệt (nóng, ấm áp)"},
+		{"id":"84e3dfefbdc8ba8b","x":-647,"y":207,"width":250,"height":100,"type":"text","text":"Scene1: Cảnh phản chiếu\nhình bóng vẻ đẹp Yoko qua gương"}
+	],
+	"edges":[
+		{"id":"13cd1fdd26e05ba4","fromNode":"00f469edc55a2815","fromSide":"top","toNode":"688dff50738bc481","toSide":"bottom"},
+		{"id":"8be50ccbf28a3496","fromNode":"00f469edc55a2815","fromSide":"right","toNode":"46dbb32ab8b524ce","toSide":"left"},
+		{"id":"48a5f1a9d96e2f0c","fromNode":"46dbb32ab8b524ce","fromSide":"right","toNode":"d47e27359108d380","toSide":"left"},
+		{"id":"77c653f857382af6","fromNode":"00f469edc55a2815","fromSide":"right","toNode":"abd227add06009db","toSide":"left"},
+		{"id":"642176df5815fb15","fromNode":"abd227add06009db","fromSide":"right","toNode":"350b4c00db1e31ae","toSide":"left"},
+		{"id":"a8b0ec68afd503c4","fromNode":"75502f912f784085","fromSide":"top","toNode":"350b4c00db1e31ae","toSide":"bottom"},
+		{"id":"f219ec5ee76488fc","fromNode":"d7b5485e8d5f54f3","fromSide":"bottom","toNode":"d47e27359108d380","toSide":"top"}
+	]
+}
