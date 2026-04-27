@@ -21,6 +21,7 @@ slug: xu-tuyet-cai-dep-cua-su-vo-ich
 
 ## **_Con tàu vượt qua cái hầm dài ở ranh giới, thì tới xứ tuyết_**
 
+![alt text](image-3.png)
 Câu mở đầu của tác phẩm Xứ tuyết đã đưa người đọc đi chuẩn bị bước qua ranh giới giữa thế giới thực qua `cái hầm dài` ở ranh giới, tới xứ tuyết là nơi hư ảo. Trong chuyến tàu nhân vật chính `shimamura` chán nản cuộc sống thực tế ở `Tokyo` để đến với `Xứ Tuyết` Nằm ở một thị trấn suối nước nóng (onsen) hẻo lánh nằm ở vùng núi phía tây rặng  Alps Nhật Bản thuộc tỉnh Nigata ngày nay
 
 Cảm giác `trắng xoá` khi bước từ thế giới thực qua thế giới `hư ảo` là một sự chuyển giao giữa hai thế giới, tuyết bao phủ vùng trắng xoá ấy, trong chuyến tàu một cô gái tên `Yoko` sở hữu vẻ đẹp phản chiếu qua kính tàu chồng lớp lên phong cảnh núi tuyết bên ngoài nó gợi lên cho tôi cái vẻ đẹp `ảo ảnh` thật lạnh lẽo dưới cái thời tiết của thế giới khác này. Tạo nên một sự mơ hồ khó chạm đến được nhưng lại rất muốn sở hữu nó.
