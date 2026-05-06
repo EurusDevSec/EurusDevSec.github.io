@@ -20,13 +20,13 @@ export default async function WritePage() {
   return (
     <>
       <Navbar />
-      <main className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
-        <div className="mb-8">
+      <main className="mx-auto max-w-5xl px-4 py-10 sm:px-6">
+        <div className="mb-6">
           <h1 className="text-3xl font-extrabold tracking-tight text-text-primary">
             Viết bài mới
           </h1>
           <p className="mt-2 text-sm text-text-muted">
-            Bài viết sẽ được đăng lên Community ngay sau khi submit. Hỗ trợ Markdown & GFM.
+            Hỗ trợ Markdown & GFM · Chèn ảnh bằng nút 🖼 trên toolbar hoặc paste thẳng (Ctrl+V)
           </p>
         </div>
 

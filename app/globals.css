@@ -6,22 +6,49 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
 /* ──────────────────────────────────────────
-   CSS Design Tokens — Emerald Minimal Elegant
+   CSS Design Tokens — Light mode (default)
 ────────────────────────────────────────── */
 :root {
-  --background: 210 20% 6%;          /* #0b0f14 deep dark */
-  --surface: 210 18% 9%;             /* #111820 */
-  --surface-elevated: 210 16% 13%;   /* #181f28 */
-  --border: 210 12% 18%;             /* #252d38 */
-  --accent: 160 84% 39%;             /* #10b981 emerald */
-  --accent-dim: 160 70% 30%;         /* darker emerald */
+  --background: 0 0% 98%;             /* #fafafa off-white */
+  --surface: 0 0% 100%;               /* #ffffff */
+  --surface-elevated: 210 20% 96%;    /* #f1f4f8 */
+  --border: 210 14% 88%;              /* #d8dde6 */
+  --accent: 160 84% 35%;              /* #0da271 emerald (darker for light) */
+  --accent-dim: 160 70% 28%;
   --accent-foreground: 0 0% 100%;
-  --secondary: 168 80% 58%;          /* #2dd4bf teal */
-  --text-primary: 210 20% 93%;       /* #e8ecf1 near-white */
-  --text-secondary: 210 12% 65%;     /* #95a0ae */
-  --text-muted: 210 10% 42%;         /* #5f6a78 */
+  --secondary: 168 75% 40%;           /* #17a589 teal */
+  --text-primary: 210 25% 12%;        /* #161d28 near-black */
+  --text-secondary: 210 15% 38%;      /* #526070 */
+  --text-muted: 210 10% 58%;          /* #88929e */
 
-  /* Shiki code theme variables — emerald palette */
+  /* Shiki light theme */
+  --shiki-color-text: #24292e;
+  --shiki-color-background: #f6f8fa;
+  --shiki-token-constant: #005cc5;
+  --shiki-token-string: #22863a;
+  --shiki-token-comment: #6a737d;
+  --shiki-token-keyword: #d73a49;
+  --shiki-token-parameter: #e36209;
+  --shiki-token-function: #6f42c1;
+  --shiki-token-string-expression: #22863a;
+  --shiki-token-punctuation: #24292e;
+  --shiki-token-link: #032f62;
+}
+
+/* ── Dark mode overrides ── */
+.dark {
+  --background: 210 20% 6%;
+  --surface: 210 18% 9%;
+  --surface-elevated: 210 16% 13%;
+  --border: 210 12% 18%;
+  --accent: 160 84% 39%;
+  --accent-dim: 160 70% 30%;
+  --accent-foreground: 0 0% 100%;
+  --secondary: 168 80% 58%;
+  --text-primary: 210 20% 93%;
+  --text-secondary: 210 12% 65%;
+  --text-muted: 210 10% 42%;
+
   --shiki-color-text: #e2e8f0;
   --shiki-color-background: #111820;
   --shiki-token-constant: #34d399;
@@ -55,27 +82,18 @@ body {
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.2s, color 0.2s;
 }
 
-/* Scrollbar — thin & minimal */
-::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: hsl(var(--border));
-  border-radius: 10px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--accent) / 0.4);
-}
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: hsl(var(--accent) / 0.4); }
 
 /* Selection */
 ::selection {
-  background-color: hsl(var(--accent) / 0.2);
+  background-color: hsl(var(--accent) / 0.15);
   color: hsl(var(--text-primary));
 }
 
@@ -90,9 +108,8 @@ body {
    Utility classes
 ────────────────────────────────────────── */
 @layer components {
-  /* Glassmorphism card */
   .glass-card {
-    @apply rounded-2xl border border-white/[0.06] bg-surface/80 backdrop-blur-md;
+    @apply rounded-2xl border border-black/[0.06] dark:border-white/[0.06] bg-surface/80 backdrop-blur-md;
     background: linear-gradient(
       145deg,
       hsl(var(--surface-elevated) / 0.7),
@@ -100,33 +117,28 @@ body {
     );
   }
 
-  /* Gradient text — emerald to teal */
   .gradient-text {
-    @apply bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-emerald-600 to-teal-500 dark:from-emerald-400 dark:to-teal-300 bg-clip-text text-transparent;
   }
 
-  /* Primary button — emerald glow */
   .btn-primary {
-    @apply inline-flex items-center gap-2 rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-5 py-2.5 text-sm font-medium text-emerald-400 transition-all duration-200 hover:bg-emerald-500/20 hover:border-emerald-500/50 hover:shadow-[0_0_20px_hsl(160_84%_39%/0.15)] active:scale-[0.97];
+    @apply inline-flex items-center gap-2 rounded-lg border border-emerald-600/30 dark:border-emerald-500/30 bg-emerald-600/10 dark:bg-emerald-500/10 px-5 py-2.5 text-sm font-medium text-emerald-700 dark:text-emerald-400 transition-all duration-200 hover:bg-emerald-600/20 hover:border-emerald-600/50 active:scale-[0.97];
   }
 
   .btn-secondary {
-    @apply inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm font-medium text-text-secondary transition-all duration-200 hover:border-emerald-500/30 hover:text-text-primary active:scale-[0.97];
+    @apply inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm font-medium text-text-secondary transition-all duration-200 hover:border-emerald-600/30 dark:hover:border-emerald-500/30 hover:text-text-primary active:scale-[0.97];
   }
 
-  /* Tag pill */
   .tag-pill {
     @apply inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-medium transition-colors;
   }
 
-  /* Section heading */
   .section-heading {
     @apply text-2xl font-bold tracking-tight text-text-primary;
   }
 
-  /* Animated underline link */
   .link-hover {
-    @apply relative text-emerald-400 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-emerald-400 after:transition-all after:duration-300 hover:after:w-full;
+    @apply relative text-emerald-700 dark:text-emerald-400 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-emerald-600 dark:after:bg-emerald-400 after:transition-all after:duration-300 hover:after:w-full;
   }
 }
 
@@ -143,7 +155,7 @@ body {
   padding: 1.25rem 1.5rem;
   border-radius: 0.75rem;
   border: 1px solid hsl(var(--border));
-  background: hsl(var(--surface)) !important;
+  background: hsl(var(--surface-elevated)) !important;
   font-size: 0.875rem;
   line-height: 1.7;
   font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
@@ -162,10 +174,7 @@ body {
   color: hsl(var(--text-secondary));
 }
 
-/* Line numbers */
-code[data-line-numbers] {
-  counter-reset: line;
-}
+code[data-line-numbers] { counter-reset: line; }
 code[data-line-numbers] > [data-line]::before {
   counter-increment: line;
   content: counter(line);
@@ -177,14 +186,13 @@ code[data-line-numbers] > [data-line]::before {
   user-select: none;
 }
 
-/* Highlighted line */
 [data-highlighted-line] {
   background-color: hsl(var(--accent) / 0.08);
   border-left: 2px solid hsl(var(--accent));
   padding-left: calc(1.5rem - 2px);
 }
 
-/* Inline code — emerald styled */
+/* Inline code */
 :not(pre) > code {
   background: hsl(var(--surface-elevated));
   border: 1px solid hsl(var(--border));
@@ -197,36 +205,57 @@ code[data-line-numbers] > [data-line]::before {
 }
 
 /* ──────────────────────────────────────────
-   Prose (article content) — clean emerald
+   Prose — light & dark
 ────────────────────────────────────────── */
 .prose-blog {
-  @apply prose prose-invert max-w-none;
+  @apply prose max-w-none;
   @apply prose-headings:font-bold prose-headings:text-text-primary;
   @apply prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl;
   @apply prose-h2:mt-10 prose-h2:mb-4 prose-h3:mt-8 prose-h3:mb-3;
   @apply prose-p:text-text-secondary prose-p:leading-relaxed;
-  @apply prose-a:text-emerald-400 prose-a:no-underline hover:prose-a:underline;
   @apply prose-strong:text-text-primary prose-strong:font-semibold;
-  @apply prose-blockquote:border-l-emerald-500 prose-blockquote:text-text-secondary prose-blockquote:bg-surface-elevated/50 prose-blockquote:py-1 prose-blockquote:rounded-r-lg;
-  @apply prose-img:rounded-xl prose-img:border prose-img:border-border prose-img:shadow-lg;
+  @apply prose-img:rounded-xl prose-img:border prose-img:border-border prose-img:shadow-sm;
   @apply prose-hr:border-border;
   @apply prose-ul:text-text-secondary prose-ol:text-text-secondary;
-  @apply prose-li:marker:text-emerald-400;
 }
 
-/* Fix inline code in prose — render backtick content properly */
+/* Light mode prose */
+.prose-blog {
+  --tw-prose-body: hsl(var(--text-secondary));
+  --tw-prose-headings: hsl(var(--text-primary));
+  --tw-prose-links: hsl(var(--accent));
+  --tw-prose-bold: hsl(var(--text-primary));
+  --tw-prose-bullets: hsl(var(--accent));
+  --tw-prose-hr: hsl(var(--border));
+  --tw-prose-quotes: hsl(var(--text-secondary));
+  --tw-prose-quote-borders: hsl(var(--accent));
+  --tw-prose-captions: hsl(var(--text-muted));
+  --tw-prose-code: hsl(var(--accent));
+  --tw-prose-pre-code: hsl(var(--text-primary));
+  --tw-prose-pre-bg: hsl(var(--surface-elevated));
+  --tw-prose-th-borders: hsl(var(--border));
+  --tw-prose-td-borders: hsl(var(--border));
+}
+
+.prose-blog a { @apply text-emerald-700 dark:text-emerald-400 no-underline hover:underline; }
+.prose-blog li::marker { @apply text-emerald-600 dark:text-emerald-400; }
+.prose-blog blockquote {
+  @apply border-l-emerald-500 bg-emerald-50/50 dark:bg-surface-elevated/50 py-1 rounded-r-lg;
+}
+
+/* Fix backtick rendering */
 .prose-blog code::before,
 .prose-blog code::after {
   content: '' !important;
 }
 
 /* ──────────────────────────────────────────
-   Hero grid background — emerald tint
+   Hero grid — adapts to mode
 ────────────────────────────────────────── */
 .hero-grid {
   background-image:
-    linear-gradient(hsl(var(--border) / 0.25) 1px, transparent 1px),
-    linear-gradient(90deg, hsl(var(--border) / 0.25) 1px, transparent 1px);
+    linear-gradient(hsl(var(--border) / 0.4) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--border) / 0.4) 1px, transparent 1px);
   background-size: 60px 60px;
   mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 20%, transparent 100%);
 }
@@ -234,9 +263,7 @@ code[data-line-numbers] > [data-line]::before {
 /* ──────────────────────────────────────────
    Page transitions
 ────────────────────────────────────────── */
-.page-enter {
-  animation: fadeIn 0.4s ease-out;
-}
+.page-enter { animation: fadeIn 0.4s ease-out; }
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(8px); }
