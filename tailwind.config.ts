@@ -10,7 +10,6 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Dark theme palette (DevSecOps aesthetic)
         background: 'hsl(var(--background))',
         surface: 'hsl(var(--surface))',
         'surface-elevated': 'hsl(var(--surface-elevated))',
@@ -32,9 +31,9 @@ const config: Config = {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'hero-glow':
-          'radial-gradient(ellipse 80% 50% at 50% -20%, hsl(189 94% 43% / 0.15), transparent)',
+          'radial-gradient(ellipse 80% 50% at 50% -20%, hsl(160 84% 39% / 0.12), transparent)',
         'card-glow':
-          'radial-gradient(ellipse 60% 60% at 50% 0%, hsl(189 94% 43% / 0.08), transparent)',
+          'radial-gradient(ellipse 60% 60% at 50% 0%, hsl(160 84% 39% / 0.06), transparent)',
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
@@ -52,29 +51,29 @@ const config: Config = {
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
         glow: {
-          '0%': { boxShadow: '0 0 5px hsl(189 94% 43% / 0.3)' },
-          '100%': { boxShadow: '0 0 20px hsl(189 94% 43% / 0.6)' },
+          '0%': { boxShadow: '0 0 5px hsl(160 84% 39% / 0.2)' },
+          '100%': { boxShadow: '0 0 20px hsl(160 84% 39% / 0.4)' },
         },
       },
       typography: {
         invert: {
           css: {
-            '--tw-prose-body': 'hsl(214 32% 85%)',
-            '--tw-prose-headings': 'hsl(214 32% 95%)',
-            '--tw-prose-lead': 'hsl(214 20% 70%)',
-            '--tw-prose-links': 'hsl(189 94% 43%)',
-            '--tw-prose-bold': 'hsl(214 32% 95%)',
-            '--tw-prose-counters': 'hsl(214 20% 60%)',
-            '--tw-prose-bullets': 'hsl(214 20% 40%)',
-            '--tw-prose-hr': 'hsl(215 20% 20%)',
-            '--tw-prose-quotes': 'hsl(214 32% 85%)',
-            '--tw-prose-quote-borders': 'hsl(189 94% 43%)',
-            '--tw-prose-captions': 'hsl(214 20% 60%)',
-            '--tw-prose-code': 'hsl(189 94% 70%)',
-            '--tw-prose-pre-code': 'hsl(214 32% 85%)',
-            '--tw-prose-pre-bg': 'hsl(215 28% 8%)',
-            '--tw-prose-th-borders': 'hsl(215 20% 20%)',
-            '--tw-prose-td-borders': 'hsl(215 20% 16%)',
+            '--tw-prose-body': 'hsl(210 12% 75%)',
+            '--tw-prose-headings': 'hsl(210 20% 95%)',
+            '--tw-prose-lead': 'hsl(210 12% 70%)',
+            '--tw-prose-links': 'hsl(160 84% 45%)',
+            '--tw-prose-bold': 'hsl(210 20% 95%)',
+            '--tw-prose-counters': 'hsl(210 12% 60%)',
+            '--tw-prose-bullets': 'hsl(160 84% 39%)',
+            '--tw-prose-hr': 'hsl(210 12% 18%)',
+            '--tw-prose-quotes': 'hsl(210 12% 75%)',
+            '--tw-prose-quote-borders': 'hsl(160 84% 39%)',
+            '--tw-prose-captions': 'hsl(210 12% 60%)',
+            '--tw-prose-code': 'hsl(160 84% 55%)',
+            '--tw-prose-pre-code': 'hsl(210 12% 85%)',
+            '--tw-prose-pre-bg': 'hsl(210 18% 8%)',
+            '--tw-prose-th-borders': 'hsl(210 12% 20%)',
+            '--tw-prose-td-borders': 'hsl(210 12% 16%)',
           },
         },
       },

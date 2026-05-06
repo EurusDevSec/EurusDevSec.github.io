@@ -15,7 +15,7 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
       href={`/blog/${post.slug}`}
       className={cn(
         'group relative flex flex-col overflow-hidden rounded-xl border border-border/60 bg-surface/60 transition-all duration-300',
-        'hover:border-accent/30 hover:shadow-[0_0_30px_hsl(189_94%_43%/0.08)] hover:-translate-y-0.5',
+        'hover:border-emerald-500/30 hover:shadow-[0_0_30px_hsl(160_84%_39%/0.06)] hover:-translate-y-0.5',
         featured && 'md:col-span-2'
       )}
     >

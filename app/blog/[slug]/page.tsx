@@ -7,8 +7,10 @@ import PostContent from '@/components/blog/PostContent'
 import TOC from '@/components/blog/TOC'
 import TagBadge from '@/components/blog/TagBadge'
 import ReadingTime from '@/components/blog/ReadingTime'
+import BlogCommentSection from '@/components/blog/BlogCommentSection'
 import { getPostBySlug, getAllSlugs, extractHeadings } from '@/lib/posts'
 import { formatDate } from '@/lib/utils'
+import { createClient } from '@/lib/supabase/server'
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>
@@ -48,15 +50,30 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   const headings = post.ShowToc !== false ? extractHeadings(post.content) : []
 
+  // Fetch blog comments by slug
+  const supabase = await createClient()
+  const { data: comments } = await supabase
+    .from('comments')
+    .select(`
+      id, content, created_at,
+      profiles ( username, display_name )
+    `)
+    .eq('blog_slug', slug)
+    .order('created_at', { ascending: true })
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
+
   return (
     <>
       <Navbar />
       <main className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
         {/* Breadcrumb */}
         <nav className="mb-6 flex items-center gap-2 text-sm text-text-muted">
-          <Link href="/" className="hover:text-accent">Trang chủ</Link>
+          <Link href="/" className="hover:text-emerald-400">Trang chủ</Link>
           <span>/</span>
-          <Link href="/blog" className="hover:text-accent">Blog</Link>
+          <Link href="/blog" className="hover:text-emerald-400">Blog</Link>
           <span>/</span>
           <span className="text-text-secondary line-clamp-1">{post.title}</span>
         </nav>
@@ -71,7 +88,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   <Link
                     key={cat}
                     href={`/blog?category=${encodeURIComponent(cat)}`}
-                    className="text-sm font-medium uppercase tracking-wider text-accent/80 hover:text-accent"
+                    className="text-sm font-medium uppercase tracking-wider text-emerald-400/80 hover:text-emerald-400"
                   >
                     {cat}
                   </Link>
@@ -85,9 +102,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </h1>
 
             {/* Meta bar */}
-            <div className="mb-8 flex flex-wrap items-center gap-4 border-b border-border/60 pb-6 text-sm text-text-muted">
+            <div className="mb-8 flex flex-wrap items-center gap-4 border-b border-white/[0.06] pb-6 text-sm text-text-muted">
               <div className="flex items-center gap-2">
-                <div className="flex h-7 w-7 items-center justify-center rounded-full bg-accent/20 text-xs font-bold text-accent">
+                <div className="flex h-7 w-7 items-center justify-center rounded-full bg-emerald-500/15 text-xs font-bold text-emerald-400">
                   E
                 </div>
                 <span>{post.author ?? 'EurusDevSec'}</span>
@@ -104,7 +121,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
             {/* Tags footer */}
             {post.tags && post.tags.length > 0 && (
-              <div className="mt-10 flex flex-wrap items-center gap-2 border-t border-border/60 pt-6">
+              <div className="mt-10 flex flex-wrap items-center gap-2 border-t border-white/[0.06] pt-6">
                 <span className="text-sm text-text-muted">Tags:</span>
                 {post.tags.map((tag) => (
                   <TagBadge key={tag} tag={tag} size="md" />
@@ -113,10 +130,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             )}
 
             {/* Navigation */}
-            <div className="mt-10 border-t border-border/60 pt-6">
+            <div className="mt-8 border-t border-white/[0.06] pt-6">
               <Link
                 href="/blog"
-                className="inline-flex items-center gap-2 text-sm text-text-secondary transition-colors hover:text-accent"
+                className="inline-flex items-center gap-2 text-sm text-text-secondary transition-colors hover:text-emerald-400"
               >
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -124,6 +141,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 Quay lại Blog
               </Link>
             </div>
+
+            {/* ── COMMENTS ── */}
+            <BlogCommentSection
+              blogSlug={slug}
+              comments={(comments ?? []) as any}
+              currentUserId={user?.id}
+            />
           </article>
 
           {/* ── SIDEBAR (TOC) ── */}

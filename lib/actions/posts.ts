@@ -99,4 +99,33 @@ export async function deleteCommentAction(
 
   await supabase.from('comments').delete().eq('id', commentId).eq('author_id', user.id)
   revalidatePath(`/community/${postSlug}`)
+  revalidatePath(`/blog/${postSlug}`)
+}
+
+// ── ADD BLOG COMMENT (slug-based) ──────────────────────────────────────────
+export async function addBlogCommentAction(
+  _prevState: CommentState,
+  formData: FormData
+): Promise<CommentState> {
+  const supabase = await createClient()
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
+  if (!user) return { error: 'Đăng nhập để bình luận.' }
+
+  const blogSlug = formData.get('blog_slug') as string
+  const content = (formData.get('content') as string)?.trim()
+
+  if (!content) return { error: 'Bình luận không được trống.' }
+  if (content.length > 1000) return { error: 'Bình luận quá dài (tối đa 1000 ký tự).' }
+
+  // Blog comments use blog_slug column instead of post_id (UUID)
+  const { error } = await supabase
+    .from('comments')
+    .insert({ blog_slug: blogSlug, author_id: user.id, content })
+
+  if (error) return { error: error.message }
+
+  revalidatePath(`/blog/${blogSlug}`)
+  return null
 }

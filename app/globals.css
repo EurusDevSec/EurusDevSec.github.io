@@ -6,47 +6,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
 /* ──────────────────────────────────────────
-   CSS Design Tokens (Dark mode default)
+   CSS Design Tokens — Emerald Minimal Elegant
 ────────────────────────────────────────── */
 :root {
-  --background: 215 35% 6%;        /* #050d1a */
-  --surface: 215 33% 9%;           /* #0a1525 */
-  --surface-elevated: 215 30% 13%; /* #111f33 */
-  --border: 215 22% 18%;           /* #1d2d45 */
-  --accent: 189 94% 43%;           /* #06b6d4 cyan */
-  --accent-dim: 189 70% 35%;       /* darker cyan */
+  --background: 210 20% 6%;          /* #0b0f14 deep dark */
+  --surface: 210 18% 9%;             /* #111820 */
+  --surface-elevated: 210 16% 13%;   /* #181f28 */
+  --border: 210 12% 18%;             /* #252d38 */
+  --accent: 160 84% 39%;             /* #10b981 emerald */
+  --accent-dim: 160 70% 30%;         /* darker emerald */
   --accent-foreground: 0 0% 100%;
-  --secondary: 258 90% 73%;        /* #a78bfa violet */
-  --text-primary: 214 32% 91%;     /* #dde5f0 */
-  --text-secondary: 214 18% 62%;   /* #8ca0ba */
-  --text-muted: 214 15% 40%;       /* #516075 */
+  --secondary: 168 80% 58%;          /* #2dd4bf teal */
+  --text-primary: 210 20% 93%;       /* #e8ecf1 near-white */
+  --text-secondary: 210 12% 65%;     /* #95a0ae */
+  --text-muted: 210 10% 42%;         /* #5f6a78 */
 
-  /* Shiki code theme variables */
+  /* Shiki code theme variables — emerald palette */
   --shiki-color-text: #e2e8f0;
-  --shiki-color-background: #0a1525;
-  --shiki-token-constant: #22d3ee;
-  --shiki-token-string: #4ade80;
-  --shiki-token-comment: #516075;
-  --shiki-token-keyword: #a78bfa;
-  --shiki-token-parameter: #fb923c;
-  --shiki-token-function: #60a5fa;
-  --shiki-token-string-expression: #4ade80;
+  --shiki-color-background: #111820;
+  --shiki-token-constant: #34d399;
+  --shiki-token-string: #6ee7b7;
+  --shiki-token-comment: #5f6a78;
+  --shiki-token-keyword: #2dd4bf;
+  --shiki-token-parameter: #fbbf24;
+  --shiki-token-function: #67e8f9;
+  --shiki-token-string-expression: #6ee7b7;
   --shiki-token-punctuation: #94a3b8;
-  --shiki-token-link: #22d3ee;
-}
-
-/* Light mode overrides */
-.light {
-  --background: 0 0% 98%;
-  --surface: 0 0% 100%;
-  --surface-elevated: 210 20% 96%;
-  --border: 214 14% 88%;
-  --accent: 189 94% 35%;
-  --accent-dim: 189 80% 28%;
-  --secondary: 258 80% 60%;
-  --text-primary: 215 25% 15%;
-  --text-secondary: 215 15% 40%;
-  --text-muted: 215 10% 60%;
+  --shiki-token-link: #34d399;
 }
 
 /* ──────────────────────────────────────────
@@ -71,25 +57,25 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Scrollbar */
+/* Scrollbar — thin & minimal */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: hsl(var(--surface));
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
   background: hsl(var(--border));
-  border-radius: 3px;
+  border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--accent) / 0.5);
+  background: hsl(var(--accent) / 0.4);
 }
 
-/* Selection highlight */
+/* Selection */
 ::selection {
-  background-color: hsl(var(--accent) / 0.25);
+  background-color: hsl(var(--accent) / 0.2);
   color: hsl(var(--text-primary));
 }
 
@@ -106,26 +92,26 @@ body {
 @layer components {
   /* Glassmorphism card */
   .glass-card {
-    @apply rounded-xl border border-white/5 bg-surface/80 backdrop-blur-sm;
+    @apply rounded-2xl border border-white/[0.06] bg-surface/80 backdrop-blur-md;
     background: linear-gradient(
-      135deg,
-      hsl(var(--surface-elevated) / 0.8),
-      hsl(var(--surface) / 0.6)
+      145deg,
+      hsl(var(--surface-elevated) / 0.7),
+      hsl(var(--surface) / 0.5)
     );
   }
 
-  /* Gradient text */
+  /* Gradient text — emerald to teal */
   .gradient-text {
-    @apply bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent;
   }
 
-  /* Cyan glow button */
+  /* Primary button — emerald glow */
   .btn-primary {
-    @apply inline-flex items-center gap-2 rounded-lg border border-accent/30 bg-accent/10 px-5 py-2.5 text-sm font-medium text-accent transition-all duration-200 hover:bg-accent/20 hover:border-accent/60 hover:shadow-[0_0_20px_hsl(189_94%_43%/0.2)] active:scale-95;
+    @apply inline-flex items-center gap-2 rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-5 py-2.5 text-sm font-medium text-emerald-400 transition-all duration-200 hover:bg-emerald-500/20 hover:border-emerald-500/50 hover:shadow-[0_0_20px_hsl(160_84%_39%/0.15)] active:scale-[0.97];
   }
 
   .btn-secondary {
-    @apply inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm font-medium text-text-secondary transition-all duration-200 hover:border-accent/30 hover:text-text-primary active:scale-95;
+    @apply inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm font-medium text-text-secondary transition-all duration-200 hover:border-emerald-500/30 hover:text-text-primary active:scale-[0.97];
   }
 
   /* Tag pill */
@@ -140,7 +126,7 @@ body {
 
   /* Animated underline link */
   .link-hover {
-    @apply relative text-accent after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-accent after:transition-all after:duration-200 hover:after:w-full;
+    @apply relative text-emerald-400 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-emerald-400 after:transition-all after:duration-300 hover:after:w-full;
   }
 }
 
@@ -198,19 +184,20 @@ code[data-line-numbers] > [data-line]::before {
   padding-left: calc(1.5rem - 2px);
 }
 
-/* Inline code */
+/* Inline code — emerald styled */
 :not(pre) > code {
   background: hsl(var(--surface-elevated));
   border: 1px solid hsl(var(--border));
-  border-radius: 4px;
-  padding: 0.15em 0.4em;
+  border-radius: 5px;
+  padding: 0.15em 0.45em;
   font-size: 0.875em;
   font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
   color: hsl(var(--accent));
+  font-weight: 500;
 }
 
 /* ──────────────────────────────────────────
-   Prose (article content)
+   Prose (article content) — clean emerald
 ────────────────────────────────────────── */
 .prose-blog {
   @apply prose prose-invert max-w-none;
@@ -218,24 +205,30 @@ code[data-line-numbers] > [data-line]::before {
   @apply prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl;
   @apply prose-h2:mt-10 prose-h2:mb-4 prose-h3:mt-8 prose-h3:mb-3;
   @apply prose-p:text-text-secondary prose-p:leading-relaxed;
-  @apply prose-a:text-accent prose-a:no-underline hover:prose-a:underline;
-  @apply prose-strong:text-text-primary;
-  @apply prose-blockquote:border-l-accent prose-blockquote:text-text-secondary prose-blockquote:bg-surface-elevated/50 prose-blockquote:py-1 prose-blockquote:rounded-r-lg;
-  @apply prose-img:rounded-xl prose-img:border prose-img:border-border;
+  @apply prose-a:text-emerald-400 prose-a:no-underline hover:prose-a:underline;
+  @apply prose-strong:text-text-primary prose-strong:font-semibold;
+  @apply prose-blockquote:border-l-emerald-500 prose-blockquote:text-text-secondary prose-blockquote:bg-surface-elevated/50 prose-blockquote:py-1 prose-blockquote:rounded-r-lg;
+  @apply prose-img:rounded-xl prose-img:border prose-img:border-border prose-img:shadow-lg;
   @apply prose-hr:border-border;
   @apply prose-ul:text-text-secondary prose-ol:text-text-secondary;
-  @apply prose-li:marker:text-accent;
+  @apply prose-li:marker:text-emerald-400;
+}
+
+/* Fix inline code in prose — render backtick content properly */
+.prose-blog code::before,
+.prose-blog code::after {
+  content: '' !important;
 }
 
 /* ──────────────────────────────────────────
-   Animated hero grid background
+   Hero grid background — emerald tint
 ────────────────────────────────────────── */
 .hero-grid {
   background-image:
-    linear-gradient(hsl(var(--border) / 0.3) 1px, transparent 1px),
-    linear-gradient(90deg, hsl(var(--border) / 0.3) 1px, transparent 1px);
-  background-size: 50px 50px;
-  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+    linear-gradient(hsl(var(--border) / 0.25) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--border) / 0.25) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 20%, transparent 100%);
 }
 
 /* ──────────────────────────────────────────

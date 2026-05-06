@@ -8,6 +8,23 @@ import { slugify, stripMarkdown, truncate } from './utils'
 const POSTS_DIR = path.join(process.cwd(), 'content', 'posts')
 
 /**
+ * Rewrite relative image paths in markdown content.
+ * Hugo resolves `![](image.jpg)` relative to the post folder automatically.
+ * Next.js serves from public/, so we rewrite to `/blog-images/[slug]/image.jpg`.
+ */
+function rewriteImagePaths(content: string, slug: string): string {
+  // Match ![alt](path) where path is NOT absolute (http/https or /)
+  return content.replace(
+    /!\[([^\]]*)\]\((?!https?:\/\/)(?!\/)([^)]+)\)/g,
+    (_, alt, relativePath) => {
+      // Strip leading ./ if present
+      const cleanPath = relativePath.replace(/^\.\//, '')
+      return `![${alt}](/blog-images/${slug}/${cleanPath})`
+    }
+  )
+}
+
+/**
  * Resolve the slug for a post entry.
  * Priority: frontmatter.slug > slugify(name)
  */
@@ -102,13 +119,15 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
     if (postSlug === slug) {
       const stats = readingTime(content)
       const excerpt = frontmatter.description || truncate(stripMarkdown(content), 160)
+      // Rewrite relative image paths → /blog-images/[slug]/filename
+      const rewrittenContent = rewriteImagePaths(content, postSlug)
       return {
         ...frontmatter,
         slug: postSlug,
         readingTime: stats.text,
         wordCount: stats.words,
         excerpt,
-        content,
+        content: rewrittenContent,
       }
     }
   }

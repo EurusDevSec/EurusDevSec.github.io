@@ -3,125 +3,105 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-import { cn } from '@/lib/utils'
 import UserMenu from '@/components/auth/UserMenu'
 
 const NAV_LINKS = [
-  { href: '/blog', label: 'Blog' },
-  { href: '/community', label: 'Community' },
-  { href: '/about', label: 'About' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Community', href: '/community' },
+  { label: 'About', href: '/about' },
 ]
 
 export default function Navbar() {
   const pathname = usePathname()
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-xl">
-      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <header className="sticky top-0 z-50 border-b border-white/[0.06] bg-background/70 backdrop-blur-xl">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         {/* Logo */}
-        <Link
-          href="/"
-          className="flex items-center gap-2 text-lg font-bold"
-          onClick={() => setMenuOpen(false)}
-        >
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-accent/30 bg-accent/10 text-accent text-xs font-mono font-bold">
+        <Link href="/" className="flex items-center gap-2.5 group">
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500/15 text-sm font-bold text-emerald-400 transition-colors group-hover:bg-emerald-500/25">
             E
+          </div>
+          <span className="text-lg font-bold text-text-primary">
+            Eurus<span className="text-emerald-400">DevSec</span>
           </span>
-          <span className="gradient-text">EurusDevSec</span>
         </Link>
 
-        {/* Desktop nav */}
-        <div className="hidden items-center gap-1 md:flex">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={cn(
-                'rounded-md px-4 py-2 text-sm font-medium transition-colors',
-                pathname.startsWith(link.href)
-                  ? 'bg-accent/10 text-accent'
-                  : 'text-text-secondary hover:bg-surface-elevated hover:text-text-primary'
-              )}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
+        {/* Desktop Nav */}
+        <nav className="hidden items-center gap-1 md:flex">
+          {NAV_LINKS.map(({ label, href }) => {
+            const isActive =
+              pathname === href || pathname.startsWith(href + '/')
+            return (
+              <Link
+                key={href}
+                href={href}
+                className={`rounded-lg px-3.5 py-2 text-sm font-medium transition-colors ${
+                  isActive
+                    ? 'text-emerald-400'
+                    : 'text-text-secondary hover:text-text-primary'
+                }`}
+              >
+                {label}
+              </Link>
+            )
+          })}
+        </nav>
 
-        {/* Right side actions */}
-        <div className="flex items-center gap-2">
-          {/* Dynamic auth state via UserMenu */}
+        {/* Right side */}
+        <div className="flex items-center gap-3">
           <UserMenu />
 
-          {/* Mobile hamburger */}
+          {/* Mobile menu toggle */}
           <button
-            onClick={() => setMenuOpen(!menuOpen)}
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="flex h-9 w-9 items-center justify-center rounded-lg text-text-secondary transition-colors hover:text-text-primary md:hidden"
             aria-label="Toggle menu"
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-border text-text-secondary transition-colors hover:bg-surface-elevated hover:text-text-primary md:hidden"
           >
-            <svg
-              className="h-5 w-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              {menuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
+            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {mobileOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
               ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16" />
               )}
             </svg>
           </button>
         </div>
-      </nav>
+      </div>
 
-      {/* Mobile menu */}
-      {menuOpen && (
-        <div className="border-t border-border/50 bg-background/95 backdrop-blur-xl md:hidden">
-          <div className="mx-auto max-w-6xl space-y-1 px-4 py-3">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className={cn(
-                  'block rounded-lg px-4 py-2.5 text-sm font-medium transition-colors',
-                  pathname.startsWith(link.href)
-                    ? 'bg-accent/10 text-accent'
-                    : 'text-text-secondary hover:bg-surface-elevated hover:text-text-primary'
-                )}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <div className="flex flex-col gap-1 border-t border-border/50 pt-2">
+      {/* Mobile Menu */}
+      {mobileOpen && (
+        <div className="border-t border-white/[0.06] bg-background/95 backdrop-blur-xl md:hidden">
+          <nav className="mx-auto max-w-6xl space-y-1 px-4 py-3">
+            {NAV_LINKS.map(({ label, href }) => {
+              const isActive =
+                pathname === href || pathname.startsWith(href + '/')
+              return (
+                <Link
+                  key={href}
+                  href={href}
+                  onClick={() => setMobileOpen(false)}
+                  className={`block rounded-lg px-3 py-2.5 text-sm font-medium transition-colors ${
+                    isActive
+                      ? 'bg-emerald-500/10 text-emerald-400'
+                      : 'text-text-secondary hover:text-text-primary'
+                  }`}
+                >
+                  {label}
+                </Link>
+              )
+            })}
+            <div className="border-t border-white/[0.06] pt-2">
               <Link
                 href="/login"
-                onClick={() => setMenuOpen(false)}
-                className="block rounded-lg px-4 py-2.5 text-sm font-medium text-text-secondary hover:bg-surface-elevated hover:text-text-primary"
+                onClick={() => setMobileOpen(false)}
+                className="block rounded-lg px-3 py-2.5 text-sm text-text-secondary hover:text-text-primary"
               >
                 Đăng nhập
               </Link>
-              <Link
-                href="/register"
-                onClick={() => setMenuOpen(false)}
-                className="block rounded-lg border border-accent/20 px-4 py-2.5 text-sm font-medium text-accent hover:bg-accent/10"
-              >
-                Đăng ký
-              </Link>
             </div>
-          </div>
+          </nav>
         </div>
       )}
     </header>
