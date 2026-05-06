@@ -1,29 +1,49 @@
-# Hugo build output
-/public/
+# ──────────────────────────────────────
+# Hugo (legacy — will be removed after migration)
+# ──────────────────────────────────────
 /resources/
-
-# Hugo build lock file
 .hugo_build.lock
 
-# OS files
+# ──────────────────────────────────────
+# Next.js
+# ──────────────────────────────────────
+.next/
+out/
+
+# ──────────────────────────────────────
+# Node
+# ──────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# ──────────────────────────────────────
+# Environment
+# ──────────────────────────────────────
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ──────────────────────────────────────
+# Vercel
+# ──────────────────────────────────────
+.vercel
+
+# ──────────────────────────────────────
+# OS / IDE
+# ──────────────────────────────────────
 .DS_Store
 Thumbs.db
-
-# IDE
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 
-# Obsidian (optional - if you want to exclude Obsidian config)
-# .obsidian/
-
-# Node modules (if using)
-node_modules/
-package-lock.json
-yarn.lock
-
-# Environment files
-.env
-.env.local
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts

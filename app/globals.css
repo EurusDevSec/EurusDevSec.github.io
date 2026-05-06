@@ -1,0 +1,251 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Google Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ──────────────────────────────────────────
+   CSS Design Tokens (Dark mode default)
+────────────────────────────────────────── */
+:root {
+  --background: 215 35% 6%;        /* #050d1a */
+  --surface: 215 33% 9%;           /* #0a1525 */
+  --surface-elevated: 215 30% 13%; /* #111f33 */
+  --border: 215 22% 18%;           /* #1d2d45 */
+  --accent: 189 94% 43%;           /* #06b6d4 cyan */
+  --accent-dim: 189 70% 35%;       /* darker cyan */
+  --accent-foreground: 0 0% 100%;
+  --secondary: 258 90% 73%;        /* #a78bfa violet */
+  --text-primary: 214 32% 91%;     /* #dde5f0 */
+  --text-secondary: 214 18% 62%;   /* #8ca0ba */
+  --text-muted: 214 15% 40%;       /* #516075 */
+
+  /* Shiki code theme variables */
+  --shiki-color-text: #e2e8f0;
+  --shiki-color-background: #0a1525;
+  --shiki-token-constant: #22d3ee;
+  --shiki-token-string: #4ade80;
+  --shiki-token-comment: #516075;
+  --shiki-token-keyword: #a78bfa;
+  --shiki-token-parameter: #fb923c;
+  --shiki-token-function: #60a5fa;
+  --shiki-token-string-expression: #4ade80;
+  --shiki-token-punctuation: #94a3b8;
+  --shiki-token-link: #22d3ee;
+}
+
+/* Light mode overrides */
+.light {
+  --background: 0 0% 98%;
+  --surface: 0 0% 100%;
+  --surface-elevated: 210 20% 96%;
+  --border: 214 14% 88%;
+  --accent: 189 94% 35%;
+  --accent-dim: 189 80% 28%;
+  --secondary: 258 80% 60%;
+  --text-primary: 215 25% 15%;
+  --text-secondary: 215 15% 40%;
+  --text-muted: 215 10% 60%;
+}
+
+/* ──────────────────────────────────────────
+   Base styles
+────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--text-primary));
+  font-family: var(--font-inter), system-ui, sans-serif;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--surface));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--accent) / 0.5);
+}
+
+/* Selection highlight */
+::selection {
+  background-color: hsl(var(--accent) / 0.25);
+  color: hsl(var(--text-primary));
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid hsl(var(--accent));
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ──────────────────────────────────────────
+   Utility classes
+────────────────────────────────────────── */
+@layer components {
+  /* Glassmorphism card */
+  .glass-card {
+    @apply rounded-xl border border-white/5 bg-surface/80 backdrop-blur-sm;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--surface-elevated) / 0.8),
+      hsl(var(--surface) / 0.6)
+    );
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent;
+  }
+
+  /* Cyan glow button */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-lg border border-accent/30 bg-accent/10 px-5 py-2.5 text-sm font-medium text-accent transition-all duration-200 hover:bg-accent/20 hover:border-accent/60 hover:shadow-[0_0_20px_hsl(189_94%_43%/0.2)] active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm font-medium text-text-secondary transition-all duration-200 hover:border-accent/30 hover:text-text-primary active:scale-95;
+  }
+
+  /* Tag pill */
+  .tag-pill {
+    @apply inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-medium transition-colors;
+  }
+
+  /* Section heading */
+  .section-heading {
+    @apply text-2xl font-bold tracking-tight text-text-primary;
+  }
+
+  /* Animated underline link */
+  .link-hover {
+    @apply relative text-accent after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-accent after:transition-all after:duration-200 hover:after:w-full;
+  }
+}
+
+/* ──────────────────────────────────────────
+   Code blocks (rehype-pretty-code)
+────────────────────────────────────────── */
+[data-rehype-pretty-code-figure] {
+  position: relative;
+  margin: 1.5rem 0;
+}
+
+[data-rehype-pretty-code-figure] pre {
+  overflow-x: auto;
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--surface)) !important;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+}
+
+[data-rehype-pretty-code-title] {
+  display: inline-block;
+  padding: 0.3rem 1rem;
+  margin-bottom: -0.5rem;
+  background: hsl(var(--surface-elevated));
+  border: 1px solid hsl(var(--border));
+  border-bottom: none;
+  border-radius: 0.5rem 0.5rem 0 0;
+  font-size: 0.75rem;
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  color: hsl(var(--text-secondary));
+}
+
+/* Line numbers */
+code[data-line-numbers] {
+  counter-reset: line;
+}
+code[data-line-numbers] > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  width: 1.5rem;
+  margin-right: 1.5rem;
+  text-align: right;
+  color: hsl(var(--text-muted));
+  user-select: none;
+}
+
+/* Highlighted line */
+[data-highlighted-line] {
+  background-color: hsl(var(--accent) / 0.08);
+  border-left: 2px solid hsl(var(--accent));
+  padding-left: calc(1.5rem - 2px);
+}
+
+/* Inline code */
+:not(pre) > code {
+  background: hsl(var(--surface-elevated));
+  border: 1px solid hsl(var(--border));
+  border-radius: 4px;
+  padding: 0.15em 0.4em;
+  font-size: 0.875em;
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  color: hsl(var(--accent));
+}
+
+/* ──────────────────────────────────────────
+   Prose (article content)
+────────────────────────────────────────── */
+.prose-blog {
+  @apply prose prose-invert max-w-none;
+  @apply prose-headings:font-bold prose-headings:text-text-primary;
+  @apply prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl;
+  @apply prose-h2:mt-10 prose-h2:mb-4 prose-h3:mt-8 prose-h3:mb-3;
+  @apply prose-p:text-text-secondary prose-p:leading-relaxed;
+  @apply prose-a:text-accent prose-a:no-underline hover:prose-a:underline;
+  @apply prose-strong:text-text-primary;
+  @apply prose-blockquote:border-l-accent prose-blockquote:text-text-secondary prose-blockquote:bg-surface-elevated/50 prose-blockquote:py-1 prose-blockquote:rounded-r-lg;
+  @apply prose-img:rounded-xl prose-img:border prose-img:border-border;
+  @apply prose-hr:border-border;
+  @apply prose-ul:text-text-secondary prose-ol:text-text-secondary;
+  @apply prose-li:marker:text-accent;
+}
+
+/* ──────────────────────────────────────────
+   Animated hero grid background
+────────────────────────────────────────── */
+.hero-grid {
+  background-image:
+    linear-gradient(hsl(var(--border) / 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--border) / 0.3) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+}
+
+/* ──────────────────────────────────────────
+   Page transitions
+────────────────────────────────────────── */
+.page-enter {
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
