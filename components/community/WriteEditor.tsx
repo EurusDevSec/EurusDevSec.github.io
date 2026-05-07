@@ -192,12 +192,13 @@ export default function WriteEditor() {
           )}
         </div>
 
+        {/* Hidden input to ensure content is submitted even when textarea is unmounted in preview mode */}
+        <input type="hidden" name="content" value={content} />
+
         {/* Write pane */}
         {tab === 'write' && (
           <textarea
             ref={textareaRef}
-            name="content"
-            required
             value={content}
             onChange={(e) => setContent(e.target.value)}
             onPaste={onPaste}
