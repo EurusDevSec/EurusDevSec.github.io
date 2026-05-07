@@ -20,7 +20,7 @@ comments: true
 slug: dazai-osamu-lop-mat-na-coi-doc
 ---
 
-# Đôi điều về tác phẩm `Thất lạc cõi người`
+# 1.Đôi điều về tác phẩm `Thất lạc cõi người`
 
 ## Giới thiệu tác phẩm
 
