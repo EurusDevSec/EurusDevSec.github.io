@@ -13,6 +13,8 @@ interface PageProps {
   params: Promise<{ slug: string }>
 }
 
+export const dynamic = 'force-dynamic'
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params
   const supabase = await createClient()
@@ -40,7 +42,6 @@ export default async function CommunityPostPage({ params }: PageProps) {
       profiles ( username, display_name )
     `)
     .eq('slug', slug)
-    .eq('status', 'published')
     .single()
 
   if (!post) notFound()
