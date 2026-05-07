@@ -53,6 +53,7 @@ export async function createPostAction(
     title, content, slug, excerpt, tags,
     author_id: user.id,
     status: 'published',
+    published_at: new Date().toISOString(),
   })
 
   if (error) return { error: error.message }

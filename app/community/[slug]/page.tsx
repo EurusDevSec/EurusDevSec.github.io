@@ -1,68 +1,89 @@
-import { notFound } from 'next/navigation'
-import type { Metadata } from 'next'
-import Link from 'next/link'
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
-import CommentSection from '@/components/community/CommentSection'
-import { createClient } from '@/lib/supabase/server'
-import { formatDate } from '@/lib/utils'
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import Link from "next/link";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import CommentSection from "@/components/community/CommentSection";
+import { createClient } from "@/lib/supabase/server";
+import { formatDate } from "@/lib/utils";
 
 interface PageProps {
-  params: Promise<{ slug: string }>
+  params: Promise<{ slug: string }>;
 }
 
-export const dynamic = 'force-dynamic'
+export const dynamic = "force-dynamic";
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { slug } = await params
-  const supabase = await createClient()
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const supabase = await createClient();
   const { data } = await supabase
-    .from('posts')
-    .select('title, excerpt')
-    .eq('slug', slug)
-    .single()
+    .from("posts")
+    .select("title, excerpt")
+    .eq("slug", slug)
+    .single();
 
   return {
-    title: data?.title ?? 'Community Post',
-    description: data?.excerpt ?? '',
-  }
+    title: data?.title ?? "Community Post",
+    description: data?.excerpt ?? "",
+  };
 }
 
 export default async function CommunityPostPage({ params }: PageProps) {
-  const { slug } = await params
-  const supabase = await createClient()
+  const { slug } = await params;
+  const supabase = await createClient();
 
-  // Fetch post + author
-  const { data: post } = await supabase
-    .from('posts')
-    .select(`
-      id, title, slug, content, excerpt, tags, created_at,
-      profiles ( username, display_name )
-    `)
-    .eq('slug', slug)
-    .single()
+  // Fetch post only (no nested join)
+  const { data: post, error } = await supabase
+    .from("posts")
+    .select(
+      `id, title, slug, content, excerpt, tags, created_at, author_id, cover_image, category, views`,
+    )
+    .eq("slug", slug)
+    .eq("status", "published")
+    .single();
 
-  if (!post) notFound()
+  if (error || !post) {
+    console.error("[CommunityPost] Query error:", error);
+    notFound();
+  }
 
-  // Fetch comments
-  const { data: comments } = await supabase
-    .from('comments')
-    .select(`
-      id, content, created_at,
-      profiles ( username, display_name )
-    `)
-    .eq('post_id', post.id)
-    .order('created_at', { ascending: true })
+  // Fetch author separately
+  const { data: author } = await supabase
+    .from("profiles")
+    .select("username, display_name")
+    .eq("id", post.author_id)
+    .single();
+
+  // Fetch comments (no nested join)
+  const { data: commentsList } = await supabase
+    .from("comments")
+    .select("id, content, created_at, author_id")
+    .eq("post_id", post.id)
+    .order("created_at", { ascending: true });
+
+  // Fetch comment authors
+  const commentAuthors = new Map();
+  if (commentsList && commentsList.length > 0) {
+    const authorIds = [...new Set(commentsList.map((c) => c.author_id))];
+    const { data: profiles } = await supabase
+      .from("profiles")
+      .select("id, username, display_name")
+      .in("id", authorIds);
+
+    profiles?.forEach((p) => commentAuthors.set(p.id, p));
+  }
 
   // Current user (for comment ownership)
   const {
     data: { user },
-  } = await supabase.auth.getUser()
+  } = await supabase.auth.getUser();
 
-  const author = (post.profiles as any)?.display_name || (post.profiles as any)?.username || 'Anonymous'
-  const initial = author.charAt(0).toUpperCase()
+  const authorName = author?.display_name || author?.username || "Anonymous";
+  const initial = authorName.charAt(0).toUpperCase();
 
   return (
     <>
@@ -70,9 +91,13 @@ export default async function CommunityPostPage({ params }: PageProps) {
       <main className="mx-auto max-w-4xl px-4 py-12 sm:px-6">
         {/* Breadcrumb */}
         <nav className="mb-6 flex items-center gap-2 text-sm text-text-muted">
-          <Link href="/" className="hover:text-accent">Trang chủ</Link>
+          <Link href="/" className="hover:text-accent">
+            Trang chủ
+          </Link>
           <span>/</span>
-          <Link href="/community" className="hover:text-accent">Community</Link>
+          <Link href="/community" className="hover:text-accent">
+            Community
+          </Link>
           <span>/</span>
           <span className="line-clamp-1 text-text-secondary">{post.title}</span>
         </nav>
@@ -103,10 +128,12 @@ export default async function CommunityPostPage({ params }: PageProps) {
               <div className="flex h-7 w-7 items-center justify-center rounded-full bg-secondary/20 text-xs font-bold text-secondary">
                 {initial}
               </div>
-              <span>{author}</span>
+              <span>{authorName}</span>
             </div>
-            <time dateTime={post.created_at}>{formatDate(post.created_at)}</time>
-            <span>{(comments ?? []).length} bình luận</span>
+            <time dateTime={post.created_at}>
+              {formatDate(post.created_at)}
+            </time>
+            <span>{(commentsList ?? []).length} bình luận</span>
           </div>
 
           {/* Content — react-markdown for user-generated content */}
@@ -123,8 +150,18 @@ export default async function CommunityPostPage({ params }: PageProps) {
             href="/community"
             className="inline-flex items-center gap-2 text-sm text-text-secondary transition-colors hover:text-accent"
           >
-            <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            <svg
+              className="h-4 w-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
             </svg>
             Quay lại Community
           </Link>
@@ -134,11 +171,16 @@ export default async function CommunityPostPage({ params }: PageProps) {
         <CommentSection
           postId={post.id}
           postSlug={post.slug}
-          comments={(comments ?? []) as any}
+          comments={
+            (commentsList ?? []).map((c) => ({
+              ...c,
+              profiles: commentAuthors.get(c.author_id) || null,
+            })) as any
+          }
           currentUserId={user?.id}
         />
       </main>
       <Footer />
     </>
-  )
+  );
 }
