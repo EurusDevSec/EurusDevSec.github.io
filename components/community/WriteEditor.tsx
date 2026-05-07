@@ -1,12 +1,13 @@
 'use client'
 
-import { useActionState, useState, useRef, useCallback } from 'react'
+import { useState, useRef, useCallback, useTransition } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { createPostAction } from '@/lib/actions/posts'
 import { createClient } from '@/lib/supabase/client'
 
 type Tab = 'write' | 'preview'
+type PostState = { error?: string; success?: string } | null
 
 const TOOLBAR = [
   { label: 'B', title: 'Bold', before: '**', after: '**', mono: true },
@@ -23,13 +24,15 @@ const TOOLBAR = [
 ]
 
 export default function WriteEditor() {
-  const [state, action, pending] = useActionState(createPostAction, null)
+  const [state, setState] = useState<PostState>(null)
+  const [isPending, startTransition] = useTransition()
   const [tab, setTab] = useState<Tab>('write')
   const [content, setContent] = useState('')
   const [uploading, setUploading] = useState(false)
   const [uploadError, setUploadError] = useState('')
   const textareaRef = useRef<HTMLTextAreaElement>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
+
 
   const insertAtCursor = useCallback((before: string, after: string, replaceSelected = true) => {
     const el = textareaRef.current
@@ -100,8 +103,21 @@ export default function WriteEditor() {
     }
   }, [handleImageUpload])
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const formEl = e.currentTarget
+    const formData = new FormData(formEl)
+    // Explicitly set content from React state to guarantee it is never empty
+    formData.set('content', content)
+    setState(null)
+    startTransition(async () => {
+      const result = await createPostAction(null, formData)
+      if (result) setState(result)
+    })
+  }
+
   return (
-    <form action={action} className="flex flex-col gap-4">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
       {/* Title */}
       <input
         name="title"
@@ -192,8 +208,7 @@ export default function WriteEditor() {
           )}
         </div>
 
-        {/* Hidden input to ensure content is submitted even when textarea is unmounted in preview mode */}
-        <input type="hidden" name="content" value={content} />
+
 
         {/* Write pane */}
         {tab === 'write' && (
@@ -244,10 +259,10 @@ export default function WriteEditor() {
         </p>
         <button
           type="submit"
-          disabled={pending || !content.trim()}
+          disabled={isPending || !content.trim()}
           className="btn-primary disabled:cursor-not-allowed disabled:opacity-50"
         >
-          {pending ? (
+          {isPending ? (
             <>
               <svg className="h-4 w-4 animate-spin" fill="none" viewBox="0 0 24 24">
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
