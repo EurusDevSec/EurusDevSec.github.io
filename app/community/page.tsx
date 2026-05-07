@@ -21,7 +21,7 @@ export default async function CommunityPage() {
       id, title, slug, excerpt, tags, created_at,
       profiles ( username, display_name )
     `)
-    .eq('published', true)
+    .eq('status', 'published')
     .order('created_at', { ascending: false })
     .limit(20)
 

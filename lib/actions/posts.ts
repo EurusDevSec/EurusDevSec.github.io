@@ -52,6 +52,7 @@ export async function createPostAction(
   const { error } = await supabase.from('posts').insert({
     title, content, slug, excerpt, tags,
     author_id: user.id,
+    status: 'published',
   })
 
   if (error) return { error: error.message }

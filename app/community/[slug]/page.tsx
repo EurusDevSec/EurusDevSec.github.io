@@ -40,7 +40,7 @@ export default async function CommunityPostPage({ params }: PageProps) {
       profiles ( username, display_name )
     `)
     .eq('slug', slug)
-    .eq('published', true)
+    .eq('status', 'published')
     .single()
 
   if (!post) notFound()
