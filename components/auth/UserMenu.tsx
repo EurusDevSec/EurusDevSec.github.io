@@ -39,7 +39,12 @@ export default function UserMenu() {
   // Close dropdown when clicking outside
   useEffect(() => {
     if (!dropdownOpen) return
-    const handler = () => setDropdownOpen(false)
+    const handler = (e: MouseEvent) => {
+      // Don't close if clicking the logout button or form
+      const target = e.target as HTMLElement
+      if (target.closest('form') || target.closest('[data-logout]')) return
+      setDropdownOpen(false)
+    }
     document.addEventListener('click', handler)
     return () => document.removeEventListener('click', handler)
   }, [dropdownOpen])
@@ -130,7 +135,7 @@ export default function UserMenu() {
           </div>
 
           <div className="border-t border-border/60 py-1">
-            <form action={logoutAction}>
+            <form action={logoutAction} onClick={(e) => e.stopPropagation()} data-logout>
               <button
                 type="submit"
                 className="flex w-full items-center gap-2 px-4 py-2 text-sm text-red-400 transition-colors hover:bg-red-500/10"

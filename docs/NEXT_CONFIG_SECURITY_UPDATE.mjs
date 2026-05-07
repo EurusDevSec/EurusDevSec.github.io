@@ -1,6 +1,7 @@
+// UPDATE next.config.mjs — Add CSP and rate limit headers
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // ── Images ──────────────────────────────────────────────────────────────
   images: {
     remotePatterns: [
       {
@@ -8,7 +9,6 @@ const nextConfig = {
         hostname: '*.supabase.co',
         pathname: '/storage/v1/object/public/**',
       },
-      // For any external blog images (if needed later)
       {
         protocol: 'https',
         hostname: 'images.unsplash.com',
@@ -16,15 +16,17 @@ const nextConfig = {
     ],
   },
 
-  // ── File extensions ──────────────────────────────────────────────────────
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
 
-  // ── Security & performance headers ───────────────────────────────────────
+  // ── Security & Performance Headers ──────────────────────────────────────
   async headers() {
+    const isDev = process.env.NODE_ENV === 'development'
+    
     return [
       {
         source: '/(.*)',
         headers: [
+          // Existing headers
           { key: 'X-Content-Type-Options', value: 'nosniff' },
           { key: 'X-Frame-Options', value: 'DENY' },
           { key: 'X-XSS-Protection', value: '1; mode=block' },
@@ -33,7 +35,8 @@ const nextConfig = {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=()',
           },
-          // Content Security Policy (CSP) — prevent XSS
+          
+          // NEW: Content Security Policy
           {
             key: 'Content-Security-Policy',
             value: `
@@ -52,22 +55,41 @@ const nextConfig = {
               .replace(/\s{2,}/g, ' ')
               .trim(),
           },
+          
+          // NEW: Cache control (prevent caching of sensitive pages)
+          {
+            source: '/(auth|dashboard|community/write)/:path*',
+            key: 'Cache-Control',
+            value: 'no-store, no-cache, must-revalidate, proxy-revalidate',
+          },
+          
+          // NEW: Disable TRACE method
+          { key: 'Allow', value: 'GET, HEAD, POST, PUT, DELETE, OPTIONS' },
+          
           // HSTS (only production)
-          ...(process.env.NODE_ENV === 'production' ? [
-            {
-              key: 'Strict-Transport-Security',
-              value: 'max-age=63072000; includeSubDomains; preload',
-            },
-          ] : []),
+          ...(process.env.NODE_ENV === 'production' && {
+            source: '/(.*)',
+            key: 'Strict-Transport-Security',
+            value: 'max-age=63072000; includeSubDomains; preload',
+          }),
+        ],
+      },
+      
+      // Security headers for API routes
+      {
+        source: '/api/:path*',
+        headers: [
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'X-Frame-Options', value: 'DENY' },
+          // CORS should be handled per route, not here
         ],
       },
     ]
   },
 
-  // ── Redirects (migrate old Hugo paths if needed) ─────────────────────────
+  // ── Redirects ──────────────────────────────────────────────────────────
   async redirects() {
     return [
-      // Redirect /posts/* → /blog/* to preserve old Hugo URLs
       {
         source: '/posts/:slug*',
         destination: '/blog/:slug*',

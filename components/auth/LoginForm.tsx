@@ -1,19 +1,17 @@
-'use client'
+"use client";
 
-import { useActionState } from 'react'
-import Link from 'next/link'
-import { loginAction } from '@/lib/actions/auth'
+import { useActionState } from "react";
+import Link from "next/link";
+import { secureLoginAction } from "@/lib/actions/auth-secure";
 
 export default function LoginForm() {
-  const [state, action, pending] = useActionState(loginAction, null)
+  const [state, action, pending] = useActionState(secureLoginAction, null);
 
   return (
     <div className="glass-card p-8">
       <div className="mb-6 text-center">
         <h1 className="text-2xl font-bold text-text-primary">Đăng nhập</h1>
-        <p className="mt-1 text-sm text-text-muted">
-          Chào mừng trở lại 👋
-        </p>
+        <p className="mt-1 text-sm text-text-muted">Chào mừng trở lại 👋</p>
       </div>
 
       <form action={action} className="space-y-4">
@@ -58,8 +56,18 @@ export default function LoginForm() {
         {/* Error */}
         {state?.error && (
           <div className="flex items-center gap-2 rounded-lg border border-red-500/20 bg-red-500/10 px-4 py-2.5 text-sm text-red-400">
-            <svg className="h-4 w-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+            <svg
+              className="h-4 w-4 shrink-0"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"
+              />
             </svg>
             {state.error}
           </div>
@@ -73,24 +81,42 @@ export default function LoginForm() {
         >
           {pending ? (
             <span className="flex items-center justify-center gap-2">
-              <svg className="h-4 w-4 animate-spin" fill="none" viewBox="0 0 24 24">
-                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+              <svg
+                className="h-4 w-4 animate-spin"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                />
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                />
               </svg>
               Đang đăng nhập...
             </span>
           ) : (
-            'Đăng nhập'
+            "Đăng nhập"
           )}
         </button>
       </form>
 
       <p className="mt-6 text-center text-sm text-text-muted">
-        Chưa có tài khoản?{' '}
-        <Link href="/register" className="font-medium text-accent hover:underline">
+        Chưa có tài khoản?{" "}
+        <Link
+          href="/register"
+          className="font-medium text-accent hover:underline"
+        >
           Đăng ký ngay
         </Link>
       </p>
     </div>
-  )
+  );
 }

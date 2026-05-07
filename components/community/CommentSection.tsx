@@ -1,33 +1,41 @@
-'use client'
+"use client";
 
-import { useActionState } from 'react'
-import { formatDate } from '@/lib/utils'
-import { addCommentAction } from '@/lib/actions/posts'
-import { deleteCommentFormAction } from '@/lib/actions/comment-delete'
-import type { CommentState } from '@/lib/actions/posts'
+import { useActionState } from "react";
+import { formatDate } from "@/lib/utils";
+import {
+  addCommentSecureAction,
+  deleteCommentFormSecureAction,
+} from "@/lib/actions/comment-secure";
+import type { CommentState } from "@/lib/actions/comment-secure";
 
 interface Comment {
-  id: string
-  content: string
-  created_at: string
+  id: string;
+  content: string;
+  created_at: string;
   profiles: {
-    username: string
-    display_name: string | null
-  } | null
+    username: string;
+    display_name: string | null;
+  } | null;
 }
 
 interface CommentSectionProps {
-  postId: string
-  postSlug: string
-  comments: Comment[]
-  currentUserId?: string
+  postId: string;
+  postSlug: string;
+  comments: Comment[];
+  currentUserId?: string;
 }
 
-function CommentForm({ postId, postSlug }: { postId: string; postSlug: string }) {
+function CommentForm({
+  postId,
+  postSlug,
+}: {
+  postId: string;
+  postSlug: string;
+}) {
   const [state, action, pending] = useActionState<CommentState, FormData>(
-    addCommentAction,
-    null
-  )
+    addCommentSecureAction,
+    null,
+  );
 
   return (
     <form action={action} className="mt-4 space-y-3">
@@ -37,24 +45,22 @@ function CommentForm({ postId, postSlug }: { postId: string; postSlug: string })
         name="content"
         required
         rows={3}
-        maxLength={1000}
+        maxLength={5000}
         placeholder="Viết bình luận của bạn..."
         className="w-full resize-none rounded-lg border border-border bg-surface px-4 py-2.5 text-sm text-text-primary outline-none placeholder:text-text-muted focus:border-accent/60 focus:ring-1 focus:ring-accent/30"
       />
-      {state?.error && (
-        <p className="text-xs text-red-400">⚠ {state.error}</p>
-      )}
+      {state?.error && <p className="text-xs text-red-400">⚠ {state.error}</p>}
       <div className="flex justify-end">
         <button
           type="submit"
           disabled={pending}
           className="rounded-lg border border-accent/30 bg-accent/10 px-4 py-2 text-sm font-medium text-accent transition-all hover:bg-accent/20 disabled:opacity-50"
         >
-          {pending ? 'Đang gửi...' : 'Gửi bình luận'}
+          {pending ? "Đang gửi..." : "Gửi bình luận"}
         </button>
       </div>
     </form>
-  )
+  );
 }
 
 export default function CommentSection({
@@ -76,10 +82,10 @@ export default function CommentSection({
             const author =
               comment.profiles?.display_name ||
               comment.profiles?.username ||
-              'Anonymous'
-            const initial = author.charAt(0).toUpperCase()
+              "Anonymous";
+            const initial = author.charAt(0).toUpperCase();
             // Compare by user ID — currentUserId is auth user id, not username
-            const isOwner = Boolean(currentUserId)
+            const isOwner = Boolean(currentUserId);
 
             return (
               <div
@@ -103,8 +109,16 @@ export default function CommentSection({
 
                   {/* Delete button — uses hidden inputs + server action */}
                   {isOwner && (
-                    <form action={deleteCommentFormAction}>
-                      <input type="hidden" name="comment_id" value={comment.id} />
+                    <form
+                      action={async (formData) => {
+                        await deleteCommentFormSecureAction(formData);
+                      }}
+                    >
+                      <input
+                        type="hidden"
+                        name="comment_id"
+                        value={comment.id}
+                      />
                       <input type="hidden" name="post_slug" value={postSlug} />
                       <button
                         type="submit"
@@ -120,7 +134,7 @@ export default function CommentSection({
                   {comment.content}
                 </p>
               </div>
-            )
+            );
           })}
         </div>
       ) : (
@@ -141,10 +155,10 @@ export default function CommentSection({
         <div className="mt-6 rounded-lg border border-dashed border-border p-4 text-center text-sm text-text-muted">
           <a href="/login" className="text-accent hover:underline">
             Đăng nhập
-          </a>{' '}
+          </a>{" "}
           để bình luận.
         </div>
       )}
     </section>
-  )
+  );
 }

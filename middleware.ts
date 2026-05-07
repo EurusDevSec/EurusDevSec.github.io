@@ -1,10 +1,25 @@
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
+import { rateLimitMiddleware } from '@/lib/middleware/rateLimit'
 
 const PROTECTED_PATHS = ['/dashboard', '/community/write']
 const AUTH_PATHS = ['/login', '/register']
 
 export async function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl
+  
+  // ── Rate limiting for sensitive endpoints ──────────────────────────────
+  const authPaths = ['/api/auth/login', '/api/auth/register', '/community']
+  if (authPaths.some(p => pathname.startsWith(p))) {
+    const rateLimit = await rateLimitMiddleware(request, 'api')
+    if (!rateLimit.allowed) {
+      return NextResponse.json(
+        { error: rateLimit.message },
+        { status: 429, headers: { 'Retry-After': rateLimit.resetIn.toString() } }
+      )
+    }
+  }
+
   // Skip Supabase auth if env vars not configured (dev without Supabase)
   if (
     !process.env.NEXT_PUBLIC_SUPABASE_URL ||
@@ -41,8 +56,6 @@ export async function middleware(request: NextRequest) {
   const {
     data: { session },
   } = await supabase.auth.getSession()
-
-  const { pathname } = request.nextUrl
 
   // Redirect unauthenticated users away from protected routes
   const isProtected = PROTECTED_PATHS.some((p) => pathname.startsWith(p))
