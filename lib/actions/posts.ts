@@ -5,6 +5,20 @@ import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 import { slugify, truncate, stripMarkdown } from '@/lib/utils'
 
+// Helper to ensure a profile exists before inserting relational data
+async function ensureProfile(supabase: any, user: any) {
+  const { data } = await supabase.from('profiles').select('id').eq('id', user.id).single()
+  if (!data) {
+    const baseName = user.email?.split('@')[0] || 'user'
+    await supabase.from('profiles').insert({
+      id: user.id,
+      username: `${baseName}-${user.id.substring(0, 5)}`,
+      display_name: baseName,
+      role: 'reader'
+    })
+  }
+}
+
 export type PostState = { error?: string; success?: string } | null
 export type CommentState = { error?: string } | null
 
@@ -32,6 +46,8 @@ export async function createPostAction(
 
   const slug = `${slugify(title)}-${Date.now().toString(36)}`
   const excerpt = truncate(stripMarkdown(content), 160)
+
+  await ensureProfile(supabase, user)
 
   const { error } = await supabase.from('posts').insert({
     title, content, slug, excerpt, tags,
@@ -75,6 +91,8 @@ export async function addCommentAction(
   if (!content) return { error: 'Bình luận không được trống.' }
   if (content.length > 1000) return { error: 'Bình luận quá dài (tối đa 1000 ký tự).' }
 
+  await ensureProfile(supabase, user)
+
   const { error } = await supabase
     .from('comments')
     .insert({ post_id: postId, author_id: user.id, content })
@@ -117,6 +135,8 @@ export async function addBlogCommentAction(
 
   if (!content) return { error: 'Bình luận không được trống.' }
   if (content.length > 1000) return { error: 'Bình luận quá dài (tối đa 1000 ký tự).' }
+
+  await ensureProfile(supabase, user)
 
   // Blog comments use blog_slug column instead of post_id (UUID)
   const { error } = await supabase
