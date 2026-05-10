@@ -7,4 +7,3 @@ API Generator — summary
 
 Example input (JSON):
 { "entity": "posts", "actions": ["list","get","create"] }
-

@@ -5,4 +5,3 @@ DB Analyzer — summary
 - Always prefer non-destructive suggestions first (policies, triggers).
 
 Example: { "table": "profiles", "issue": "auto-create on signup" }
-

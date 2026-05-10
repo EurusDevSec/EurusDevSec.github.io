@@ -8,6 +8,6 @@
 - Avoid long explanations; link to files in the repo for context.
 
 Formatting:
+
 - Use short headers, then 1-line bullets.
 - Include examples only when necessary (1-2 lines).
-
