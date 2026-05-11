@@ -1,0 +1,80 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0fdf4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#dcfce7;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="1200" height="800" fill="url(#bgGradient)"/>
+  
+  <!-- Decorative border -->
+  <rect x="40" y="40" width="1120" height="720" fill="none" stroke="#059669" stroke-width="3"/>
+  <rect x="50" y="50" width="1100" height="700" fill="none" stroke="#10b981" stroke-width="1" stroke-dasharray="10,5"/>
+  
+  <!-- Header -->
+  <text x="600" y="130" font-family="Georgia, serif" font-size="52" font-weight="bold" fill="#047857" text-anchor="middle">
+    Professional Certification
+  </text>
+  
+  <!-- Decorative elements -->
+  <circle cx="150" cy="130" r="30" fill="none" stroke="#10b981" stroke-width="2"/>
+  <circle cx="1050" cy="130" r="30" fill="none" stroke="#10b981" stroke-width="2"/>
+  
+  <!-- Main content -->
+  <text x="600" y="230" font-family="Arial, sans-serif" font-size="26" fill="#374151" text-anchor="middle">
+    This is to certify that
+  </text>
+  
+  <text x="600" y="310" font-family="Georgia, serif" font-size="44" font-weight="bold" fill="#111827" text-anchor="middle">
+    Jane Developer
+  </text>
+  
+  <line x1="350" y1="330" x2="850" y2="330" stroke="#10b981" stroke-width="2"/>
+  
+  <text x="600" y="390" font-family="Arial, sans-serif" font-size="26" fill="#374151" text-anchor="middle">
+    has demonstrated proficiency in
+  </text>
+  
+  <text x="600" y="470" font-family="Georgia, serif" font-size="38" font-weight="bold" fill="#047857" text-anchor="middle">
+    Certified Kubernetes Administrator
+  </text>
+  
+  <text x="600" y="510" font-family="Georgia, serif" font-size="38" font-weight="bold" fill="#047857" text-anchor="middle">
+    (CKA)
+  </text>
+  
+  <!-- Details box -->
+  <rect x="300" y="550" width="600" height="120" fill="#ffffff" stroke="#10b981" stroke-width="2" rx="10"/>
+  
+  <text x="600" y="590" font-family="Arial, sans-serif" font-size="20" fill="#374151" text-anchor="middle">
+    Issued by: Cloud Native Computing Foundation
+  </text>
+  
+  <text x="600" y="625" font-family="Arial, sans-serif" font-size="18" fill="#6b7280" text-anchor="middle">
+    Issue Date: March 10, 2024 | Credential: CKA-2024-K8S-789
+  </text>
+  
+  <text x="600" y="655" font-family="Arial, sans-serif" font-size="16" fill="#10b981" text-anchor="middle">
+    Valid until: March 10, 2027
+  </text>
+  
+  <!-- Logo placeholder -->
+  <circle cx="150" cy="700" r="40" fill="#047857"/>
+  <text x="150" y="710" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff" text-anchor="middle">
+    K8s
+  </text>
+  
+  <!-- Seal -->
+  <circle cx="1050" cy="700" r="45" fill="none" stroke="#047857" stroke-width="3"/>
+  <circle cx="1050" cy="700" r="35" fill="none" stroke="#10b981" stroke-width="2"/>
+  <text x="1050" y="710" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#047857" text-anchor="middle">
+    CNCF
+  </text>
+  
+  <!-- Sample watermark -->
+  <text x="600" y="400" font-family="Arial, sans-serif" font-size="100" fill="#10b981" opacity="0.04" text-anchor="middle" transform="rotate(-25 600 400)">
+    SAMPLE
+  </text>
+</svg>

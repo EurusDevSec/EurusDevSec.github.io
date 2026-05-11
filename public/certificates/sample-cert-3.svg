@@ -1,0 +1,103 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#fefefe"/>
+  
+  <!-- Decorative corner elements -->
+  <path d="M 0,0 L 150,0 L 150,10 L 10,10 L 10,150 L 0,150 Z" fill="#10b981"/>
+  <path d="M 1200,0 L 1050,0 L 1050,10 L 1190,10 L 1190,150 L 1200,150 Z" fill="#10b981"/>
+  <path d="M 0,800 L 150,800 L 150,790 L 10,790 L 10,650 L 0,650 Z" fill="#10b981"/>
+  <path d="M 1200,800 L 1050,800 L 1050,790 L 1190,790 L 1190,650 L 1200,650 Z" fill="#10b981"/>
+  
+  <!-- Main border -->
+  <rect x="60" y="60" width="1080" height="680" fill="none" stroke="#059669" stroke-width="2"/>
+  
+  <!-- Header section -->
+  <rect x="80" y="80" width="1040" height="120" fill="#ecfdf5"/>
+  
+  <text x="600" y="140" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="#047857" text-anchor="middle">
+    CERTIFICATE OF ACHIEVEMENT
+  </text>
+  
+  <text x="600" y="175" font-family="Arial, sans-serif" font-size="20" fill="#059669" text-anchor="middle">
+    HashiCorp Certified: Terraform Associate
+  </text>
+  
+  <!-- Content section -->
+  <text x="600" y="270" font-family="Arial, sans-serif" font-size="22" fill="#4b5563" text-anchor="middle">
+    This certifies that
+  </text>
+  
+  <text x="600" y="340" font-family="Georgia, serif" font-size="40" font-weight="bold" fill="#111827" text-anchor="middle">
+    Alex DevOps Engineer
+  </text>
+  
+  <line x1="400" y1="360" x2="800" y2="360" stroke="#10b981" stroke-width="2"/>
+  
+  <text x="600" y="420" font-family="Arial, sans-serif" font-size="22" fill="#4b5563" text-anchor="middle">
+    has successfully demonstrated knowledge and skills in
+  </text>
+  
+  <text x="600" y="480" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#059669" text-anchor="middle">
+    Infrastructure as Code using Terraform
+  </text>
+  
+  <!-- Info grid -->
+  <g transform="translate(200, 540)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#374151">
+      Issuing Organization:
+    </text>
+    <text x="0" y="30" font-family="Arial, sans-serif" font-size="16" fill="#6b7280">
+      HashiCorp
+    </text>
+  </g>
+  
+  <g transform="translate(500, 540)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#374151">
+      Issue Date:
+    </text>
+    <text x="0" y="30" font-family="Arial, sans-serif" font-size="16" fill="#6b7280">
+      February 20, 2024
+    </text>
+  </g>
+  
+  <g transform="translate(750, 540)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#374151">
+      Credential ID:
+    </text>
+    <text x="0" y="30" font-family="Arial, sans-serif" font-size="16" fill="#6b7280">
+      TF-ASSOC-2024-456
+    </text>
+  </g>
+  
+  <!-- Footer section -->
+  <rect x="80" y="620" width="1040" height="100" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
+  
+  <!-- Logo -->
+  <rect x="120" y="645" width="60" height="50" fill="#10b981" rx="5"/>
+  <text x="150" y="677" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle">
+    HCP
+  </text>
+  
+  <!-- Signature -->
+  <text x="950" y="660" font-family="Brush Script MT, cursive" font-size="32" fill="#374151">
+    M. Hashimoto
+  </text>
+  <line x1="850" y1="680" x2="1050" y2="680" stroke="#374151" stroke-width="1"/>
+  <text x="950" y="700" font-family="Arial, sans-serif" font-size="14" fill="#6b7280" text-anchor="middle">
+    Chief Technology Officer
+  </text>
+  
+  <!-- Verification badge -->
+  <circle cx="600" cy="670" r="35" fill="none" stroke="#10b981" stroke-width="3"/>
+  <text x="600" y="670" font-family="Arial, sans-serif" font-size="28" fill="#10b981" text-anchor="middle">
+    ✓
+  </text>
+  <text x="600" y="695" font-family="Arial, sans-serif" font-size="11" fill="#059669" text-anchor="middle">
+    VERIFIED
+  </text>
+  
+  <!-- Sample watermark -->
+  <text x="600" y="420" font-family="Arial, sans-serif" font-size="110" fill="#10b981" opacity="0.03" text-anchor="middle" transform="rotate(-20 600 420)">
+    SAMPLE
+  </text>
+</svg>

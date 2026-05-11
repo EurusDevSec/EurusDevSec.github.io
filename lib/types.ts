@@ -69,3 +69,17 @@ export interface Profile {
   role: 'reader' | 'writer' | 'admin'
   created_at: string
 }
+
+// Certifications
+export interface Certificate {
+  id: string
+  name: string
+  issuer: string
+  issueDate: string // ISO 8601 format: "YYYY-MM-DD"
+  imageUrl: string // Path relative to /public
+  expiryDate?: string // Optional, ISO 8601 format
+  credentialId?: string
+  verificationUrl?: string
+  description?: string
+  skills?: string[] // Related skills/technologies
+}

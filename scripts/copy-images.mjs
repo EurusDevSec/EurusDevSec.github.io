@@ -29,7 +29,13 @@ function copyImages() {
     // Extract slug
     const content = fs.readFileSync(indexPath, 'utf-8')
     const slugMatch = content.match(/^slug:\s*(.+)$/m)
-    const slug = slugMatch ? slugMatch[1].trim() : post.name
+    const normalizeSlug = (value) =>
+      value
+        .trim()
+        .replace(/^['"]|['"]$/g, '')
+        .replace(/[\\/]/g, '-')
+
+    const slug = slugMatch ? normalizeSlug(slugMatch[1]) : post.name
 
     const targetPostDir = path.join(TARGET_DIR, slug)
 
