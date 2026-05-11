@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
@@ -30,6 +31,8 @@ const STATS = [
   { label: "Projects", value: "5+" },
 ];
 
+const PROFILE_AVATAR_SRC = "/images/avatar-eurusdevsec.png";
+
 const SKILL_GROUPS = SKILLS.reduce<Record<string, string[]>>(
   (groups, skill) => {
     if (!groups[skill.category]) groups[skill.category] = [];
@@ -50,8 +53,15 @@ export default function AboutPage() {
             <div className="relative flex flex-col items-center text-center">
               <div className="relative mb-6 animate-scale-in">
                 <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-500 opacity-80 blur-md animate-gradient bg-[length:200%_200%]" />
-                <div className="relative flex h-32 w-32 items-center justify-center rounded-full border-4 border-background bg-gradient-to-br from-emerald-500/20 to-teal-500/20 text-5xl font-bold text-emerald-400 shadow-[0_0_40px_hsl(160_84%_39%/0.22)] animate-float sm:h-40 sm:w-40 sm:text-6xl">
-                  E
+                <div className="relative h-32 w-32 overflow-hidden rounded-full border-4 border-background bg-gradient-to-br from-emerald-500/20 to-teal-500/20 shadow-[0_0_40px_hsl(160_84%_39%/0.22)] animate-float sm:h-40 sm:w-40">
+                  <Image
+                    src={PROFILE_AVATAR_SRC}
+                    alt="EurusDevSec avatar"
+                    fill
+                    sizes="(min-width: 640px) 160px, 128px"
+                    className="object-cover"
+                    priority
+                  />
                 </div>
               </div>
 
@@ -64,8 +74,8 @@ export default function AboutPage() {
 
               <p className="mt-5 max-w-sm text-sm leading-7 text-text-secondary sm:text-base">
                 Sinh viên IT đam mê DevSecOps, Cloud Infrastructure và bảo mật
-                hạ tầng đám mây. Mục tiêu là xây dựng các hệ thống an toàn, rõ
-                ràng và đủ đẹp để học tiếp được lâu dài.
+                hạ tầng đám mây. Mục tiêu là xây dựng các hệ thống an toàn, khả
+                năng high availability và Faul Tolerance tốt.
               </p>
 
               <div className="mt-6 flex flex-wrap justify-center gap-3">
@@ -113,7 +123,7 @@ export default function AboutPage() {
                   About Me
                 </p>
                 <h2 className="mt-2 text-2xl font-bold text-text-primary sm:text-3xl">
-                  Kỹ thuật, văn học, và tư duy hệ thống
+                  Kỹ thuật, văn học, triết học và tư duy hệ thống
                 </h2>
                 <div className="mt-4 h-1 w-20 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500" />
                 <p className="mt-6 text-base leading-8 text-text-secondary sm:text-lg">
