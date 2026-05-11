@@ -58,14 +58,14 @@ import { Certificate } from './types'
 export const CERTIFICATES: Certificate[] = [
   {
     id: 'sample-cert-1',
-    name: 'Cloud Architecture Professional',
-    issuer: 'Cloud Certification Institute',
-    issueDate: '2024-03-15',
-    credentialId: 'CCI-CAP-2024-001',
-    verificationUrl: 'https://example.com/verify/CCI-CAP-2024-001',
-    imageUrl: '/certificates/sample-cert-1.svg',
-    description: 'Advanced cloud architecture design and implementation expertise covering multi-cloud strategies, scalability, and security best practices.',
-    skills: ['Cloud Architecture', 'AWS', 'Azure', 'System Design', 'Scalability']
+    name: 'AWS Certified Cloud Practitioner',
+    issuer: 'Amazon Web Services Training and Certification',
+    issueDate: '2026-04-04',
+    credentialId: '34d18a21-0da0-4d29-8a7b-b96252d5e5d7',
+    verificationUrl: 'https://www.credly.com/badges/34d18a21-0da0-4d29-8a7b-b96252d5e5d7',
+    imageUrl: '/certificates/aws-cloud-practioner.png',
+    description: 'Earners of this certification have a fundamental understanding of IT services and their uses in the AWS Cloud. They demonstrated cloud fluency and foundational AWS knowledge. Badge owners are able to identify essential AWS services necessary to set up AWS-focused projects.',
+    skills:  ['AWS', 'Cloud', 'Cloud Computing', 'Cloud Services']
   },
   {
     id: 'sample-cert-2',
