@@ -69,14 +69,12 @@ export const CERTIFICATES: Certificate[] = [
   },
   {
     id: 'sample-cert-2',
-    name: 'DevOps Engineering Specialist',
-    issuer: 'DevOps Academy',
-    issueDate: '2024-01-20',
-    credentialId: 'DOA-DES-2024-042',
-    verificationUrl: 'https://example.com/verify/DOA-DES-2024-042',
-    imageUrl: '/certificates/sample-cert-2.svg',
-    description: 'Comprehensive DevOps practices including CI/CD pipelines, infrastructure as code, containerization, and monitoring.',
-    skills: ['DevOps', 'CI/CD', 'Docker', 'Kubernetes', 'Terraform', 'Jenkins']
+    name: 'AWS Cloud Training - Networking, Storage, Security, Gen AI',
+    issuer: 'AWS Cloud Club',
+    issueDate: '2025-12-25',
+    imageUrl: '/certificates/aws-cloud-training.jpg',
+    description: 'Comprehensive AWS Cloud Training covering Networking, Storage, Security, and Generative AI topics. Completed by Ho Chi Minh City students through AWS Cloud Club at HCMUTE, PTIT, SGU, and HUFLIT.',
+    skills: ['AWS', 'Cloud Computing', 'Networking', 'Storage', 'Security', 'Generative AI']
   },
   {
     id: 'sample-cert-3',
