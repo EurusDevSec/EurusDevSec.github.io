@@ -8,6 +8,8 @@ import TOC from '@/components/blog/TOC'
 import TagBadge from '@/components/blog/TagBadge'
 import ReadingTime from '@/components/blog/ReadingTime'
 import BlogCommentSection from '@/components/blog/BlogCommentSection'
+import PostActions from '@/components/blog/PostActions'
+import AuthorCard from '@/components/blog/AuthorCard'
 import { getPostBySlug, getAllSlugs, extractHeadings } from '@/lib/posts'
 import { formatDate } from '@/lib/utils'
 import { createClient } from '@/lib/supabase/server'
@@ -78,7 +80,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <span className="text-text-secondary line-clamp-1">{post.title}</span>
         </nav>
 
-        <div className="flex gap-10">
+        <div className="flex gap-10 relative">
+          {/* Floating actions bar on the left of the article */}
+          <aside className="hidden lg:block w-12 shrink-0">
+            <div className="sticky top-28">
+              <PostActions slug={slug} title={post.title} isFloating />
+            </div>
+          </aside>
+
           {/* ── MAIN CONTENT ── */}
           <article className="min-w-0 flex-1">
             {/* Categories */}
@@ -119,6 +128,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             {/* MDX Content */}
             <PostContent content={post.content} />
 
+            {/* Inline post actions for mobile / end of content */}
+            <PostActions slug={slug} title={post.title} />
+
             {/* Tags footer */}
             {post.tags && post.tags.length > 0 && (
               <div className="mt-10 flex flex-wrap items-center gap-2 border-t border-white/[0.06] pt-6">
@@ -128,6 +140,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 ))}
               </div>
             )}
+
+            {/* Mobile/Tablet Author card (hidden on desktop sidebar) */}
+            <div className="block xl:hidden mt-8">
+              <AuthorCard />
+            </div>
 
             {/* Navigation */}
             <div className="mt-8 border-t border-white/[0.06] pt-6">
@@ -143,21 +160,22 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </div>
 
             {/* ── COMMENTS ── */}
-            <BlogCommentSection
-              blogSlug={slug}
-              comments={(comments ?? []) as any}
-              currentUserId={user?.id}
-            />
+            <div id="comments-section" className="mt-4">
+              <BlogCommentSection
+                blogSlug={slug}
+                comments={(comments ?? []) as any}
+                currentUserId={user?.id}
+              />
+            </div>
           </article>
 
-          {/* ── SIDEBAR (TOC) ── */}
-          {headings.length > 0 && (
-            <aside className="hidden w-60 shrink-0 xl:block">
-              <div className="sticky top-24">
-                <TOC headings={headings} />
-              </div>
-            </aside>
-          )}
+          {/* ── SIDEBAR (TOC & Author) ── */}
+          <aside className="hidden w-60 shrink-0 xl:block">
+            <div className="sticky top-24 space-y-6">
+              {headings.length > 0 && <TOC headings={headings} />}
+              <AuthorCard />
+            </div>
+          </aside>
         </div>
       </main>
       <Footer />

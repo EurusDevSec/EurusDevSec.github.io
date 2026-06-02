@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { cn } from "@/lib/utils";
 import type { Heading } from "@/lib/types";
 
@@ -8,9 +8,42 @@ interface TOCProps {
   headings: Heading[];
 }
 
+interface TOCGroup {
+  parent: Heading;
+  children: Heading[];
+}
+
 export default function TOC({ headings }: TOCProps) {
   const [activeId, setActiveId] = useState<string>("");
+  const [indicatorStyle, setIndicatorStyle] = useState({ height: 0, top: 0, opacity: 0 });
+  const containerRef = useRef<HTMLDivElement>(null);
 
+  // Group headings: level 2 are parents, level 3 are children
+  const groups: TOCGroup[] = [];
+  let currentGroup: TOCGroup | null = null;
+
+  headings.forEach((heading) => {
+    if (heading.level === 2) {
+      currentGroup = { parent: heading, children: [] };
+      groups.push(currentGroup);
+    } else if (heading.level === 3) {
+      if (currentGroup) {
+        currentGroup.children.push(heading);
+      } else {
+        // H3 before any H2
+        groups.push({ parent: heading, children: [] });
+      }
+    } else {
+      // For any other heading levels (e.g. H4), lump into children if a group exists
+      if (currentGroup) {
+        currentGroup.children.push(heading);
+      } else {
+        groups.push({ parent: heading, children: [] });
+      }
+    }
+  });
+
+  // IntersectionObserver to watch scroll position
   useEffect(() => {
     if (headings.length === 0) return;
 
@@ -36,63 +69,125 @@ export default function TOC({ headings }: TOCProps) {
     return () => observer.disconnect();
   }, [headings]);
 
+  // Update sliding vertical indicator position
+  useEffect(() => {
+    const updateIndicator = () => {
+      if (!activeId || !containerRef.current) {
+        setIndicatorStyle((prev) => ({ ...prev, opacity: 0 }));
+        return;
+      }
+
+      const activeEl = containerRef.current.querySelector(
+        `[data-id="${CSS.escape(activeId)}"]`
+      ) as HTMLElement;
+
+      if (activeEl) {
+        setIndicatorStyle({
+          height: activeEl.offsetHeight - 8,
+          top: activeEl.offsetTop + 4,
+          opacity: 1,
+        });
+      }
+    };
+
+    updateIndicator();
+    // Re-run after a small delay in case collapsible sections are transitioning
+    const timer = setTimeout(updateIndicator, 200);
+    return () => clearTimeout(timer);
+  }, [activeId, headings]);
+
   if (headings.length === 0) return null;
 
   return (
     <nav
       aria-label="Table of contents"
-      className="rounded-xl border border-border/60 bg-surface/60 p-4"
+      className="rounded-2xl border border-border/60 bg-surface/60 p-5 backdrop-blur-md sticky top-24"
     >
-      <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-text-muted">
-        Mục lục
+      <p className="mb-4 text-xs font-bold uppercase tracking-wider text-text-muted">
+        Mục lục bài viết
       </p>
-      <ul className="space-y-2 text-sm">
-        {headings.map((heading) => {
-          const isActive = activeId === heading.id;
-          const indent = (heading.level - 1) * 12;
-          const textClass =
-            heading.level === 2
-              ? "text-sm font-medium"
-              : heading.level === 3
-                ? "text-sm text-text-muted"
-                : "text-xs text-text-muted";
 
-          return (
-            <li key={heading.id} style={{ paddingLeft: `${indent}px` }}>
-              <a
-                href={`#${heading.id}`}
-                aria-current={isActive ? "true" : undefined}
-                className={cn(
-                  "flex items-center gap-2 rounded px-2 py-1 transition-colors group",
-                  isActive
-                    ? "text-accent bg-accent/5 ring-1 ring-accent/10"
-                    : "hover:text-accent",
-                )}
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById(heading.id)?.scrollIntoView({
-                    behavior: "smooth",
-                    block: "center",
-                  });
-                  // update activeId immediately for instant feedback
-                  setActiveId(heading.id);
-                }}
-              >
-                <span
+      {/* Main menu container */}
+      <div ref={containerRef} className="relative pl-3 border-l border-border/60">
+        {/* Sliding Active Indicator Line */}
+        <div
+          className="absolute left-0 w-0.5 bg-emerald-500 dark:bg-emerald-400 transition-all duration-300 ease-in-out"
+          style={{
+            height: `${indicatorStyle.height}px`,
+            transform: `translateY(${indicatorStyle.top}px)`,
+            opacity: indicatorStyle.opacity,
+          }}
+        />
+
+        <ul className="space-y-3 text-sm">
+          {groups.map((group) => {
+            const isParentActive = activeId === group.parent.id;
+            const isChildActive = group.children.some((child) => child.id === activeId);
+            const isExpanded = isParentActive || isChildActive;
+
+            const handleHeadingClick = (e: React.MouseEvent, id: string) => {
+              e.preventDefault();
+              document.getElementById(id)?.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+              });
+              setActiveId(id);
+            };
+
+            return (
+              <li key={group.parent.id} className="space-y-1.5">
+                {/* Parent H2 */}
+                <a
+                  href={`#${group.parent.id}`}
+                  data-id={group.parent.id}
                   className={cn(
-                    "inline-block flex-none rounded-full transition-all",
-                    isActive
-                      ? "w-2.5 h-2.5 bg-accent"
-                      : "w-2 h-2 bg-border group-hover:bg-accent",
+                    "block py-0.5 text-sm font-medium transition-all duration-200 hover:text-emerald-400",
+                    isParentActive
+                      ? "text-emerald-500 dark:text-emerald-400 font-semibold translate-x-0.5"
+                      : "text-text-secondary"
                   )}
-                  aria-hidden
-                />
-                <span className={cn(textClass)}>{heading.text}</span>
-              </a>
-            </li>
-          );
-        })}
-      </ul>
+                  onClick={(e) => handleHeadingClick(e, group.parent.id)}
+                >
+                  {group.parent.text}
+                </a>
+
+                {/* Collapsible Children H3 */}
+                {group.children.length > 0 && (
+                  <ul
+                    className={cn(
+                      "overflow-hidden transition-all duration-300 ease-in-out pl-3 space-y-1.5 border-l border-border/30",
+                      isExpanded
+                        ? "max-h-96 opacity-100 mt-1 mb-2 py-0.5"
+                        : "max-h-0 opacity-0 pointer-events-none"
+                    )}
+                  >
+                    {group.children.map((child) => {
+                      const isCurrentActive = activeId === child.id;
+                      return (
+                        <li key={child.id}>
+                          <a
+                            href={`#${child.id}`}
+                            data-id={child.id}
+                            className={cn(
+                              "block text-xs transition-all duration-200 hover:text-emerald-400",
+                              isCurrentActive
+                                ? "text-emerald-500 dark:text-emerald-400 font-semibold translate-x-0.5"
+                                : "text-text-muted"
+                            )}
+                            onClick={(e) => handleHeadingClick(e, child.id)}
+                          >
+                            {child.text}
+                          </a>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                )}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </nav>
   );
 }
