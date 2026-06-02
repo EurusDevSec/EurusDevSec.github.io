@@ -47,7 +47,7 @@ export default function AuthorCard() {
           <div className="absolute -inset-0.5 rounded-full bg-gradient-to-tr from-emerald-500 to-teal-400 opacity-0 blur transition duration-300 group-hover:opacity-100" />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="https://github.com/EurusDevSec.png"
+            src="/images/avatar-eurusdevsec.png"
             alt="EurusDevSec"
             className="relative h-10 w-10 rounded-full border border-border bg-surface object-cover"
           />

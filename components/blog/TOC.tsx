@@ -13,10 +13,42 @@ interface TOCGroup {
   children: Heading[];
 }
 
-export default function TOC({ headings }: TOCProps) {
+export default function TOC({ headings: serverHeadings }: TOCProps) {
   const [activeId, setActiveId] = useState<string>("");
+  const [domHeadings, setDomHeadings] = useState<Heading[]>([]);
   const [indicatorStyle, setIndicatorStyle] = useState({ height: 0, top: 0, opacity: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
+
+  // Sync headings from actual DOM to avoid slug mismatch issues (Vietnamese accents etc.)
+  useEffect(() => {
+    const syncDOMHeadings = () => {
+      const articleEl = document.querySelector(".prose-blog");
+      if (!articleEl) return;
+
+      const headingElements = Array.from(articleEl.querySelectorAll("h2, h3"));
+      const mapped: Heading[] = headingElements
+        .map((el) => ({
+          id: el.id || "",
+          text: el.textContent?.replace(/#$/, "").trim() || "",
+          level: el.tagName === "H2" ? 2 : 3,
+        }))
+        .filter((h) => h.id);
+
+      if (mapped.length > 0) {
+        setDomHeadings(mapped);
+      }
+    };
+
+    // Run initially
+    syncDOMHeadings();
+
+    // Re-run after a short delay to account for dynamic hydration
+    const timer = setTimeout(syncDOMHeadings, 500);
+    return () => clearTimeout(timer);
+  }, [serverHeadings]);
+
+  // Use DOM headings if available, otherwise fallback to serverHeadings
+  const headings = domHeadings.length > 0 ? domHeadings : serverHeadings;
 
   // Group headings: level 2 are parents, level 3 are children
   const groups: TOCGroup[] = [];
@@ -101,7 +133,7 @@ export default function TOC({ headings }: TOCProps) {
   return (
     <nav
       aria-label="Table of contents"
-      className="rounded-2xl border border-border/60 bg-surface/60 p-5 backdrop-blur-md sticky top-24"
+      className="rounded-2xl border border-border/60 bg-surface/60 p-5 backdrop-blur-md"
     >
       <p className="mb-4 text-xs font-bold uppercase tracking-wider text-text-muted">
         Mục lục bài viết
