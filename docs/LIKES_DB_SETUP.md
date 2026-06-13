@@ -27,6 +27,9 @@ CREATE POLICY "Allow public update access to likes"
 ON public.blog_likes FOR UPDATE
 USING (true)
 WITH CHECK (true);
+
+-- 5. Grant database permissions to anon and authenticated roles
+GRANT SELECT, INSERT, UPDATE ON TABLE public.blog_likes TO anon, authenticated;
 ```
 
 ### Verification

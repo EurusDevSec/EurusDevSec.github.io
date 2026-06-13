@@ -24,8 +24,10 @@ export default function CommunityPostCard({ post }: { post: CommunityPost }) {
   return (
     <Link
       href={`/community/${post.slug}`}
-      className="group flex flex-col gap-3 rounded-xl border border-border/60 bg-surface/60 overflow-hidden transition-all duration-200 hover:-translate-y-0.5 hover:border-secondary/30 hover:shadow-[0_0_25px_hsl(258_90%_73%/0.08)]"
+      className="glow-card group relative flex flex-col gap-3 rounded-xl border border-border/60 bg-surface/60 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:border-secondary/30 hover:shadow-[0_8px_30px_hsl(258_90%_73%/0.08)]"
     >
+      {/* Gradient glow on hover */}
+      <div className="absolute inset-0 card-glow opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
       {post.cover_image && (
         <div className="relative h-40 w-full overflow-hidden bg-surface">
           <Image

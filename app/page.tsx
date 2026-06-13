@@ -17,8 +17,8 @@ export default async function HomePage() {
         <div className="hero-grid absolute inset-0 h-full w-full" />
         <div className="absolute inset-0 hero-glow" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/55" />
-        <div className="absolute right-[-8rem] top-[-4rem] h-72 w-72 rounded-full bg-emerald-500/10 blur-3xl" />
-        <div className="absolute bottom-[-6rem] left-[-4rem] h-80 w-80 rounded-full bg-teal-500/10 blur-3xl" />
+        <div className="absolute right-[-8rem] top-[-4rem] h-72 w-72 rounded-full bg-emerald-500/10 blur-3xl animate-orb-1" />
+        <div className="absolute bottom-[-6rem] left-[-4rem] h-80 w-80 rounded-full bg-teal-500/10 blur-3xl animate-orb-2" />
 
         <div className="relative mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32 lg:py-36">
           <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
@@ -192,8 +192,14 @@ export default async function HomePage() {
 
         {latestPosts.length > 0 ? (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {latestPosts.map((post) => (
-              <PostCard key={post.slug} post={post} />
+            {latestPosts.map((post, i) => (
+              <div
+                key={post.slug}
+                className="animate-fade-in-up"
+                style={{ animationDelay: `${i * 100}ms` }}
+              >
+                <PostCard post={post} />
+              </div>
             ))}
           </div>
         ) : (

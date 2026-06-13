@@ -76,7 +76,11 @@ CREATE TABLE IF NOT EXISTS public.comments (
   blog_slug TEXT,  -- for file-based blog posts
   author_id UUID REFERENCES public.profiles(id) ON DELETE CASCADE NOT NULL,
   content TEXT NOT NULL,
-  created_at TIMESTAMPTZ DEFAULT NOW()
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  CONSTRAINT comment_target CHECK (
+    (post_id IS NOT NULL AND blog_slug IS NULL) OR 
+    (post_id IS NULL AND blog_slug IS NOT NULL)
+  )
 );
 
 -- Enable RLS
@@ -130,3 +134,10 @@ CREATE TRIGGER on_auth_user_created
 -- ============================================================================
 -- SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';
 -- SELECT * FROM public.posts LIMIT 1;
+
+-- ============================================================================
+-- 7. GRANT PERMISSIONS (Sửa lỗi permission denied cho anon và authenticated)
+-- ============================================================================
+GRANT USAGE ON SCHEMA public TO anon, authenticated;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO anon, authenticated;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO anon, authenticated;

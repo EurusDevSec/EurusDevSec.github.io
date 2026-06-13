@@ -17,13 +17,13 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
     <Link
       href={`/blog/${post.slug}`}
       className={cn(
-        'group relative flex flex-col overflow-hidden rounded-xl border border-border/60 bg-surface/60 shadow-sm transition-all duration-300',
+        'glow-card group relative flex flex-col overflow-hidden rounded-xl border border-border/60 bg-surface/60 shadow-sm transition-all duration-300',
         'hover:border-emerald-500/40 hover:shadow-[0_8px_30px_hsl(160_84%_39%/0.12)] hover:-translate-y-1 hover:scale-[1.02]',
         featured && 'md:col-span-2'
       )}
     >
       {/* Gradient glow on hover */}
-      <div className="absolute inset-0 bg-card-glow opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+      <div className="absolute inset-0 card-glow opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
 
       {/* Featured badge */}
       {featured && (

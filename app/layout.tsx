@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter, JetBrains_Mono } from 'next/font/google'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import ScrollToTop from '@/components/blog/ScrollToTop'
+import CursorGlowProvider from '@/components/home/CursorGlowProvider'
 import './globals.css'
 
 const inter = Inter({
@@ -70,6 +71,7 @@ export default function RootLayout({
       <body className="min-h-screen bg-background antialiased" suppressHydrationWarning>
         <ThemeProvider>
           {children}
+          <CursorGlowProvider />
           <ScrollToTop />
         </ThemeProvider>
       </body>

@@ -121,8 +121,14 @@ export default async function BlogPage({
             {posts.length > 0 ? (
               <>
                 <div className="grid gap-4 sm:grid-cols-2">
-                  {posts.map((post) => (
-                    <PostCard key={post.slug} post={post} />
+                  {posts.map((post, i) => (
+                    <div
+                      key={post.slug}
+                      className="animate-fade-in-up"
+                      style={{ animationDelay: `${i * 100}ms` }}
+                    >
+                      <PostCard post={post} />
+                    </div>
                   ))}
                 </div>
 
