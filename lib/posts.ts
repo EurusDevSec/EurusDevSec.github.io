@@ -25,6 +25,23 @@ function rewriteImagePaths(content: string, slug: string): string {
 }
 
 /**
+ * Extract the first image from markdown content to use as fallback cover.
+ */
+function extractFirstImage(content: string, slug: string): string | undefined {
+  const imageRegex = /!\[([^\]]*)\]\(([^)]+)\)/
+  const match = content.match(imageRegex)
+  if (match) {
+    const rawPath = match[2].trim()
+    if (/^(https?:\/\/|\/)/.test(rawPath)) {
+      return rawPath
+    }
+    const cleanPath = rawPath.replace(/^\.\//, '')
+    return `/blog-images/${slug}/${cleanPath}`
+  }
+  return undefined
+}
+
+/**
  * Resolve the slug for a post entry.
  * Priority: frontmatter.slug > slugify(name)
  */
@@ -73,8 +90,20 @@ export async function getAllPosts(): Promise<PostMeta[]> {
     const stats = readingTime(content)
     const excerpt = frontmatter.description || truncate(stripMarkdown(content), 160)
 
+    let cover = frontmatter.cover
+    if (!cover?.image) {
+      const firstImg = extractFirstImage(content, slug)
+      if (firstImg) {
+        cover = {
+          image: firstImg,
+          alt: frontmatter.title
+        }
+      }
+    }
+
     posts.push({
       ...frontmatter,
+      cover,
       slug,
       readingTime: stats.text,
       wordCount: stats.words,
@@ -121,8 +150,21 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
       const excerpt = frontmatter.description || truncate(stripMarkdown(content), 160)
       // Rewrite relative image paths → /blog-images/[slug]/filename
       const rewrittenContent = rewriteImagePaths(content, postSlug)
+
+      let cover = frontmatter.cover
+      if (!cover?.image) {
+        const firstImg = extractFirstImage(content, postSlug)
+        if (firstImg) {
+          cover = {
+            image: firstImg,
+            alt: frontmatter.title
+          }
+        }
+      }
+
       return {
         ...frontmatter,
+        cover,
         slug: postSlug,
         readingTime: stats.text,
         wordCount: stats.words,
