@@ -26,6 +26,9 @@ ShowToc: true
 TocOpen: true
 comments: true
 slug: "cach-de-tien-bo-hon-90-nguoi-con-lai-trong-thoi-ki-ai"
+cover:
+  image: "/blog-images/cach-de-tien-bo-hon-90-nguoi-con-lai-trong-thoi-ki-ai/cover.png"
+  alt: "Tiến bộ vượt trội trong thời kỳ AI"
 ---
 
 # Cách để bạn tiến bộ hơn 90% người còn lại trong thời kỳ AI

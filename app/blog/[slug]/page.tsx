@@ -30,6 +30,8 @@ export async function generateMetadata({
   const post = await getPostBySlug(slug)
   if (!post) return {}
 
+  const ogImages = post.cover?.image ? [post.cover.image] : []
+
   return {
     title: post.title,
     description: post.excerpt ?? post.description,
@@ -40,6 +42,13 @@ export async function generateMetadata({
       publishedTime: post.date,
       authors: [post.author ?? 'EurusDevSec'],
       tags: post.tags,
+      images: ogImages,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt ?? post.description,
+      images: ogImages,
     },
   }
 }
