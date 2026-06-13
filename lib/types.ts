@@ -18,6 +18,7 @@ export interface PostFrontmatter {
   cover?: {
     image?: string
     alt?: string
+    position?: string
   }
 }
 

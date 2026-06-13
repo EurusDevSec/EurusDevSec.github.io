@@ -95,6 +95,7 @@ export async function getAllPosts(): Promise<PostMeta[]> {
       const firstImg = extractFirstImage(content, slug)
       if (firstImg) {
         cover = {
+          ...cover,
           image: firstImg,
           alt: frontmatter.title
         }
@@ -156,6 +157,7 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
         const firstImg = extractFirstImage(content, postSlug)
         if (firstImg) {
           cover = {
+            ...cover,
             image: firstImg,
             alt: frontmatter.title
           }

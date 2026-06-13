@@ -41,7 +41,14 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
             src={post.cover.image}
             alt={post.cover.alt || post.title}
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-110"
+            className={cn(
+              "object-cover transition-transform duration-500 group-hover:scale-110",
+              post.cover.position === "top" && "object-top",
+              post.cover.position === "bottom" && "object-bottom",
+              post.cover.position === "left" && "object-left",
+              post.cover.position === "right" && "object-right",
+              (!post.cover.position || post.cover.position === "center") && "object-center"
+            )}
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
           {/* Gradient overlay for better text readability if needed */}

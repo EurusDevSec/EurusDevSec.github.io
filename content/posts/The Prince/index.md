@@ -29,6 +29,8 @@ ShowToc: true
 TocOpen: true
 comments: true
 slug: "ban-chat-cua-tinh-thuc-dung-trong-quyen-quan-vuong"
+cover:
+  position: "top"
 ---
 
 # Bản chất của tính thực dụng trong cuộc sống của quyển Quân Vương
