@@ -111,8 +111,8 @@ Chính bản thân tôi hôm nay cũng lười lười, cảm xúc không muốn
 
 ## 4. Bảng tóm tắt bài học chính
 
-| Điều cần lưu ý | Ý nghĩa và cách áp dụng |
 | Người chia sẻ | Bài học cốt lõi | Hành động cụ thể bạn cần làm |
+| :--- | :--- | :--- |
 | Sếp công ty thực tập | Mọi phương pháp chỉ là lý thuyết nếu thiếu hành động. | Đừng chỉ ghi chép từ khóa, hãy bắt tay vào code ngay. |
 | Anh Hưng (AWS) | AI đang phát triển nhanh gấp 3-4 lần tốc độ trì hoãn của bạn. | Nén thời gian học tập, ép bản thân vào kỷ luật áp lực cao. |
 | Học viên lớp AI | Sự lo sợ thất bại và tính toán quá nhiều sẽ tự nhấn chìm bạn. | Làm trước khi hoàn hảo, chấp nhận sai sót để sửa dần. |
