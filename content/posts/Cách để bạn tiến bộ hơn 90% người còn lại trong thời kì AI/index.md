@@ -39,14 +39,17 @@ Vậy lý do tại sao tôi lại nói là thời kỳ giao thoa công nghệ? L
 
 Khi bạn dùng chatbot AI thông thường như: ChatGPT, Gemini, Claude, DeepSeek, Copilot,... Và còn rất nhiều nhưng mục đích chung đều trả lời câu hỏi và có thể tự động hóa một số tác vụ đơn giản. Tuy nhiên nếu xét đến `AGI` thì nó còn kinh khủng hơn như sau:
 
-Nó có thể tư duy, học hỏi, phân tích, có cơ thể vật lý, là một robot như con người suy nghĩ và làm được mọi thứ toàn diện. Nếu một người mất nhiều năm trời để từ khi sinh ra đến tập đi, ăn, nói, rồi học các kiến thức cơ bản đến phổ thông, cuối cùng là chuyên lĩnh vực nào đó đến thành thạo rồi đi làm, thì `AGI` chỉ cần làm được những việc này trong thời gian ngắn hơn rất nhiều và không tốn nhiều tài nguyên như con người.
+AGI có thể tự tư duy, học hỏi và phân tích. Thậm chí khi tích hợp vào cơ thể vật lý (robot), nó có thể suy nghĩ và làm mọi thứ toàn diện như một con người thực thụ. Một người bình thường phải mất hàng chục năm từ khi sinh ra để học đi, học nói, học phổ thông rồi học chuyên ngành mới có thể đi làm. Trong khi đó, AGI chỉ cần một khoảng thời gian cực kỳ ngắn để đạt được năng lực tương đương mà không tốn nhiều tài nguyên.
 
 Tôi có một số trích dẫn sau để làm rõ về `AGI` sắp đến trong thực tế hơn.
+
+**Để hiểu rõ hơn về viễn cảnh này, hãy xem các chuyên gia công nghệ hàng đầu thế giới nhận định như thế nào về tốc độ phát triển của AI.**
 
 ### `Tristan Harris` – Chuyên gia Đạo đức Công nghệ
 Trong buổi phát sóng trên `DOAC (The Diary of A CEO)`, ông ấy có nói rằng: 
 > "Chúng ta chỉ còn 2 năm trước khi mọi thứ thay đổi hoàn toàn"
 
+![Tristan Harris](./image-1.png)
 Vấn đề trong hiện tại là: Các quốc gia, các tập đoàn công nghệ toàn cầu đang đua nhau về công nghệ mỗi ngày, thậm chí là mỗi giờ một LLM (mô hình ngôn ngữ lớn như ChatGPT, Gemini) mới sẽ ra đời hoặc được phát hành. Nó đã giải quyết được hầu hết các việc căn bản như Lập trình, Thiết kế, Viết content, tự động hóa sản xuất Video,... rất nhiều nhưng hiện tại vẫn ở dạng sơ khai.
 
 Ông ấy cảnh báo rằng khoảng năm 2027-2028 trước khi cuộc đua xây dựng `AGI` giữa các nước công nghệ chạm mốc bùng nổ, nó dẫn đến sự sụp đổ nhiều mô hình kinh tế toàn cầu.
@@ -55,6 +58,8 @@ Bạn có thể tham khảo video YouTube này: https://youtu.be/BFU1OCkhBwo?si=
 
 ### `Mo Gawdat` – Cựu Giám đốc Kinh doanh Google
 Ông ấy đưa ra nhận định rằng các mô hình (như ChatGPT, Claude) thực chất đã sở hữu `Trí thông minh thô` rất mạnh. Tuy nhiên, nó chưa kết nối hoàn hảo và có tính độc lập cao, và ông dự đoán rằng chỉ cần vài năm nữa (trước năm 2030), AI sẽ vượt qua trí tuệ con người gấp `MỘT TỶ LẦN` và cuộc chơi trên thế giới này sẽ phải thay đổi.
+
+![Mo Gawdat](./image.png)
 
 Video tham khảo ở đây: https://youtu.be/RwlgFC6S-OE?si=a6w7BdwBskArmTov
 
@@ -76,7 +81,11 @@ Những ý tôi khắc sâu lại ý anh ấy nói là:
 
 Tôi nhận ra bản thân nhiều lúc trì hoãn trong công việc giữa nhiều thứ, bản thân ôm đồm nhiều lĩnh vực làm cùng lúc, chưa kể bản thân con người là sinh vật có cảm xúc, biết mệt, cần ăn uống và nghỉ ngơi, chơi nhởi và đặc biệt rất dễ bị cám dỗ bởi những thứ đáng lẽ không nên làm.
 
-Tôi rút ra một phương châm cho chính mình là 10 năm làm việc học tập của người khác thì tôi nén lại cho chính tôi còn 1 năm, bạn có thể hiểu đây là kiểu tư duy chứ không phải tuyệt đối là cứ 10 năm là 1 năm, như vậy nghĩa là thay vì đi tà tà phát triển trong cuộc sống một cách từ từ thì tôi chấp nhận làm thế nào để hoàn thành sản phẩm trong thời gian ngắn hơn, làm thế nào để có được vị trí DevOps Engineer nhanh nhất có thể. Điều này tạo nên một áp lực và khiến tôi đặt mình vào trạng thái như ngày cuối cùng để sống và mỗi ngày đều làm hết mình. Tôi đã từng chia sẻ tư duy kiểu này của tôi với những người bạn ở Đại học của mình hồi năm 4, có lẽ nếu sau này họ hay ai đó đọc được sẽ thấy tôi đã từng có tư duy như này.
+Tôi rút ra một phương châm cho chính mình là 10 năm làm việc học tập của người khác thì tôi nén lại cho chính tôi còn 1 năm, bạn có thể hiểu đây là kiểu tư duy chứ không phải tuyệt đối là cứ 10 năm là 1 năm, như vậy nghĩa là thay vì đi tà tà phát triển trong cuộc sống một cách từ từ thì tôi chấp nhận làm thế nào để hoàn thành sản phẩm trong thời gian ngắn hơn, làm thế nào để có được vị trí DevOps Engineer nhanh nhất có thể.
+
+Lý do tại sao DevOps lại là đích đến quan trọng đối với tôi: tôi giải thích như sau, vì DevOps đòi hỏi phải hiểu sâu về kiến trúc hệ thống, vận hành và hạ tầng, khả năng kết nối với các phòng ban,kết nối con người - những thứ phức tạp hơn việc chỉ dùng AI để viết code đơn thuần.
+
+Điều này tạo nên một áp lực và khiến tôi đặt mình vào trạng thái như ngày cuối cùng để sống và mỗi ngày đều làm hết mình. Tôi đã từng chia sẻ tư duy kiểu này của tôi với những người bạn ở Đại học của mình hồi năm 4, có lẽ nếu sau này họ hay ai đó đọc được sẽ thấy tôi đã từng có tư duy như này.
 
 Nhược điểm kiểu tư duy này rất mạo hiểm nếu bạn không dám đánh đổi mọi thứ để đạt được thành tựu, một người bình thường sẽ đi làm, về với gia đình, làm việc riêng như giải trí, chưa tính sinh hoạt họ còn có thể có các mối quan hệ kết nối cộng đồng hoặc là tình yêu của họ. Nhưng nếu bạn đi theo kiểu của tôi sẽ thấy tôi chỉ cắm đầu vào mục tiêu cho đến khi đạt được nó, đó có lẽ là cái tôi cảm thấy hạnh phúc nhất trên thế giới này.
 
@@ -99,3 +108,12 @@ Cho nên là hãy `Hành động` ngay lúc này. Những thứ bạn muốn là
 Chính bản thân tôi hôm nay cũng lười lười, cảm xúc không muốn đi ra ngoài, tham gia gì cả nhưng chính sự kỷ luật và lý trí buộc tôi đi và kết quả thì nó không như những gì cảm xúc nó điều phối cả.
 
 ![Hành động ngay lập tức](./Pasted%20image%2020260613182848.png)
+
+## 4. Bảng tóm tắt bài học chính
+
+| Điều cần lưu ý | Ý nghĩa và cách áp dụng |
+| Người chia sẻ | Bài học cốt lõi | Hành động cụ thể bạn cần làm |
+| Sếp công ty thực tập | Mọi phương pháp chỉ là lý thuyết nếu thiếu hành động. | Đừng chỉ ghi chép từ khóa, hãy bắt tay vào code ngay. |
+| Anh Hưng (AWS) | AI đang phát triển nhanh gấp 3-4 lần tốc độ trì hoãn của bạn. | Nén thời gian học tập, ép bản thân vào kỷ luật áp lực cao. |
+| Học viên lớp AI | Sự lo sợ thất bại và tính toán quá nhiều sẽ tự nhấn chìm bạn. | Làm trước khi hoàn hảo, chấp nhận sai sót để sửa dần. |
+| Ba tôi | Để sang ngày hôm sau nghĩa là bạn sẽ bỏ quên nó. | Hành động ngay khi ý tưởng xuất hiện hoặc được giao việc. |
