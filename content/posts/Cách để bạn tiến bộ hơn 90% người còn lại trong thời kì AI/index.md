@@ -30,6 +30,8 @@ slug: "cach-de-tien-bo-hon-90-nguoi-con-lai-trong-thoi-ki-ai"
 
 # Cách để bạn tiến bộ hơn 90% người còn lại trong thời kỳ AI
 
+![Take action than plan](image-2.png)
+
 ## 1. Mở đầu
 Chào, lại là tôi đây. Cũng 2 tuần rồi tôi mới viết lại mấy dòng blog này. Trong suốt khoảng thời gian gần đây tôi đã trải nghiệm, học hỏi, quan sát, tiếp thu kiến thức và kinh nghiệm của người khác và rút ra được các bài học có thể khiến bạn đi nhanh hơn trong cuộc sống. Mà nhất là trong `thời kỳ giao thoa công nghệ`.
 
