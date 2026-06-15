@@ -27,11 +27,11 @@ slug: "devops-trong-doi-thuc-ky-vong-vs-thuc-te-fcaj-meetup"
 
 Không khí ở buổi meetup `FCAJ (First Cloud AI Journey)` lần nào cũng khiến tôi có một tâm thế phấn khởi bởi sự đông đảo của các bạn trẻ cũng như tôi. Trước sự đông đảo đó, tôi thấy ai cũng tràn đầy khí thế và cảm thấy lượng kiến thức cùng sức trẻ ở đây khiến tôi cũng bị lây theo cái năng lượng học hỏi đó.
 
-Có 5 `session` ở buổi meetup và tôi đặc biệt ấn tượng với phần mở đầu của một tài năng trẻ 2k5 là `Nghi Danh Hoàng Hiếu`. Cậu ấy đã đưa ra góc nhìn rất thực tế từ kinh nghiệm 2 năm tham gia `FCAJ`, từ đó tôi học được rất nhiều điều từ thanh niên này.
+Có 5 `session` ở buổi meetup và tôi đặc biệt ấn tượng với phần mở đầu của một tài năng trẻ 2k5 là `Danh Hoàng Hiếu Nghị`. Cậu ấy đã đưa ra góc nhìn rất thực tế từ kinh nghiệm 2 năm tham gia `FCAJ`, từ đó tôi học được rất nhiều điều từ thanh niên này.
 
 ![session Hieu Nghi](image.png)
 
-Điểm đặc biệt trong session của Hiếu là cậu ấy nhấn mạnh `DevOps` không chỉ là học hay đơn thuần sử dụng `tool`, mà là ở `tư duy`, `trách nhiệm` và `cách phát triển` trong kỷ nguyên `AI Agent`. Cụ thể, cậu ấy nhấn mạnh ở chỗ những buổi meetup như thế này, điều quan trọng nhất là làm thế nào để kết nối, trao đổi `LinkedIn` với các anh chị đi trước mới là thứ quý giá nhất.
+Điểm đặc biệt trong session của Nghị là cậu ấy nhấn mạnh `DevOps` không chỉ là học hay đơn thuần sử dụng `tool`, mà là ở `tư duy`, `trách nhiệm` và `cách phát triển` trong kỷ nguyên `AI Agent`. Cụ thể, cậu ấy nhấn mạnh ở chỗ những buổi meetup như thế này, điều quan trọng nhất là làm thế nào để kết nối, trao đổi `LinkedIn` với các anh chị đi trước mới là thứ quý giá nhất.
 
 Nhưng bài viết này tôi muốn tập trung nhiều hơn vào phần chia sẻ của anh `Trọng Trương` (`DevOps Engineer` tại `Endava`).
 
