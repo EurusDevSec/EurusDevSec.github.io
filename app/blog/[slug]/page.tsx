@@ -10,9 +10,10 @@ import ReadingTime from '@/components/blog/ReadingTime'
 import BlogCommentSection from '@/components/blog/BlogCommentSection'
 import PostActions from '@/components/blog/PostActions'
 import AuthorCard from '@/components/blog/AuthorCard'
-import { getPostBySlug, getAllSlugs, extractHeadings } from '@/lib/posts'
+import { getPostBySlug, getAllSlugs, extractHeadings, getAllPosts } from '@/lib/posts'
 import { formatDate } from '@/lib/utils'
 import { createClient } from '@/lib/supabase/server'
+import InfraPipeline from '@/components/blog/InfraPipeline'
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>
@@ -60,6 +61,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   if (!post) notFound()
 
   const headings = post.ShowToc !== false ? extractHeadings(post.content) : []
+  const allPosts = await getAllPosts()
 
   // Fetch blog comments by slug
   const supabase = await createClient()
@@ -149,6 +151,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 ))}
               </div>
             )}
+
+            {/* Interactive Infrastructure Pipeline Map */}
+            <InfraPipeline
+              currentTags={post.tags}
+              currentSlug={slug}
+              allPosts={allPosts}
+            />
 
             {/* Mobile/Tablet Author card (hidden on desktop sidebar) */}
             <div className="block xl:hidden mt-8">
