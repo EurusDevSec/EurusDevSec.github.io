@@ -133,7 +133,7 @@ export default function TOC({ headings: serverHeadings }: TOCProps) {
   return (
     <nav
       aria-label="Table of contents"
-      className="rounded-2xl border border-border/60 bg-surface/60 p-5 backdrop-blur-md"
+      className="max-h-[calc(100vh-280px)] overflow-y-auto rounded-2xl border border-border/60 bg-surface/60 p-5 backdrop-blur-md"
     >
       <p className="mb-4 text-xs font-bold uppercase tracking-wider text-text-muted">
         Mục lục bài viết

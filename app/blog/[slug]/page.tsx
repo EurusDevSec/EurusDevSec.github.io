@@ -180,12 +180,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
           {/* ── SIDEBAR (TOC & Author) ── */}
           <aside className="hidden w-60 shrink-0 xl:block">
-            <div className="flex flex-col gap-6">
+            <div className="sticky top-24 flex flex-col gap-6">
               <AuthorCard />
               {headings.length > 0 && (
-                <div className="sticky top-24">
-                  <TOC headings={headings} />
-                </div>
+                <TOC headings={headings} />
               )}
             </div>
           </aside>
