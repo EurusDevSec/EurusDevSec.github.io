@@ -19,6 +19,9 @@ ShowToc: true
 TocOpen: true
 comments: true
 slug: "devops-trong-doi-thuc-ky-vong-vs-thuc-te-fcaj-meetup"
+cover:
+  image: "/blog-images/devops-trong-doi-thuc-ky-vong-vs-thuc-te-fcaj-meetup/image-1.png"
+  alt: "Biểu đồ so sánh mức lương DevOps từ session anh Trọng Trương tại FCAJ Meetup"
 ---
 
 # Sự thật về DevOps không như tôi nghĩ
